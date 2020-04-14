@@ -1,0 +1,60 @@
+/*
+* List of font used in whole websites
+*/
+@font-face {
+    font-family: 'impact';
+    src: url('impact.ttf');
+  }
+
+@font-face {
+    font-family: 'HelveticaNeueLT';
+    src: url('HelveticaNeueLT.ttf');
+  }
+
+@font-face {
+    font-family: 'HelveticaNeueMd';
+    src: url('HelveticaNeueMd.ttf');
+  }
+
+@font-face {
+    font-family: 'MyriadProBold';
+    src: url('MyriadProBold.otf');
+  }
+
+@font-face {
+    font-family: 'MyriadProRegular';
+    src: url('MyriadProRegular.otf');
+  }
+
+@font-face {
+    font-family: 'S1518892';
+    src: url('S1518892.TTF');
+  }
+  
+@font-face {
+    font-family: 'MetropolisRegular';
+    src: url('Metropolis-Regular.otf');
+}
+  @font-face {
+    font-family: 'RailwayRegular';
+    src: url('Raleway-Regular.ttf');
+  }
+  @font-face {
+    font-family: 'RobotoRegular';
+    src: url('Roboto-Regular.ttf');
+  }
+    @font-face {
+    font-family: 'HindRegular';
+    src: url('Hind-Regular.ttf');
+  }
+  
+  
+  @font-face {
+    font-family: 'MyriadProSemiBlack';
+    src: url('MyriadPro-BlackSemiCn.otf');
+  }
+  @font-face {
+    font-family: 'MyriadProBoldSemiExtended';
+    src: url('Myriad Pro Bold SemiExtended.ttf');
+  }
+  

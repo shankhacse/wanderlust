@@ -1,0 +1,5 @@
+//http://www.w3programmers.com/build-a-full-featured-login-and-registration-system-with-codeigniter/
+https://therightsw.com/codeigniter-performance-optimization/
+http://demo.webslesson.info/image-crop-save-database/
+https://www.jqueryscript.net/menu/jQuery-JSON-Based-Backend-Hierarchical-Menu-Creator-DoMenu.html
+https://stackoverflow.com/questions/31531817/how-to-get-children-and-id-in-jquery-nestable-plugin-after-drag-and-drop-item-an

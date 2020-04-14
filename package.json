@@ -1,0 +1,19 @@
+{
+  "name": "south-24-pragana",
+  "version": "1.0.0",
+  "description": "south 24 pragana website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mithilesh",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "^1.0.4",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-uglify": "^4.0.1"
+  },
+  "dependencies": {
+    "grunt-contrib-cssmin": "^3.0.0"
+  }
+}

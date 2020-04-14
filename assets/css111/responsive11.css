@@ -1,0 +1,1009 @@
+/*  --------------------------------
+*  For Screen 1920X1080
+*/
+
+@media only screen and (max-width: 1920px) {
+  #slider-n-logo #slider-section {
+    height: 820px;
+  }
+  #slider-n-logo {
+    height: 920px;
+  }
+  #home-about-carrousel .heading {
+    font-size: 3rem;
+  }
+  #home-about-section .crousalblock {
+    border-top-left-radius: 60px;
+    border-top-right-radius: 60px;
+  }
+  #home-about-carrousel .crousaltext {
+    font-size: 1.097rem;
+  }
+  #home-about-carrousel .readmore {
+    font-size: 1.65rem; 
+  }
+  #home-video-section .owl-carousel .owl-stage {
+    padding: 50px 0px;
+  }
+  #home-video-section .videoitem .videothumbnail {
+    border: 28px solid #231F20;
+  }
+  #home-video-section .live-video h1 {
+    font-size: 3.8rem;
+  }
+  
+  #galleryitems .g-img-common img.gal-md-img {
+    width:250px;
+  }
+  
+}
+
+/*  --------------------------------
+*  For Screen 1680X1050
+*/
+
+@media only screen and (max-width: 1680px) {
+
+  #mainmenu .navbar-icon-top .navbar-nav .nav-link {
+     font-size: 1rem;
+  }
+  #slider-n-logo {
+    height: 780px;
+  }
+  #gangasagar-logo {
+    bottom: -123px;
+  }
+  #gangasagar-logo img {
+    width: 360px;
+  }
+  #home-about-carrousel .heading {
+    font-size: 2.5rem;
+  }
+  #home-about-section .crousalblock {
+    padding-bottom: 6%;
+  }
+  #home-video-section .live-video h1 {
+    width: 33%;
+  }
+  
+  #home-about-carrousel .blockshadow {
+    bottom: -4.2%;
+  }
+  #home-about-carrousel .crousaltext {
+    font-size: 16.1px;
+  }
+  #galleryitems .g-img-big img{
+    width: 452px;
+  }
+  #galleryitems .g-img-common img ,  #galleryitems .g-img-common img.gal-md-img {
+    width: 216px;
+  }
+  
+}
+
+
+/*  --------------------------------
+*  For Screen 1680X1050
+*/
+
+@media only screen and (max-width: 1600px) {
+
+  #mainmenu .navbar-icon-top .navbar-nav .nav-link {
+     font-size: 1rem;
+  }
+  #slider-n-logo {
+    height: 744px;
+  }
+  #gangasagar-logo {
+    bottom: -110px;
+  }
+  #gangasagar-logo img {
+    width: 340px;
+  }
+  #home-visitor-services-section .visitor-srv-heading {
+      padding-top: 3%;
+      padding-bottom: 5%;
+  }
+  #home-visitor-services-section {
+    padding-bottom: 4.2%;
+  }
+  #galleryitems .g-img-big img{
+    width: 433px;
+  }
+  #galleryitems .g-img-common img  , #galleryitems .g-img-common img.gal-md-img {
+    width: 206px;
+  }
+  
+}
+
+/*  --------------------------------
+*  For Screen 1680X1050
+*/
+
+@media only screen and (max-width: 1440px) {
+  #mainmenu #primarymenu ul.navbar-nav {
+    height:104px;
+  }
+  #mainmenu .navbar-icon-top .navbar-nav .nav-link {
+    font-size: 0.8em;
+    font-weight: 600;
+  }
+  #mainmenu #primarymenu ul.navbar-nav li {
+    padding-top: 23px;
+  }
+  .menuicon{
+    font-size: 1.3rem;
+  }
+  #slider-n-logo {
+    height: 666px;
+  }
+  #gangasagar-logo img {
+    width: 310px;
+  }
+  #gangasagar-logo {
+    bottom: -105px;
+  }
+  #home-about-carrousel .heading {
+    font-size: 2.1rem;
+  }
+  #home-about-carrousel .crousaltext {
+    font-size: 13.6px;
+  }
+  #home-about-carrousel .readmore {
+    font-size: 1.3rem;
+  }
+  #home-video-section .live-video h1 {
+    width: 26%;
+    font-size: 2.8rem;
+  }
+  #home-visitor-services-section .visitor-srv-heading h1 {
+    font-size: 2.7rem;
+  }
+  .serviceitem h3 {
+    font-size: 1.6rem;
+  }
+  #home-visitor-services-section #service-crousal .active.medium .serviceitem h3 {
+    font-size: 1.8rem;
+  }
+
+  #home-gallery-section .gallery-heading h1 {
+    font-size: 3em;
+  }
+
+  #home-gallery-section {
+    padding-top: 3%;
+  }
+
+  #galleryitems .g-img-big img{
+    width: 390px;
+  }
+  #galleryitems .g-img-common img , #galleryitems .g-img-common img.gal-md-img {
+    width: 184px;
+  }
+
+  #home-gallery-section #galleryitems {
+    border: 22px solid #D0D2D3;
+  }
+
+  #left-border-mask {
+    top: -22px;
+    left: 100px;
+    width: 85%;
+    height: 22px;
+  }
+  
+  #right-border-mask {
+    bottom:-22px;
+    left:100px;
+    width:85%;
+    height: 22px;
+  }
+  footer p {
+    font-size: 15px;
+  }
+  footer .footer-block li a {
+    font-size: 15px;
+  }
+
+}
+
+
+
+
+
+/*  --------------------------------
+*  For Screen 1360X768
+*/
+@media only screen and (max-width: 1366px) {
+    #main-header #topheader{
+      height:30px;
+      font-size: 12px;
+      line-height: 30px;
+      font-weight: 700;
+    }
+    #mainmenu #primarymenu ul.navbar-nav {
+      height:100px;
+    }
+    #mainmenu .navbar-icon-top .navbar-nav .nav-link {
+      font-size: 0.8em;
+      font-weight: 600;
+    }
+    #mainmenu #primarymenu ul.navbar-nav li {
+      padding-top: 23px;
+    }
+    .menuicon{
+      font-size: 1.3rem;
+    }
+    #slider-n-logo #slider-section {
+      height: 532px;
+    }
+    #slider-n-logo {
+      height: 628px;
+    }
+    #gangasagar-logo img {
+      width: 100%;
+    }
+    #gangasagar-logo {
+      bottom: -90px;
+    }
+    #home-about-section {
+      padding-bottom: 28%;
+    }
+    #home-about-carrousel .heading {
+      font-size: 2rem;
+    }
+    #home-about-carrousel .crousaltext {
+      font-size: 12px;
+    }
+    #home-about-carrousel .readmore {
+    font-size: 1.25rem;
+    }
+    #home-video-section .owl-carousel .owl-stage {
+      padding: 30px 0px;
+    }
+    #home-video-section .videoitem .videothumbnail {
+        height: 244px;
+    }
+    #home-video-section .videoitem .videothumbnail {
+      border: 22px solid #231F20;
+    }
+    #home-video-section .live-video h1 {
+      font-size: 2.6rem;
+    }
+    #home-visitor-services-section .active.center {
+      transform: scale(1.08);
+    }
+    #home-visitor-services-section .active {
+      transform: scale(0.87);
+    }
+    #home-visitor-services-section #service-crousal .mdleft img{
+      margin-left:14%;
+    }
+    
+    #home-visitor-services-section #service-crousal .mdright img{
+      margin-left: -14%;
+    }
+    .serviceitem h3 {
+      font-size: 1.5rem;
+    }
+    #home-visitor-services-section #service-crousal .active.medium .serviceitem h3{
+      font-size: 1.9rem;
+    }
+    #home-visitor-services-section #service-crousal .mdleft h3 {
+      margin-left: 26%;
+    }
+    
+    #home-visitor-services-section #service-crousal .mdright h3 {
+      margin-left: -26%;
+    }
+    #home-visitor-services-section .visitor-srv-heading h1 {
+      font-size: 2.5rem;
+    }
+    #home-visitor-services-section {
+      padding-bottom: 2.2%;
+    }
+    #home-gallery-section .gallery-heading h1 {
+      font-size: 2.8em;
+    }
+    #home-gallery-section .grid {
+        margin: 3% auto 1% auto;
+    }
+    #home-gallery-section #galleryitems {
+      border: 20px solid #D0D2D3;
+    }
+    #galleryitems .g-img-big img{
+      width: 370px;
+    }
+    #galleryitems .g-img-common img , #galleryitems .g-img-common img.gal-md-img {
+      width: 175px;
+    }
+    #left-border-mask {
+      top: -20px;
+      left: 100px;
+      width: 85%;
+      height: 20px;
+    }
+    
+    #right-border-mask {
+      bottom:-20px;
+      left:100px;
+      width:85%;
+      height: 20px;
+    }
+    footer .heading {
+      font-size: 1rem;
+    }
+    footer p {
+      font-size: 12px;
+    }
+    footer .footer-block li a {
+      font-size: 12px;
+    }
+}
+
+
+/*  --------------------------------
+*  For Screen 1280X768
+*/
+@media only screen and (max-width: 1280px) {
+  #slider-n-logo {
+    height: 590px;
+  }
+  #gangasagar-logo {
+    bottom: -100px;
+  }
+  #home-video-section .live-video h1 {
+    font-size: 2.4rem;
+  }
+  #home-video-section .videoitem .videothumbnail {
+    border: 16px solid 
+    #231F20;
+  }
+  #home-visitor-services-section .active.center {
+    transform: scale(1.2);
+  }
+  #home-visitor-services-section .active {
+    transform: scale(1);
+  }
+  .serviceitem h3 {
+    font-size: 1.3rem;
+  }
+  #home-visitor-services-section #service-crousal .active.medium .serviceitem h3 {
+    font-size: 1.5rem;
+  }
+  #home-gallery-section .gallery-heading h1 {
+    font-size: 2.5em;
+  }
+  #galleryitems .g-img-big img {
+    width: 348px;
+  }
+  #galleryitems .g-img-common img , #galleryitems .g-img-common img.gal-md-img {
+    width: 164px;
+  }
+}
+
+/*  --------------------------------
+*  For Screen 1152X768
+*/
+@media only screen and (max-width: 1152px) {
+  #slider-n-logo {
+    height: 530px;
+  }
+  #home-about-section {
+    padding-bottom: 31%;
+  }
+  #home-about-carrousel .crousaltext {
+    font-size: 11px;
+  }
+  #home-about-carrousel .blockshadow {
+    bottom: -3.8%;
+  }
+  #home-video-section .live-video h1 {
+    width: 29%;
+  }
+  #galleryitems .g-img-big img {
+    width: 310px;
+  }
+  #galleryitems .g-img-common img , #galleryitems .g-img-common img.gal-md-img {
+    width: 146px;
+  }
+}
+
+
+/*  --------------------------------
+*  For Screen 1152X768
+*/
+@media only screen and (max-width: 1024px) {
+  #mainmenu .navbar-icon-top .navbar-nav .nav-link {
+    font-size: 0.7em;
+  }
+  #slider-n-logo {
+    height: 470px;
+  }
+  #gangasagar-logo {
+    bottom: -70px;
+  }
+  #gangasagar-logo img {
+    width: 220px;
+  }
+  #home-about-carrousel .heading {
+    font-size: 1.6rem;
+  }
+  #home-about-carrousel .readmore {
+    font-size: 1rem;
+  }
+  #home-video-section .live-video h1 {
+    font-size: 2.1rem;
+  }
+  #home-visitor-services-section .visitor-srv-heading h1 {
+    font-size: 1.9rem;
+  }
+  .serviceitem h3 {
+    font-size: 1rem;
+  }
+  #home-visitor-services-section #service-crousal .active.medium .serviceitem h3 {
+    font-size: 1.2rem;
+  }
+  #home-gallery-section .gallery-heading h1 {
+    font-size: 2.1em;
+  }
+  #galleryitems .g-img-big img {
+    width: 276px;
+  }
+  #galleryitems .g-img-common img , #galleryitems .g-img-common img.gal-md-img {
+    width: 130px;
+  }
+}
+
+
+
+/*  --------------------------------
+*  For Screen 991X768
+*/
+@media only screen and (max-width: 991px) {
+  
+  #mainmenu .navbar {
+    background: #764b28;
+  }
+  #mainmenu #primarymenu ul.navbar-nav {
+    height: auto !important;
+  }
+  #mainmenu .navbar .navbar-toggler .navbar-toggler-icon i{
+    color: #FFF;
+    vertical-align: middle;
+    font-size: 1.4rem;
+  }
+  #mainmenu #primarymenu ul.navbar-nav li {
+    z-index: 16;
+    width:100% !important;
+    padding-left: 15px;
+    text-align: left;
+    border-bottom: 1px dashed #634022;
+  }
+  #mainmenu .menuimg-icon {
+    width: 20px;
+    float: left;
+    margin-right: 10px;
+  }
+  #mainmenu .navbar-icon-top .navbar-nav .nav-link {
+    margin-top: -3px;
+  }
+
+  #mainmenu .dropdown-menu {
+    position: static;
+    background: transparent;
+  }
+  #mainmenu .dropdown-toggle::after {
+    margin-left: .255em;
+    border-top: .6em solid;
+    border-right: .6em solid transparent;
+    border-left: .6em solid transparent;
+    float: right;
+    margin-right: 19px;
+}
+
+  #mainmenu .dropdown-menu .dropdown-item {
+    color: #fff !important;
+    border-bottom: 0px dashed #d5d4d4;
+  }
+  #mainmenu .dropdown-menu .dropdown-item:hover {
+    background: transparent;
+  }
+
+  #mainmenu ul .dropdown-menu::after {
+    border-bottom: 0px solid #fff;
+  } 
+
+  #mainmenu .pmmenu-darkcolor .dropdown-menu .dropdown-item {
+      color:#323232 !important;
+  }
+
+ 
+}
+
+
+/*  --------------------------------
+*  For Screen 960X768
+*/
+@media only screen and (max-width: 960px) {
+  #galleryitems .g-img-big img {
+    width: 258px;
+  }
+  #galleryitems .g-img-common img , #galleryitems .g-img-common img.gal-md-img {
+    width: 120px;
+  }
+  #home-about-carrousel .heading {
+    font-size: 1.3rem;
+  }
+ 
+}
+
+/*  --------------------------------
+*  For Screen 854X768
+*/
+@media only screen and (max-width: 854px) {
+  #slider-n-logo {
+    height: 410px;
+  }
+  #gangasagar-logo {
+    bottom: -52px;
+  }
+  #gangasagar-logo img {
+    width: 180px;
+  }
+  #home-about-section .crousalblock {
+    width:50% !important;
+    margin:9% auto;
+ }
+ #home-about-carrousel .heading {
+  font-size: 2.3rem;
+  }
+  #home-about-carrousel .blockshadow {
+    width: 66%;
+    bottom: 2.2%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+  }
+  #home-about-carrousel .home-downarrow {
+    font-size: 30px;
+  }
+  #home-about-carrousel .readmore {
+    font-size: 1rem;
+  }
+  #home-about-carrousel .heading {
+    font-size: 1.8rem;
+  }
+  #home-about-section {
+    padding-bottom: 25%;
+  }
+  #home-video-section .live-video h1 {
+    width: 35%;
+  }
+  #home-video-section .videoitem .videothumbnail {
+    height: auto;
+  }
+  #galleryitems .g-img-big img {
+    width: 225px;
+  }
+  #galleryitems .g-img-common img , #galleryitems .g-img-common img.gal-md-img {
+    width: 103px;
+  }
+
+  #left-border-mask {
+    left: 60px;
+    width: 84%;
+  }
+  #right-border-mask {
+    left: 60px;
+    width: 84%;
+  }
+}
+
+/*  --------------------------------
+*  For Screen 800X768
+*/
+
+@media only screen and (max-width: 800px) {
+  #slider-n-logo {
+    height: 364px;
+  }
+  #biswabangla-logo {
+    right: -5px;
+  }
+  #biswabangla-logo img {
+    width:50%;
+  }
+  #gangasagar-logo {
+    bottom: -43px;
+  }
+  #gangasagar-logo img {
+    width: 140px;
+  }
+  #home-about-section .crousalblock {
+    width: 64% !important;
+    margin: 9% auto;
+  }
+  #home-video-section .videoitem .videothumbnail {
+    border: 11px solid #231F20;
+  }
+  .owl-carousel .owl-stage {
+    padding-bottom: 14%;
+    padding-top: 10%;
+  }
+  
+  #home-visitor-services-section .custom-container {
+    width: 98%;
+  }
+  #home-visitor-services-section .active.center {
+    transform: scale(1.6);
+  }
+  #home-visitor-services-section .active {
+    transform: scale(1.3);
+  }
+  #home-visitor-services-section #service-crousal .mdleft img {
+    margin-left: 9%;
+  }
+  #home-visitor-services-section #service-crousal .mdright img {
+    margin-left: -9%;
+  }
+  #home-visitor-services-section #service-crousal .active.medium .serviceitem h3 {
+    font-size: 1rem;
+  }
+  #home-visitor-services-section #service-crousal .mdleft h3 {
+    margin-left: 15%;
+  }
+  #home-visitor-services-section #service-crousal .mdright h3 {
+    margin-left: -11%;
+  }
+  .serviceitem h3 {
+    font-size: 0.85rem;
+  }
+  #home-visitor-services-section .serviceitem {
+    padding: 9px;
+  }
+  #galleryitems .g-img-big img {
+    width: 216px;
+  }
+  #galleryitems .g-img-common img , #galleryitems .g-img-common img.gal-md-img {
+    width: 100px;
+  }
+}
+
+/*  --------------------------------
+*  For Screen 800X768
+*/
+
+@media only screen and (max-width: 768px) {
+  #home-video-section .live-video h1 {
+    width: 36%;
+  }
+  #home-video-section .live-video h1 {
+    font-size: 2rem;
+  }
+}
+
+
+/*  --------------------------------
+*  For Screen 720X960
+*/
+
+@media only screen and (max-width: 767px) {
+  #galleryitems .g-img-big img {
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 6px 9px -2px #b5b5b5;
+    border: 13px solid #f2f2f2;
+  }
+  #galleryitems .g-img-common img , #galleryitems .g-img-common img.gal-md-img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 6px 9px -2px #b5b5b5;
+    border: 13px solid #f2f2f2;
+  }
+  #home-gallery-section #galleryitems {
+    border: 0px solid #D0D2D3;
+   
+  }
+}
+
+/*  --------------------------------
+*  For Screen 720X960
+*/
+
+@media only screen and (max-width: 720px) {
+  #slider-n-logo {
+    height: 0;
+  }
+  #gangasagar-logo {
+    display:none;
+  }
+  #home-about-section {
+    margin-top: 33%;
+  }
+  #home-video-section .live-video h1 {
+    width: 38%;
+  }
+  
+}
+
+@media only screen and (max-width: 680px) {
+  #home-video-section .live-video h1 {
+    font-size: 1.7rem;
+  }
+  #video-crousal .videoitem {
+    width: 60%;
+    margin: 0 auto;
+  }
+  #home-video-section .videoitem .videothumbnail {
+    border: 12px solid #231F20;
+    box-shadow: 0px 15px 35px -11px #646667;
+  }
+  
+  #home-video-section .videoshadow {
+    margin-top: -9px;
+  }
+  #home-video-section .videoshadow img {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #home-video-section #video-crousal .owl-stage {
+    padding-bottom: 8%;
+  }
+  #home-video-section .owl-carousel .owl-nav.disabled {
+    display:block !important;
+    text-align: center;
+    margin-top: -10px;
+  }
+  #home-video-section .owl-carousel .owl-nav button i ,  #home-video-section .owl-carousel .owl-nav button span{
+    font-size: 2rem;
+    padding: 0 30px;
+    color:#115968;
+    border: 2px dotted#227D90;
+    margin: 0 5px;
+    border-radius: 13px;
+  }
+
+  #home-visitor-services-section {
+    padding-bottom: 6.2%;
+  }
+  #home-visitor-services-section .serviceitem {
+    width: 46%;
+    margin:2% auto;
+  }
+
+  #home-visitor-services-section .owl-carousel .owl-nav.disabled {
+    display:block !important;
+    text-align: center;
+    margin-top: -10px;
+  }
+  #home-visitor-services-section .owl-carousel .owl-nav button i ,  #home-visitor-services-section .owl-carousel .owl-nav button span{
+    font-size: 2rem;
+    padding: 0 30px;
+    color:#5A4500;
+    border: 2px dotted#A78821;
+    margin: 0 5px;
+    border-radius: 13px;
+  }
+
+}
+
+
+@media only screen and (max-width: 520px) { 
+  #slider-section .carousel-control-next, #slider-section .carousel-control-prev {
+    opacity: 0;
+  }
+ 
+  #bannersliderIndicators .carousel-indicators .bannerdots {
+      width: 12px;
+      height: 7px;
+  }
+
+  .carousel-indicators .bannerdots.active li {
+    width: 8px;
+    height: 4px;
+    background-color: #fff;
+    background-clip: padding-box;
+    border-top: 0px solid transparent;
+    border-bottom: 50px solid
+    transparent;
+    opacity: 1;
+    border-radius: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: 0px auto;
+  }
+  #home-about-section {
+    margin-top: 38%;
+  }
+  .custom-container {
+    width: 100%;
+  }
+  #home-about-carrousel .heading {
+    font-size: 1rem;
+  }
+  #home-about-carrousel .readmore {
+    font-size: 0.7rem;
+  }
+  .nodisplay {
+    display:none !important;
+  }
+  #home-about-carrousel .owl-nav .owl-prev img, #home-about-carrousel .owl-nav .owl-next img {
+    width: 50%;
+  }
+  #home-about-carrousel .home-downarrow {
+    margin: -11px auto;
+  }
+  #home-about-section {
+    padding-bottom: 13%;
+  }
+  #home-about-section .crousalblock {
+    width: 70% !important;
+  }
+  #home-about-carrousel .owl-nav .owl-prev {
+    left: -34px;
+    top: 120px;
+  }
+  #home-about-carrousel .owl-nav .owl-next {
+    right: -34px;
+    top: 120px;
+  }
+
+  #home-video-section .live-video h1 {
+    width: 50%;
+  }
+  #home-visitor-services-section .visitor-srv-heading img {
+    width: 10%;
+  }
+
+  #home-gallery-section {
+    padding-top: 8%;
+  }
+  #home-gallery-section .gallery-heading h1 span {
+     width: auto;
+  }
+
+  #home-gallery-section .gallery-heading img {
+    width: 10%;
+  }
+
+
+  .footer .custom-container {
+    width: 94%;
+  }
+
+}
+
+
+
+@media only screen and (max-width: 480px) { 
+
+  #video-crousal .videoitem {
+    width: 78%;
+  }
+  #home-video-section .owl-carousel .owl-nav button i, #home-video-section .owl-carousel .owl-nav button span {
+    padding: 1px 38px;
+    border: 1px solid #3996A9;
+  }
+  #home-video-section .videoshadow {
+    display: none;
+  }
+  #home-video-section #video-crousal .owl-stage {
+    padding-bottom: 16%;
+  }
+  #home-visitor-services-section .serviceitem {
+    width: 66%;
+    margin: 10% auto;
+  }
+
+  #home-visitor-services-section .owl-carousel .owl-nav button i ,  #home-visitor-services-section .owl-carousel .owl-nav button span{
+    padding: 0 38px;
+    border: 1px solid #CDAF4A;
+  }
+
+}
+
+@media only screen and (max-width: 432px) { 
+  #home-video-section .live-video h1 {
+    width: 66%;
+  }
+}
+
+
+/* 
+@media (min-width: 576px) {
+    .navbar-icon-top.navbar-expand-sm .navbar-nav .nav-link {
+      text-align: center;
+      display: table-cell;
+      height: 70px;
+      vertical-align: middle;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  
+    .navbar-icon-top.navbar-expand-sm .navbar-nav .nav-link > .fa {
+      display: block;
+      width: 48px;
+      margin: 2px auto 4px auto;
+      top: 0;
+      line-height: 24px;
+    }
+  
+    .navbar-icon-top.navbar-expand-sm .navbar-nav .nav-link > .fa > .badge {
+      top: -7px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .navbar-icon-top.navbar-expand-md .navbar-nav .nav-link {
+      text-align: center;
+      display: table-cell;
+      height: 70px;
+      vertical-align: middle;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  
+    .navbar-icon-top.navbar-expand-md .navbar-nav .nav-link > .fa {
+      display: block;
+      width: 48px;
+      margin: 2px auto 4px auto;
+      top: 0;
+      line-height: 24px;
+    }
+  
+    .navbar-icon-top.navbar-expand-md .navbar-nav .nav-link > .fa > .badge {
+      top: -7px;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link {
+      text-align: center;
+      //display: table-cell;
+      //height: 70px; 
+      vertical-align: middle;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  
+    .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link > .fa {
+      display: block;
+      width: 48px;
+      margin: 2px auto 4px auto;
+      top: 0;
+      line-height: 24px;
+    }
+  
+    .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link > .fa > .badge {
+      top: -7px;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link {
+      text-align: center;
+      //display: table-cell;
+      //height: 70px;
+      vertical-align: middle;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  
+    .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link > .fa {
+      display: block;
+      width: 48px;
+      margin: 2px auto 4px auto;
+      top: 0;
+      line-height: 24px;
+    }
+  
+    .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link > .fa > .badge {
+      top: -7px;
+    }
+  }
+   */
