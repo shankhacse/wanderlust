@@ -1,4 +1,4 @@
-<div class="card card-warning">
+<div class="card">
               <div class="card-header">
                 <h3 class="card-title">Room - ADD</h3>
               </div>
@@ -15,7 +15,7 @@
                          <div class="form-group">
                            <label for="classList">Floor</label> 
                            <div id="classview">
-                              <select id="sel_floor" name="sel_floor" class="form-control selectpicker" data-show-subtext="true" data-live-search="true">
+                              <select id="sel_floor" name="sel_floor" class="form-control selectpicker form-control-sm" data-show-subtext="true" data-live-search="true">
                             <option value="0">Select</option>
                            <?php
                            
@@ -45,7 +45,7 @@
                          <div class="form-group">
                            <label for="classList">Room Type</label> 
                            <div id="classview">
-                              <select id="sel_roomtype" name="sel_roomtype" class="form-control selectpicker" data-show-subtext="true" data-live-search="true">
+                              <select id="sel_roomtype" name="sel_roomtype" class="form-control selectpicker form-control-sm" data-show-subtext="true" data-live-search="true">
                             <option value="0">Select</option>
                            <?php
                            
@@ -75,7 +75,7 @@
                       <!-- text input -->
                       <div class="form-group">
                         <label>Room No</label>
-                        <input type="text" name="room_no" id="room_no" class="form-control" placeholder="" required
+                        <input type="text" name="room_no" id="room_no" class="form-control form-control-sm" placeholder="" required
                         value="<?php if($mode=='EDIT'){echo $roomEditdata->room_no;}?>">
                       </div>
                     </div>
@@ -87,25 +87,25 @@
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Short Desc.</label>
-                        <input type="text" class="form-control" placeholder="" name="short_desc" id="short_desc" required value="<?php if($mode=='EDIT'){echo $roomEditdata->room_short_desc;}?>">
+                        <input type="text" class="form-control form-control-sm" placeholder="" name="short_desc" id="short_desc" required value="<?php if($mode=='EDIT'){echo $roomEditdata->room_short_desc;}?>">
                       </div>
                     </div>
                     <div class="col-sm-2">
                       <div class="form-group">
                         <label>Price</label>
-                        <input type="text" class="form-control" placeholder="" name="price" id="price" required value="<?php if($mode=='EDIT'){echo $roomEditdata->price;}?>">
+                        <input type="text" class="form-control form-control-sm" placeholder="" name="price" id="price" required value="<?php if($mode=='EDIT'){echo $roomEditdata->price;}?>">
                       </div>
                     </div>
                       <div class="col-sm-2">
                       <div class="form-group">
                         <label>Max Adult</label>
-                        <input type="text" class="form-control" placeholder="" name="max_adult" id="max_adult" required value="<?php if($mode=='EDIT'){echo $roomEditdata->max_adult;}?>">
+                        <input type="text" class="form-control form-control-sm" placeholder="" name="max_adult" id="max_adult" required value="<?php if($mode=='EDIT'){echo $roomEditdata->max_adult;}?>">
                       </div>
                     </div>
                      <div class="col-sm-2">
                       <div class="form-group">
                         <label>Max Child</label>
-                        <input type="text" class="form-control" placeholder="" name="max_child" id="max_child" required value="<?php if($mode=='EDIT'){echo $roomEditdata->max_child;}?>">
+                        <input type="text" class="form-control form-control-sm" placeholder="" name="max_child" id="max_child" required value="<?php if($mode=='EDIT'){echo $roomEditdata->max_child;}?>">
                       </div>
                     </div>
                   </div>
@@ -116,7 +116,7 @@
                     <div class="col-sm-12">
                       <div class="form-group">
                         <label>Full Desc.</label>
-                        <input type="text" class="form-control" placeholder="" name="full_desc" id="full_desc" required value="<?php if($mode=='EDIT'){echo $roomEditdata->full_desc;}?>">
+                        <input type="text" class="form-control form-control-sm" placeholder="" name="full_desc" id="full_desc" required value="<?php if($mode=='EDIT'){echo $roomEditdata->full_desc;}?>">
                       </div>
                     </div>
                   </div>
@@ -137,8 +137,8 @@
               <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-info btn-sm" id="roomtypebtn">Save</button>
-                  <button type="button" class="btn btn-default float-right btn-sm">Cancel</button>
+                  <button type="submit" class="btn cutom_btn btn-sm blue_grd_btn float-right" id="roomtypebtn">Save</button>
+                  <button type="button" class="btn cutom_btn float-right btn-sm red_grd_btn">Cancel</button>
                 </div>
 
                 </form>

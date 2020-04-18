@@ -1,0 +1,117 @@
+[class*="sidebar-dark-"] {
+    /* background-color: #007ebb; */
+    background-color: #193651;
+}
+
+[class*="sidebar-dark-"] .sidebar a {
+    color: #fff;
+}
+[class*="sidebar-dark-"] .nav-treeview > .nav-item > .nav-link {
+    color: #fff;
+}
+[class*="sidebar-dark"] .brand-link {
+    border-bottom: 2px solid #0970a2;
+    color: #fffc;
+    background: #007ebb;
+}
+[class*="sidebar-dark"] .user-panel {
+    border-bottom: 0px solid #4f5962;
+}
+.nav-link .nav-icon , .nav-link p {
+    font-size: 0.8rem !important;
+}
+
+.sidebar {
+    padding: 0;
+}
+
+.nav-sidebar > .nav-item { 
+    border-bottom: 1px solid #1a4268;
+}
+.nav-heading {
+    text-align: center !important;
+    font-family: 'Monoton', cursive;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: linear-gradient(to right, #22b8db 0%, #184e88 50%, #39a2e1 100%);
+    background: linear-gradient(to right, #fff 0%, #fff 50%, #fff 100%);
+        background-clip: border-box;
+    background-clip: border-box;
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+}
+.pushmenu {
+    background: #007ebb;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    position: relative;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    margin: 0;
+    text-align: center;
+    padding: 0 !important;
+    height: auto !important;
+    margin-left: 16px;
+}
+.pushmenu i {
+    color: #FFF;
+}
+.navbar-white {
+    background-color: #007ebb;
+}
+.content-header {
+    padding: 4px .5rem;
+}
+.breadcrumb-item a , .breadcrumb-item.active a{
+    font-size:0.7rem;
+}
+.card {
+    box-shadow: -1px 3px 5px 1px #b3b3b3;
+}
+.card-header {
+    padding: 0.6rem .6rem;
+    background:#193651;
+    }
+    .card-title {
+    float: left;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin: 0;
+    letter-spacing: 1px;
+    color: #fff;
+}
+.card-footer {
+    background-color: transparent;
+}
+
+    .btn-group-sm > .btn, .btn-sm {
+    padding: 0;
+    
+}
+
+label:not(.form-check-label):not(.custom-file-label) {
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    color: #333;
+     font-size: 0.8rem;
+}
+.form-control {
+border: 1px solid #c1c1c1;
+}
+.cutom_btn {
+    padding: 1px 15px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin:0 5px;
+    border: 0;
+    color: #fff;
+}
+.blue_grd_btn {
+    background: linear-gradient(#3d7bb5,#15427d);
+}
+.red_grd_btn {
+    background: linear-gradient(#ea4655,#bb0d0d);
+}
