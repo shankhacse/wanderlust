@@ -5994,3 +5994,32 @@ span.round-tab:hover i {
     box-shadow: -3px 1px 19px 0px #b0b0b0;
     border: 8px solid #fff;
 }
+
+/*
+Mith
+*/
+
+.services-box-2 {
+    margin-bottom: 25px;
+}
+
+.services-box-2 i {
+    width: 35px;
+    height: 35px;
+    float: left;
+    text-align: center;
+    line-height: 35px;
+    font-size: 18px;
+    box-shadow: 0 0 10px #0000001a;
+    background: #55b5ee;
+    border-radius: 50px;
+    color: #fff;
+}
+
+.services-box-2 h3 {
+    font-size: 12px;
+    margin: 8px 0px 11px;
+}
+.services-box-2 .media-left {
+    padding-right: 15px;
+}

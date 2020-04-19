@@ -18,8 +18,9 @@
     <link rel="stylesheet" type="text/css"  href="<?php echo base_url(); ?>/assets/css/bootstrap-datepicker.min.css">
 
     <!-- Custom stylesheet -->
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/css/style.css">
+   
     <link rel="stylesheet" type="text/css" id="style_sheet" href="<?php echo base_url(); ?>/assets/css/skins/blue-light-2.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/css/style.css">
 
     <!-- Favicon icon -->
     <!-- <link rel="shortcut icon" href="<?php echo base_url(); ?>/assets/img/favicon.ico" type="image/x-icon" > -->
@@ -172,7 +173,7 @@
                                 <img src="<?php echo base_url(); ?>/assets/img/logos/wander.png" alt="white-logo"> <span style="color:#FFF;">Wanderlust</span>
                             </a>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, conser adipiscing elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar. Donec a conser nulla. Nulla posuere sapien vitae lectus suscipit, et pulvinar nisi tincidunt. Aliquam erat volutpat. Curabitur convallis fringilla diam.</p>
+                        <p>Norbu Retreat is located in the heart of the Gangtok in an extremely characteristic, quite and lively area surrounded by the extraordinary beauty of nature, mountain, buildings, shops.</p>
                     </div>
                 </div>
                 <!-- Contact Us -->
@@ -252,7 +253,7 @@
                             <h1>Newsletter</h1>
                         </div>
                         <div class="newsletter-inner">
-                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            <p></p>
                             <form action="#" method="GET">
                                 <p><input type="text" class="form-contact" name="email" placeholder="Enter your email"></p>
                                 <p><button type="submit" name="submitNewsletter" class="btn btn-small">

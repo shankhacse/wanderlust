@@ -9,7 +9,7 @@
                     <div class="carousel-caption banner-slider-inner banner-top-align">
                         <div class="banner-content text-center">
                             <h1 data-animation="animated fadeInDown delay-05s"><span>Welcome to</span> Wanderlust</h1>
-                            <p data-animation="animated fadeInUp delay-1s">Lorem ipsum dolor sit amet, conconsectetuer adipiscing elit Lorem ipsum dolor sit amet, conconsectetuer</p>
+                            <p data-animation="animated fadeInUp delay-1s"></p>
                             <a href="#" class="btn btn-md btn-theme" data-animation="animated fadeInUp delay-15s">Get Started Now</a>
                             <a href="#" class="btn btn-md border-btn-theme" data-animation="animated fadeInUp delay-15s">Learn More</a>
                         </div>
@@ -20,7 +20,7 @@
                     <div class="carousel-caption banner-slider-inner banner-top-align">
                         <div class="banner-content text-center">
                             <h1 data-animation="animated fadeInLeft delay-05s"><span>Best Place To</span> Find Room</h1>
-                            <p data-animation="animated fadeInUp delay-05s">Lorem ipsum dolor sit amet, conconsectetuer adipiscing elit Lorem ipsum dolor sit amet, conconsectetuer</p>
+                            <p data-animation="animated fadeInUp delay-05s"></p>
                             <a href="#" class="btn btn-md btn-theme" data-animation="animated fadeInUp delay-15s">Get Started Now</a>
                             <a href="#" class="btn btn-md border-btn-theme" data-animation="animated fadeInUp delay-15s">Learn More</a>
                         </div>
@@ -31,7 +31,7 @@
                     <div class="carousel-caption banner-slider-inner banner-top-align">
                         <div class="banner-content text-center">
                             <h1 data-animation="animated fadeInLeft delay-05s"><span>Best Place</span> for relux</h1>
-                            <p data-animation="animated fadeInLeft delay-1s">Lorem ipsum dolor sit amet, conconsectetuer adipiscing elit Lorem ipsum dolor sit amet, conconsectetuer</p>
+                            <p data-animation="animated fadeInLeft delay-1s"></p>
                             <a href="#" class="btn btn-md btn-theme" data-animation="animated fadeInLeft delay-15s">Get Started Now</a>
                             <a href="#" class="btn btn-md border-btn-theme" data-animation="animated fadeInLeft delay-20s">Learn More</a>
                         </div>
@@ -276,10 +276,9 @@
                 <div class="text">
                     <h5>Hotel Norbu Retreat</h5>
                     <h1>Welcome To Wandurlust</h1>
-                    <p>Duis vel nisl lacinia, facilisis in, consectetur leon vestibulum et ullamcorper tortor leon placerat mauris tincidunt ut non velit faucibus nam a
-                        pretium sapien nunc quis congue purus nunc feugiat nec purus a ultricies suspendisse in fringilla est sodales dui, non mattis tortor volutpat vitae.</p>
+                    <p>Norbu Retreat is located in the heart of the Gangtok in an extremely characteristic, quite and lively area surrounded by the extraordinary beauty of nature, mountain, buildings, shops. </p>
                     <br>
-                    <a href=":;" class="btn btn-outline2 btn-md">View Details</a>
+                    <a href="javascript:;" class="btn btn-outline2 btn-md">View Details</a>
                 </div>
             </div>
             <div class="col-lg-5 col-lg-offset-1 col-md-6">
@@ -451,6 +450,7 @@
                 <h1>Our Facilties</h1>
                 <p>Check out our hotel facilties </p>
             </div>
+
             <div class="row">
                 <div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp delay-04s">
                     <div class="services-box-2 media">
@@ -459,7 +459,7 @@
                         </div>
                         <div class="media-body">
                             <h3>24-hour Reception</h3>
-                            <p>Lorem ipsum dolor sit amet, conser adipisicing elit. Numquam deleniti amet quia voluptate laboriosam</p>
+                            <!-- <p></p> -->
                         </div>
                     </div>
                 </div>
@@ -470,7 +470,7 @@
                         </div>
                         <div class="media-body">
                             <h3>Room Service</h3>
-                            <p>Lorem ipsum dolor sit amet, conser adipisicing elit. Numquam deleniti amet quia voluptate laboriosam</p>
+                            <!-- <p>In addition to making guests feel welcome and providing an enjoyable dining experience, restaurant managers are responsible for processing room service orders accurately and efficiently and ensuring compliance of the relevant health and safety regulations</p> -->
                         </div>
                     </div>
                 </div>
@@ -481,7 +481,7 @@
                         </div>
                         <div class="media-body">
                             <h3>Flat Screen TV</h3>
-                            <p>Lorem ipsum dolor sit amet, conser adipisicing elit. Numquam deleniti amet quia voluptate laboriosam</p>
+                            <!-- <p>Most 2010s-era flat-panel displays use LCD and/or light emitting diode (LED) technologies. Most LCD screens are back-lit as color filters are used to display colors.</p> -->
                         </div>
                     </div>
                 </div>
@@ -492,7 +492,7 @@
                         </div>
                         <div class="media-body">
                             <h3>Gym</h3>
-                            <p>Lorem ipsum dolor sit amet, conser adipisicing elit. Numquam deleniti amet quia voluptate laboriosam</p>
+                            <!-- <p>Lorem ipsum dolor sit amet, conser adipisicing elit. Numquam deleniti amet quia voluptate laboriosam</p> -->
                         </div>
                     </div>
                 </div>
@@ -503,7 +503,7 @@
                         </div>
                         <div class="media-body">
                             <h3>Free Parking</h3>
-                            <p>Lorem ipsum dolor sit amet, conser adipisicing elit. Numquam deleniti amet quia voluptate laboriosam</p>
+                            <!-- <p>Lorem ipsum dolor sit amet, conser adipisicing elit. Numquam deleniti amet quia voluptate laboriosam</p> -->
                         </div>
                     </div>
                 </div>
@@ -514,11 +514,81 @@
                         </div>
                         <div class="media-body">
                             <h3>Free Wi-Fi</h3>
-                            <p>Lorem ipsum dolor sit amet, conser adipisicing elit. Numquam deleniti amet quia voluptate laboriosam</p>
+                            <!-- <p>Lorem ipsum dolor sit amet, conser adipisicing elit. Numquam deleniti amet quia voluptate laboriosam</p> -->
                         </div>
                     </div>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp delay-04s">
+                    <div class="services-box-2 media">
+                        <div class="media-left">
+                            <i class="flaticon-school-call-phone-reception"></i>
+                        </div>
+                        <div class="media-body">
+                            <h3>Housekeeping</h3>
+                            <!-- <p></p> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp delay-04s">
+                    <div class="services-box-2 media">
+                        <div class="media-left">
+                            <i class="flaticon-room-service"></i>
+                        </div>
+                        <div class="media-body">
+                            <h3>Power Backup</h3>
+                            <!-- <p>In addition to making guests feel welcome and providing an enjoyable dining experience, restaurant managers are responsible for processing room service orders accurately and efficiently and ensuring compliance of the relevant health and safety regulations</p> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp delay-04s">
+                    <div class="services-box-2 media">
+                        <div class="media-left">
+                            <i class="flaticon-graph-line-screen"></i>
+                        </div>
+                        <div class="media-body">
+                            <h3>Telephone </h3>
+                            <!-- <p>Most 2010s-era flat-panel displays use LCD and/or light emitting diode (LED) technologies. Most LCD screens are back-lit as color filters are used to display colors.</p> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp delay-04s">
+                    <div class="services-box-2 media">
+                        <div class="media-left">
+                            <i class="flaticon-weightlifting"></i>
+                        </div>
+                        <div class="media-body">
+                            <h3>Attached Bathroom</h3>
+                            <!-- <p>Lorem ipsum dolor sit amet, conser adipisicing elit. Numquam deleniti amet quia voluptate laboriosam</p> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp delay-04s">
+                    <div class="services-box-2 media">
+                        <div class="media-left">
+                            <i class="flaticon-parking"></i>
+                        </div>
+                        <div class="media-body">
+                            <h3>Safety and Security</h3>
+                            <!-- <p>Lorem ipsum dolor sit amet, conser adipisicing elit. Numquam deleniti amet quia voluptate laboriosam</p> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12 wow fadeInUp delay-04s">
+                    <div class="services-box-2 media">
+                        <div class="media-left">
+                            <i class="flaticon-wifi-connection-signal-symbol"></i>
+                        </div>
+                        <div class="media-body">
+                            <h3>Refrigerator</h3>
+                            <!-- <p>Lorem ipsum dolor sit amet, conser adipisicing elit. Numquam deleniti amet quia voluptate laboriosam</p> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
