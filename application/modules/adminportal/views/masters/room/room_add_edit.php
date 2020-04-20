@@ -15,7 +15,7 @@
                          <div class="form-group">
                            <label for="classList">Floor</label> 
                            <div id="classview">
-                              <select id="sel_floor" name="sel_floor" class="form-control selectpicker form-control-sm" data-show-subtext="true" data-live-search="true">
+                              <select id="sel_floor" name="sel_floor" class="form-control  form-control-sm" data-show-subtext="true" data-live-search="true">
                             <option value="0">Select</option>
                            <?php
                            
@@ -45,7 +45,7 @@
                          <div class="form-group">
                            <label for="classList">Room Type</label> 
                            <div id="classview">
-                              <select id="sel_roomtype" name="sel_roomtype" class="form-control selectpicker form-control-sm" data-show-subtext="true" data-live-search="true">
+                              <select id="sel_roomtype" name="sel_roomtype" class="form-control  form-control-sm" data-show-subtext="true" data-live-search="true">
                             <option value="0">Select</option>
                            <?php
                            

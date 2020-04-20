@@ -104,6 +104,38 @@ $(document).ready(function(){
 
 
 
+
+$(document).on('submit','#RoomRateForm',function(e){
+		e.preventDefault();
+            
+            var formDataserialize = $("#RoomRateForm" ).serialize();
+			formDataserialize = decodeURI(formDataserialize);
+			console.log(formDataserialize);
+            var formData = {formDatas: formDataserialize};
+			var type = "POST"; 
+			var urlpath = basepath+'masters/roomrate_action';
+			//$("#savebtn").addClass('nonclick');
+			$.ajax({
+				type: type,
+	            url: urlpath,
+	            data: formData,
+	            dataType: 'json',
+	            contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
+				success: function (result) {
+				//$("#savebtn").removeClass('nonclick');	
+				alert(result.MSG)
+				 window.location.href=basepath+'masters/roomrate';
+				
+				}, 
+				error: function (jqXHR, exception) {
+					var msg = '';
+					}
+				}); /*end ajax call*/
+	
+
+    });
+
+
     
 
 

@@ -459,7 +459,185 @@ public function room_action() {
 		{
 			redirect('adminpanel','refresh');
 		}
-	} 
+	}
+
+
+
+
+
+  public function addRoomrate(){
+        
+      
+        if($this->_authModel->is_logged_in()) 
+		{
+
+		
+			if($this->uri->segment(4) == NULL)
+			{
+				$data['mode'] = "ADD";
+				$data['btnText'] = "Save";
+				$data['btnTextLoader'] = "Saving...";
+                $roomrateID = 0;
+                $data['roomrateID'] = $roomrateID;
+				$data['roomrateEditdata'] = [];
+				
+				
+				//getAllRecordWhereOrderBy($table,$where,$orderby)
+
+			}
+			else
+			{
+				$data['mode'] = "EDIT";
+				$data['btnText'] = "Update";
+				$data['btnTextLoader'] = "Updating...";
+                $roomrateID = $this->uri->segment(4);
+                $data['roomrateID'] = $roomrateID;
+                
+				$whereAry = [
+                    'room_rate_details.room_rate_id' => $roomrateID
+                ];
+
+				// getSingleRowByWhereCls(tablename,where params)
+				 $data['roomrateEditdata'] = $this->commondata_model->getSingleRowByWhereCls('room_rate_details',$whereAry); 
+					//pre($data['roomEditdata']);exit;
+				
+			}
+
+			$data['roomList'] = $this->commondata_model->getAllDropdownData('room_master');
+			$data['packagetypeList'] = $this->commondata_model->getAllDropdownData('package_type_master');
+
+               
+
+			$data['view_file'] = 'masters/room_rate/room_rate_add_edit.php';
+            $this->template->admin_template($data);
+		}
+		else
+		{
+			redirect('adminpanel','refresh');
+        }
+        
+
+    } 
+
+
+
+
+public function roomrate_action() {
+
+      
+		 if($this->_authModel->is_logged_in()) 
+		{
+			$json_response = array();
+			$formData = $this->input->post('formDatas');
+			parse_str($formData, $dataArry);
+
+		
+			$roomrateID = trim(htmlspecialchars($dataArry['roomrateID']));
+			$mode = trim(htmlspecialchars($dataArry['mode']));
+
+            $sel_room = $dataArry['sel_room'];
+            $sel_packagetype = $dataArry['sel_packagetype'];
+            $rate = $dataArry['rate'];
+       
+
+				if($roomrateID>0 && $mode=="EDIT")
+				{
+					/*  EDIT MODE
+					 *	-----------------
+					*/
+
+					$upd_where = array('room_rate_details.room_rate_id' =>$roomrateID);
+
+                    $upd_array = array(
+                        				'room_id' => $sel_room,
+                                        'rate' => $rate,
+                                        'package_type_id' => $sel_packagetype,
+                     );
+
+                        $update = $this->commondata_model->updateSingleTableData('room_rate_details',$upd_array,$upd_where);
+					
+					
+					if($update)
+					{
+						$json_response = [
+								"STATUS" => 1,
+								"MSG" => UPDATE_SUCCESS
+							];
+					}
+					else
+					{
+						$json_response = [
+								"STATUS" => 0,
+								"MSG" => UPDATE_ERROR
+							];
+					}
+
+
+
+				} // end if mode
+				else
+				{
+					/*  ADD MODE
+					 *	-----------------
+					*/
+
+                    $insert_array = array(
+                    	                'room_id' => $sel_room,
+                                        'rate' => $rate,
+                                        'package_type_id' => $sel_packagetype,
+                                         
+                                         );
+			
+					$insertData = $this->commondata_model->insertSingleTableData('room_rate_details',$insert_array);
+					
+
+					if($insertData)
+					{
+						$json_response = [
+							"STATUS" => 1,
+							"MSG" => SAVE_SUCCESS
+						];
+					}
+					else
+					{
+						$json_response = [
+							"STATUS" => 0,
+							"MSG" => SAVE_ERROR
+						];
+					}
+
+				} // end add mode ELSE PART
+
+
+			header('Content-Type: application/json');
+			echo json_encode( $json_response );
+			exit;
+
+			
+
+		}
+		else
+		{
+			redirect('adminpanel','refresh');
+		}
+	}
+
+
+	public function roomrate()
+	{
+		if($this->_authModel->is_logged_in()) 
+		{
+			
+			$data['roomrateList'] = $this->master_model->getRoomRateList();
+            $data['view_file'] = 'masters/room_rate/room_rate_list';
+            $this->template->admin_template($data);
+		}
+		else
+		{
+			redirect('adminpanel','refresh');
+		}
+    } 
+
 
 
 

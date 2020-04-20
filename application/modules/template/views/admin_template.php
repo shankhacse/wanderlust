@@ -24,6 +24,17 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/plugins/summernote/summernote-bs4.css">
+
+    <!-- Multi Select Css -->
+    <link href="<?php echo(base_url());?>assets/plugins/multi-select/css/multi-select.css" rel="stylesheet">
+
+      <!-- Bootstrap Select Css -->
+    <link href="<?php echo(base_url());?>assets/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+
+
+
+
+
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Monoton&display=swap" rel="stylesheet"> 
@@ -109,6 +120,13 @@
                 <a href="<?php echo admin_with_base_url() ?>masters/room" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Room Master</p>
+                </a>
+              </li>
+
+                <li class="nav-item">
+                <a href="<?php echo admin_with_base_url() ?>masters/addRoomrate" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Room Rate</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -303,6 +321,12 @@
 <script src="<?php echo base_url(); ?>/assets/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>/assets/dist/js/demo.js"></script>
+
+  <!-- Select Plugin Js -->
+    <script src="<?php echo(base_url());?>assets/plugins/bootstrap-select/js/bootstrap-select.js"></script>
+    <!-- Multi Select Plugin Js -->
+    <script src="<?php echo(base_url());?>assets/plugins/multi-select/js/jquery.multi-select.js"></script>
+
 
 
 <script src="<?php echo base_url(); ?>/assets/js/parsley.min.js"></script>

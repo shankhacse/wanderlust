@@ -40,4 +40,37 @@ class Master_model extends CI_Model{
 
 
 
+public function getRoomRateList()
+	{
+		$data = array();
+		$this->db->select("
+							room_rate_details.*,
+							room_master.room_no,
+							package_type_master.package_name
+						")
+				->from('room_rate_details')
+				->join('room_master','room_master.room_id = room_rate_details.room_id','LEFT')
+				->join('package_type_master','package_type_master.package_type_id = room_rate_details.package_type_id','LEFT')
+				;
+		$query = $this->db->get();
+		if($query->num_rows()> 0)
+		{
+            foreach ($query->result() as $rows)
+			{
+				$data[] = $rows;
+            }
+            return $data;
+             
+        }
+		else
+		{
+             return $data;
+         }
+	}
+
+
+
+
+
+
 } // end of class
