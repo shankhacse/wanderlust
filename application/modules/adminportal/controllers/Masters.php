@@ -303,6 +303,9 @@ public function room()
                 $roomtypeID = 0;
                 $data['roomID'] = $roomtypeID;
 				$data['roomEditdata'] = [];
+				$data['roomserviceEditdata'] = [];
+				$data['roompackageList'] = [];
+				$data['studentDocumenDtl'] = [];
 				
 				
 				//getAllRecordWhereOrderBy($table,$where,$orderby)
@@ -323,13 +326,20 @@ public function room()
 				// getSingleRowByWhereCls(tablename,where params)
 				 $data['roomEditdata'] = $this->commondata_model->getSingleRowByWhereCls('room_master',$whereAry); 
 					//pre($data['roomEditdata']);exit;
-				
+
+				 $where_fac = array('room_facilities.room_id' => $roomID );
+				 $data['roomserviceEditdata'] = $this->commondata_model->getAllRecordWhere('room_facilities',$where_fac);
+				//pre($data['roomserviceEditdata']);exit;
+				 $data['roompackageList'] = [];
+				 $data['studentDocumenDtl'] = [];
 			}
 
 			$data['floorList'] = $this->commondata_model->getAllDropdownData('floor_master');
 			$data['roomtypeList'] = $this->commondata_model->getAllDropdownData('room_type');
+			$data['facilityList'] = $this->commondata_model->getAllDropdownData('facility_master');
+			$data['packageList'] = $this->commondata_model->getAllDropdownData('package_type_master');
 
-               
+          
 
 			$data['view_file'] = 'masters/room/room_add_edit.php';
             $this->template->admin_template($data);
@@ -349,22 +359,33 @@ public function room_action() {
 		 if($this->_authModel->is_logged_in()) 
 		{
 			$json_response = array();
-			$formData = $this->input->post('formDatas');
-			parse_str($formData, $dataArry);
+			
 
 		
-			$roomID = trim(htmlspecialchars($dataArry['roomID']));
-			$mode = trim(htmlspecialchars($dataArry['mode']));
+			$roomID = trim($this->input->post('roomID'));
+			$mode = trim($this->input->post('mode'));
 
-            $sel_floor = $dataArry['sel_floor'];
-            $sel_roomtype = $dataArry['sel_roomtype'];
-            $room_no = $dataArry['room_no'];
-            $short_desc = $dataArry['short_desc'];
-            $price = $dataArry['price'];
-            $full_desc = $dataArry['full_desc'];
-            $max_adult = $dataArry['max_adult'];
-            $max_child = $dataArry['max_child'];
+            $sel_floor = $this->input->post('sel_floor');
+            $sel_roomtype = $this->input->post('sel_roomtype');
+            $room_no = $this->input->post('room_no');
+            $short_desc = $this->input->post('short_desc');
+            //$price = $dataArry['price'];
+            $full_desc = $this->input->post('full_desc');
+            $max_adult = $this->input->post('max_adult');
+            $max_child = $this->input->post('max_child');
+            $sel_facility = $this->input->post('sel_facility');
+            $packagetypeidid = $this->input->post('packagetypeidid');
+            $listamount = $this->input->post('listamount');
+            $userFilename = $this->input->post('userFileName');
+            $docFile =  $_FILES;
 
+           	$isFileChanged = $this->input->post('isChangedFile');
+				
+
+            
+
+
+           
 				if($roomID>0 && $mode=="EDIT")
 				{
 					/*  EDIT MODE
@@ -379,7 +400,7 @@ public function room_action() {
                                         'room_no' => $room_no,
                                         'room_short_desc' => $short_desc,
                                         'full_desc' => $full_desc,
-                                        'price' => $price,
+                                       
                                         'max_adult' => $max_adult,
                                         'max_child' => $max_child,
                                     
@@ -387,7 +408,66 @@ public function room_action() {
                        
                      );
 
-                        $update = $this->commondata_model->updateSingleTableData('room_master',$upd_array,$upd_where);
+                   $update = $this->commondata_model->updateSingleTableData('room_master',$upd_array,$upd_where);
+
+
+                    if (isset($sel_facility)) {
+
+                    	$where_del = array('room_facilities.room_id' =>$roomID );
+
+                    	$this->commondata_model->deleteTableData('room_facilities',$where_del);
+					
+					for ($i=0; $i < count($sel_facility); $i++) { 
+
+						$insert_array = array(
+                    	                'room_id' => $roomID,
+                                        'facility_id' => $sel_facility[$i],
+                                         );
+			
+					   $insertData2 = $this->commondata_model->insertSingleTableData('room_facilities',$insert_array);
+						
+
+					}
+
+				}
+
+
+
+				/* package type with rate */
+
+				if (isset($packagetypeidid)) {
+
+						$where_del = array('room_rate_details.room_id' =>$roomID );
+
+                    	$this->commondata_model->deleteTableData('room_rate_details',$where_del);
+					
+					for ($i=0; $i < count($packagetypeidid); $i++) { 
+
+						$insert_array_pac = array(
+                    	                'room_id' => $roomID,
+                                        'rate' => $listamount[$i],
+                                        'package_type_id' => $packagetypeidid[$i],
+                                         );
+			
+					   $insertData3 = $this->commondata_model->insertSingleTableData('room_rate_details',$insert_array_pac);
+						
+
+					}
+
+
+				}
+
+				$imageData = array(
+            					'mode' => $mode, 
+            					'roomID' => $roomID, 
+            					'userFilename' => $userFilename, 
+            					'docFile' => $docFile, 
+            					'isFileChanged' => $isFileChanged, 
+            				  );
+					
+					/* image upload */
+
+					$this->master_model->insertIntoRoomImage($imageData);
 					
 					
 					if($update)
@@ -420,7 +500,7 @@ public function room_action() {
                                         'room_no' => $room_no,
                                         'room_short_desc' => $short_desc,
                                         'full_desc' => $full_desc,
-                                        'price' => $price,
+                                       
                                         'max_adult' => $max_adult,
                                         'max_child' => $max_child,
                                         'created_on' => date('Y-m-d'),
@@ -428,6 +508,57 @@ public function room_action() {
                                          );
 			
 					$insertData = $this->commondata_model->insertSingleTableData('room_master',$insert_array);
+
+
+				if (isset($sel_facility)) {
+					
+					for ($i=0; $i < count($sel_facility); $i++) { 
+
+						$insert_array = array(
+                    	                'room_id' => $insertData,
+                                        'facility_id' => $sel_facility[$i],
+                                         );
+			
+					   $insertData2 = $this->commondata_model->insertSingleTableData('room_facilities',$insert_array);
+						
+
+					}
+
+				}
+
+
+				/* package type with rate */
+
+				if (isset($packagetypeidid)) {
+					
+					for ($i=0; $i < count($packagetypeidid); $i++) { 
+
+						$insert_array_pac = array(
+                    	                'room_id' => $insertData,
+                                        'rate' => $listamount[$i],
+                                        'package_type_id' => $packagetypeidid[$i],
+                                         );
+			
+					   $insertData3 = $this->commondata_model->insertSingleTableData('room_rate_details',$insert_array_pac);
+						
+
+					}
+
+
+				}
+
+
+				$imageData = array(
+            					'mode' => $mode, 
+            					'roomID' => $roomID, 
+            					'userFilename' => $userFilename, 
+            					'docFile' => $docFile, 
+            					'isFileChanged' => $isFileChanged, 
+            				  );
+					
+					/* image upload */
+
+					$this->master_model->insertIntoRoomImage($imageData);
 					
 
 					if($insertData)
@@ -639,7 +770,52 @@ public function roomrate_action() {
     } 
 
 
+public function addRoomPackageDetail()
+    {
+        if($this->_authModel->is_logged_in())
+        {
+          
+        
 
+            $data['rowno'] = $this->input->post('rowNo');
+
+            $data['sel_package_type'] = $this->input->post('sel_package_type');
+            $data['package_name'] = $this->input->post('package_name');
+          
+            $data['rate'] = $this->input->post('rate');
+            $data['packageList'] = $this->commondata_model->getAllDropdownData('package_type_master');
+
+
+            $page = 'masters/room/package_details_partial_view.php';
+           
+            $viewTemp = $this->load->view($page,$data,TRUE);
+            echo $viewTemp;
+        }
+        else
+        {
+            redirect('adminpanel','refresh');
+        }
+    }
+
+
+
+  public function addRoomImages()
+	{
+		if($this->_authModel->is_logged_in())
+		{
+
+			$row_no = $this->input->post('rowNo');
+			$data['rowno'] = $row_no;
+			$data['documentTypeList'] = [];
+			//$this->load->view('dashboard/equipment/equipment_detail_add_view');
+			$viewTemp = $this->load->view('masters/room/add_room_image_partial_view.php',$data);
+			echo $viewTemp;
+		}
+		else
+		{
+			redirect('adminpanel','refresh');
+		}
+	}
 
 
 
