@@ -93,12 +93,10 @@ public function getRoomRateList()
 
 		//$dir1 = $_SERVER['DOCUMENT_ROOT'].'/assets/img/room'; //server
 
-		$dir1 = $_SERVER['DOCUMENT_ROOT'].'/wanderlust/assets/img/room'; //local
+	$dir1 = $_SERVER['DOCUMENT_ROOT'].'/wanderlust_new/assets/img/room'; //local
+	//	$dir1 = APPPATH.'assets/img/room'; 
 		
-		//echo "<br>";
-		//echo "Document ROOT : ". $dir ='http://prosikshan.in/images';
-		//exit;
-		
+	
 		$config = array(
 			'upload_path' => $dir1,
 			'allowed_types' => 'docx|doc|pdf|jpg|png|txt|xls|xlsx',

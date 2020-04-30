@@ -199,7 +199,7 @@
 <div class="search-area-box-2 search-area-box-6">
     <div class="container">
         <div class="search-contents">
-            <form method="GET">
+            <form action="<?php echo base_url();?>room/checkroom" method="GET">
                 <div class="row search-your-details">
                     <div class="col-lg-3 col-md-3">
                         <div class="search-your-rooms mt-20">
@@ -212,21 +212,25 @@
                         <div class="row">
                             <div class="col-md-4 col-sm-4 col-xs-6">
                                 <div class="form-group">
-                                    <input type="text" class="btn-default datepicker" placeholder="Check In">
+                                    <input type="text" class="btn-default datepicker" name="checkin_dt" placeholder="Check In">
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-4 col-xs-6">
                                 <div class="form-group">
-                                    <input type="text" class="btn-default datepicker" placeholder="Check Out">
+                                    <input type="text" class="btn-default datepicker" name="checkout_dt" placeholder="Check Out">
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-4 col-xs-6">
                                 <div class="form-group">
                                     <select class="selectpicker search-fields form-control-2" name="room">
                                         <option>Room</option>
-                                        <option>Single Room</option>
-                                        <option>Double Room</option>
-                                        <option>Deluxe Room</option>
+                                        <?php 
+                                            foreach ($room_type_list as $value) { ?>
+                                                  <option value="<?php echo $value->code; ?>"><?php echo $value->type; ?></option>                                            
+                                            <?php 
+                                            }
+                                        ?>
+                                     
                                     </select>
                                 </div>
                             </div>

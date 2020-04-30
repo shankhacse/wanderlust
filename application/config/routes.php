@@ -55,6 +55,8 @@ $route['default_controller'] = 'front/home/';
 $route['404_override'] = "";
 $route['translate_uri_dashes'] = FALSE;
 
+$route['room'] = 'front/room/index';
+$route['room/checkroom'] = 'front/room/checkroom';
 
 
 

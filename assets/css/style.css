@@ -2616,6 +2616,8 @@ footer ul {
 .fecilities li {
     list-style: none;
     line-height: 30px;
+    display: inline-block; /**/
+    margin: 0 4px;
 }
 
 .fecilities li i {

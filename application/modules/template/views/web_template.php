@@ -21,6 +21,7 @@
    
     <link rel="stylesheet" type="text/css" id="style_sheet" href="<?php echo base_url(); ?>/assets/css/skins/blue-light-2.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/css/web.css">
 
     <!-- Favicon icon -->
     <!-- <link rel="shortcut icon" href="<?php echo base_url(); ?>/assets/img/favicon.ico" type="image/x-icon" > -->
