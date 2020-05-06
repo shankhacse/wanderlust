@@ -102,17 +102,18 @@
                     <div class="col-sm-6">
                       <div class="form-group">
                         <label>Short Desc.</label>
-                        <input type="text" class="form-control form-control-sm" placeholder="" name="short_desc" id="short_desc" required value="<?php if($mode=='EDIT'){echo $roomEditdata->room_short_desc;}?>">
+                        <textarea class="form-control form-control-sm" placeholder="" name="short_desc" id="short_desc"><?php if($mode=='EDIT'){echo $roomEditdata->room_short_desc;}?></textarea>
+                        <!-- <input type="text" class="form-control form-control-sm" placeholder="" name="short_desc" id="short_desc" required value="<?php if($mode=='EDIT'){echo $roomEditdata->room_short_desc;}?>"> -->
                       </div>
                     </div>
                 
-                      <div class="col-sm-2">
+                      <div class="col-sm-3">
                       <div class="form-group">
                         <label>Max Adult</label>
                         <input type="text" class="form-control form-control-sm" placeholder="" name="max_adult" id="max_adult" required value="<?php if($mode=='EDIT'){echo $roomEditdata->max_adult;}?>">
                       </div>
                     </div>
-                     <div class="col-sm-2">
+                     <div class="col-sm-3">
                       <div class="form-group">
                         <label>Max Child</label>
                         <input type="text" class="form-control form-control-sm" placeholder="" name="max_child" id="max_child" required value="<?php if($mode=='EDIT'){echo $roomEditdata->max_child;}?>">
@@ -173,6 +174,27 @@
 
                     
                   </div>
+
+                  <div class="row">
+                      <div class="col-md-8 col-sm-12 col-xs-12">                                   
+                           <div class="form-group"> 
+                               <label for="room_cover_image">Room Cover Photo</label> 	
+
+                               <input type="file" name="room_cover_image" class="file fileName" id="room_cover_image" accept='image/*'>
+
+                               <div class="input-group col-xs-12">		
+                             
+                               <input type="text" name="cover_photo" id="cover_photo" class="form-control input-xs userfilesname" readonly placeholder="Upload Image" value="<?php if($mode == "EDIT"){ echo $roomEditdata->cover_photo; } ?>">					
+                                    <span class="input-group-btn">
+                                        <button class="browse btn btn-primary input-xs" type="button" id="uploadBtn">
+                                          <i class="fa fa-folder-open" aria-hidden="true"></i>
+                                        </button>
+                                      </span>
+                              </div>
+                                   </div>
+                                   <p id="imageerr"></p>
+                          </div>
+                      </div>
 
 
                    <div class="row">
@@ -263,86 +285,54 @@
                   <?php 
                         if ($roompackageList) {
                           $sl=1;
-                          foreach ($bodycontent['accountHeadList'] as $accountheadlist) {
+                          foreach ($roompackageList as $roompackageList) {
                          
 
                   ?>
 
 
-    <tr id="rowItemdetails_<?php echo $rowno; ?>" class="itemDtlCls" >
+                <tr id="rowItemdetails_<?php echo $rowno; ?>" class="itemDtlCls" >
 
-      <td style="text-align: left;"> 
-        
-          <span id="serial_<?php echo $rowno; ?>"><?php echo $sl++;?></span> 
-                        
-    </td>
-
-    
-    <td style="text-align: left;width: 20%"> 
-    <input type="hidden" class="listaccountid" name="listaccountid[]" id="listaccountid_<?php echo $rowno; ?>" value="<?php echo $accountheadlist->account_master_id;?>"> 
-
-       <div class="form-group dispblock_<?php echo $rowno; ?>" style="display: none;">
-             <div class="input-group input-group-sm"> 
-                 
-                  <select class="form-control select2" name="acdroplist[]" id="acdroplist_<?php echo $rowno; ?>">
-                   
-                     <?php 
-                              foreach ($bodycontent['allaccountList'] as $allaccountlist) {
-                              
-                               ?>
-                               <option value="<?php echo $allaccountlist->account_id;?>" 
-                                <?php if($allaccountlist->account_id == $accountheadlist->account_master_id){
-                                    echo 'selected';
-                                } ?>>
-                               
-                               <?php echo $allaccountlist->account_name;?></option>
-
-                              <?php } ?>
-                  </select>
-
-
-               </div>
-         </div> 
+                <td style="text-align: left;"> 
+                    
+                  <span id="serial_<?php echo $rowno; ?>"><?php echo $sl++;?></span>                  
+                </td>
 
 
 
+                <td style="text-align: left;width: 20%"> 
+                <input type="hidden" class="packagetypeidid" name="packagetypeidid[]" id="packagetypeidid_<?php echo $rowno; ?>" value="<?php echo $roompackageList->package_type_id;?>"> 
 
-    
-     <span class="showdata_<?php echo $rowno; ?>"><?php echo $accountheadlist->account_name;?></span>                    
-    </td>
-  
 
-     <td style="text-align: right;"> 
-    <input type="hidden" class="listamount" name="listamount[]" id="listamount_<?php echo $rowno; ?>" value="<?php echo $accountheadlist->amount;?>">    
-     <div class="form-group dispblock_<?php echo $rowno; ?>" style="display: none;">
-            <div class="input-group input-group-sm"> 
-                <input type="text" class="form-control listamounted editchilddtl_<?php echo $rowno; ?>" name="listamounted[]" id="listamounted_<?php echo $rowno; ?>" value="<?php echo $accountheadlist->amount;?>"  onKeyUp="numericFilter(this);"> 
-             </div>
-         </div>
-     
-     <span class="showdata2_<?php echo $rowno; ?>"><?php echo $accountheadlist->amount;?></span>                    
-    </td>
+                <span class="showdata_<?php echo $rowno; ?>"><?php echo $roompackageList->package_name;?></span>        		        
+                </td>
 
-  
-         
 
-            <td style="vertical-align: middle;text-align: center;">
-             
-<a href="javascript:;" class="editchilddetails" id="editDocRow_<?php echo $rowno; ?>" title="edit"> <i class="far fa-edit" style="color: #d04949;; font-weight:700;"></i>
-     </a>&emsp;
+                <td style="text-align: right;"> 
+                <input type="hidden" class="listamount" name="listamount[]" id="listamount_<?php echo $rowno; ?>" value="<?php echo $roompackageList->rate;?>">    
 
-      <a href="javascript:;" class="delDetails" id="delDocRow_<?php echo $rowno; ?>" title="Delete">
-     
-      <i class="far fa-trash-alt" style="color: #d04949;; font-weight:700;"></i>
-         
+                
+                <span class="showdata2_<?php echo $rowno; ?>"><?php echo $roompackageList->rate;?></span>                    
+                </td>
 
-        </a>
-        
-        
-      </td>       
-        
-    
-    </tr>
+
+                    
+
+                        <td style="vertical-align: middle;text-align: center;">
+
+
+                  <a href="javascript:;" class="delDetails" id="delDocRow_<?php echo $rowno; ?>" title="Delete">
+                
+                  <i class="far fa-trash-alt" style="color: #d04949;; font-weight:700;"></i>
+                      
+
+                    </a>
+                    
+                    
+                  </td>				
+                    
+
+                </tr>
 
 
 
@@ -382,13 +372,13 @@
               
 
                   <!-- input states -->
-
-                  <br>
+                
+                    <p id="roomimagegal" style="text-align:right;"></p>
                     <div class="card-header">
                 <h3 class="card-title">Room Gallery</h3>
               </div>
 
-
+               
               <!-- Add document-->
    <div class="box-body">
                  <div class="row">
@@ -404,6 +394,7 @@
              <div id="detail_Document">
             <div class="table-responsive">
             <?php
+            $rowno = 0;
               $detailCount = 0;
               if($mode=="EDIT")
               {
@@ -421,7 +412,7 @@
               }
             ?>
 
-              <table class="table table-bordered " role="grid" aria-describedby="datatable_info" style="<?php echo $style_var; ?>">
+              <table id="imagegally" class="table table-bordered " role="grid" aria-describedby="datatable_info" style="<?php echo $style_var; ?>">
                     <thead>
                       
                         <tr>
@@ -436,65 +427,49 @@
 
                 if($detailCount>0)
                 {
-                  foreach ($bodycontent['studentDocumenDtl'] as $key => $value) 
-                  {
+                  foreach ($studentDocumenDtl as $key => $value) 
+                  { 
                     
                 ?>
                 
-                <tr id="rowDocument_<?php echo $value->id; ?>_<?php echo $value->upload_from_module_id; ?>">
+                <tr id="rowDocument_0_<?php echo $rowno; ?>">
                   <td>
-                    <select name="docType[]" id="docType_<?php echo $value->id; ?>_<?php echo $value->upload_from_module_id; ?>" class="form-control custom_frm_input docType">
-                      <option value="0">Select</option>
-                        <?php
-                          foreach ($bodycontent['documentTypeList'] as  $docs) { ?>
-                            <option value="<?php echo $docs->id; ?>" <?php if($value->document_type_id==$docs->id){echo "selected";}else{echo "";}?>><?php echo $docs->document_type; ?></option>
-                        <?php }
-                        ?>
-                    </select>
-                    <input type="hidden" name="prvFilename[]" id="prvFilename_<?php echo $value->id; ?>_<?php echo $value->upload_from_module_id; ?>" class="form-control prvFilename" value="<?php echo $value->user_file_name; ?>" readonly >
-
-                    <input type="hidden" name="randomFileName[]" id="randomFileName_<?php echo $value->id; ?>_<?php echo $value->upload_from_module_id; ?>" class="form-control randomFileName" value="<?php echo $value->random_file_name; ?>" readonly >
-
-                    <input type="hidden" name="docDetailIDs[]" id="docDetailIDs_<?php echo $value->id; ?>_<?php echo $value->upload_from_module_id; ?>" class="form-control randomFileName" value="<?php echo $value->id; ?>" readonly >
-                  </td>
-                  <td>
-
-                    
-
-                    <input type="file" name="fileName[]" class="file fileName" id="fileName_<?php echo $value->id; ?>_<?php echo $value->upload_from_module_id; ?>" accept='image/*'>
-                    <div class="input-group col-xs-12">
-                       
-
-                      <input type="text" name="userFileName[]" id="userFileName_<?php echo $value->id; ?>_<?php echo $value->upload_from_module_id; ?>" class="form-control input-xs userFileName" readonly placeholder="Upload Document" value="<?php echo $value->user_file_name; ?>" >
-
-                     
+                      <input type="hidden" name="galleryIDs[]" id="galleryIDs_0_<?php echo $rowno; ?>" value="<?php if($mode == "EDIT"){ echo $value->id; } ?>" >
                       
-                      <input type="hidden" name="isChangedFile[]" id="isChangedFile_<?php echo $value->id; ?>_<?php echo $value->upload_from_module_id; ?>" value="N" >
+                      <input type="hidden" name="prvFilename[]" id="prvFilename_0_<?php echo $rowno; ?>" class="form-control prvFilename" value="" readonly >
 
-                          <span class="input-group-btn">
-                          <button class="browse btn btn-primary input-xs" type="button" id="uploadBtn_<?php echo $value->id; ?>_<?php echo $value->upload_from_module_id; ?>">
+                      <input type="hidden" name="randomFileName[]" id="randomFileName_0_<?php echo $rowno; ?>" class="form-control randomFileName" value="" readonly >
+
+                      <input type="hidden" name="docDetailIDs[]" id="docDetailIDs_0_<?php echo $rowno; ?>" class="form-control randomFileName" value="0" readonly >
+                
+                    <input type="file" name="fileName[]" class="file fileName" id="fileName_0_<?php echo $rowno; ?>" accept='image/*'>
+                    <div class="input-group col-xs-12">
+                        <!--  <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span> -->
+                      <input type="text" name="userFileName[]" id="userFileName_0_<?php echo $rowno; ?>" class="form-control input-xs userFileName" readonly placeholder="Upload Image" value="<?php if($mode == "EDIT"){ echo $value->large_image; } ?>" >
+
+                        <input type="hidden" name="isChangedFile[]" id="isChangedFile_0_<?php echo $rowno; ?>" value="Y" >
+                        <span class="input-group-btn">
+                          <button class="browse btn btn-primary input-xs" type="button" id="uploadBtn_0_<?php echo $rowno; ?>">
                               <i class="fa fa-folder-open" aria-hidden="true"></i>
                         </button>
                           </span>
-
                     </div>
                   </td>
-                  <td>
-                    <textarea style="height: 35px;" name="fileDesc[]" id="fileDesc_<?php echo $value->id; ?>_<?php echo $value->upload_from_module_id; ?>" class="form-control custom_frm_input dtl_txt_area_trainer"><?php echo $value->uploaded_file_desc; ?></textarea>
-                  </td>
+                
                   <td style="vertical-align: middle;">
-                    <a href="javascript:;" class="delDocType" id="delDocRow_<?php echo $value->id; ?>_<?php echo $value->upload_from_module_id; ?>" title="Delete">
-                      <span class="glyphicon glyphicon-trash"></span>
+                    <a href="javascript:;" class="delDocType" id="delDocRow_0_<?php echo $rowno; ?>" title="Delete">
+                      <i class="far fa-trash-alt" style="color: #d04949;; font-weight:700;"></i>
                     </a>
                   </td>
                 </tr>
 
-              <?php   
+              <?php   $rowno++;
                   }
                 }
 
                   ?>
-
+                    <input type="hidden" name="rowNo" id="rowNo" value="<?php echo $rowno; ?>">
+                    <input type="hidden" name="gallerydelIDs" id="gallerydelIDs" value="0" >
                    </tbody>
                 </table>
             </div>

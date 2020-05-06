@@ -299,7 +299,7 @@ $(document).on('submit','#RoomRateForm',function(e){
 
 // Add Room image
     $(document).on('click','.addRoomImage',function(){
-        rowNoUpload++;
+        rowNoUpload  = $("#rowNo").val();
         $.ajax({
             type: "POST",
             url: basepath+'masters/addRoomImages',
@@ -308,7 +308,8 @@ $(document).on('submit','#RoomRateForm',function(e){
             success: function (result) {
 
                 $("#detail_Document table").css("display","block"); 
-                $("#detail_Document table tbody").append(result);   
+                $("#detail_Document table tbody").append(result);
+                $("#rowNo").val(parseInt(rowNoUpload)+1);   
 
             }, 
             error: function (jqXHR, exception) {
@@ -335,10 +336,12 @@ $(document).on('submit','#RoomRateForm',function(e){
 
 
 
-
+var delIds = [];
     $(document).on('click','.delDocType',function(){
         var currRowID = $(this).attr('id');
         var rowDtlNo = currRowID.split('_');
+        delIds.push($("#galleryIDs_0_"+rowDtlNo[2]).val());
+       $("#gallerydelIDs").val(delIds);       
         $("tr#rowDocument_"+rowDtlNo[1]+"_"+rowDtlNo[2]).remove();
     });
     
@@ -370,19 +373,32 @@ $(document).on('submit','#RoomRateForm',function(e){
 function RoomImageValidation()
 {
     var isValid = true;
+    var cover_photo = $("#cover_photo").val();
+    var imagegallryrow = $("#imagegally >tbody >tr").length
+    $("#imageerr,#roomimagegal").text("");
+  
+   if(cover_photo == ''){
+       $("#imageerr").text("Error : Select Room Cover Photo").css("color","red");
+       isValid = false;
+      
+   }else if(imagegallryrow < 3){
+
+     $("#roomimagegal").text("Error : Add Minimum 3 Room Gallery Photo").css("color","red");
+     isValid = false;
+   
+   }
+   
     $('.userFileName').each(function() 
     {
         var doctype_id = $(this).attr('id');
         var docTypeIDS = doctype_id.split("_");
         var docTypeVal = $(this).val();
       
-
+      
      
         var tdIDS2 = "#userFileName_"+docTypeIDS[1]+"_"+docTypeIDS[2];
 
         var filename = $(tdIDS2).val();
-
-
 
         if(filename=="")
         {

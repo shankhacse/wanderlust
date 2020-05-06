@@ -2,7 +2,7 @@
 
 		<tr id="rowDocument_0_<?php echo $rowno; ?>">
 			<td>
-			
+			       <input type="hidden" name="galleryIDs[]" id="galleryIDs_0_<?php echo $rowno; ?>" value="0" >
 					<input type="hidden" name="prvFilename[]" id="prvFilename_0_<?php echo $rowno; ?>" class="form-control prvFilename" value="" readonly >
 
 					<input type="hidden" name="randomFileName[]" id="randomFileName_0_<?php echo $rowno; ?>" class="form-control randomFileName" value="" readonly >

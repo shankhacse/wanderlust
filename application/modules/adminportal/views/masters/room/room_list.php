@@ -38,15 +38,19 @@
                 	?>
                    <tr>
                    <td><?php echo $i++; ?></td>
-                   <td><?php echo $roomlist->floor_name; ?></td>
-                   <td><?php echo $roomlist->type; ?></td>
-                   <td><?php echo $roomlist->room_no; ?></td>
-                   <td><?php echo $roomlist->price; ?></td>
+                   <td><?php echo $roomlist['floor_name']; ?></td>
+                   <td><?php echo $roomlist['room_type']; ?></td>
+                   <td><?php echo $roomlist['room_no']; ?></td>
+                   <td><?php foreach ($roomlist['price'] as $price) { 
+                     echo "Package Type : ".$price->package_name."&emsp;"."Rate : ".$price->rate; 
+                     echo "<br>";
+                     
+                   } ?></td>
                    
                    
                    <td>
                     
-                   <a href="<?php echo base_url(); ?>adminportal/masters/addRoom/<?php echo $roomlist->room_id; ?>" class="btn tbl-action-btn padbtn">
+                   <a href="<?php echo base_url(); ?>adminportal/masters/addRoom/<?php echo $roomlist['room_id']; ?>" class="btn tbl-action-btn padbtn">
                   <i class="fas fa-edit"></i> 
                 </a>
                   

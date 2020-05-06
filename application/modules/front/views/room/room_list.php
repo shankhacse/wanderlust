@@ -104,17 +104,17 @@
 
                 <?php 
                    // pre($room_list);
-                    if(sizeof($room_list)>0) {
+                    if(sizeof($room_list)>0) {  // print_r($room_list);exit;
                         foreach($room_list as $rooms){ ?>
-
+                       
                 <div class="hotel-box-list">
                     <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 col-pad">
-                        <img src="<?php echo base_url(); ?>assets/img/room/old/img-15.jpg" alt="rooms-col-1" class="img-responsive" style="width:80%;">
+                        <img src="<?php echo base_url(); ?>assets/img/room/cover-photo/<?php echo $rooms["room"]->cover_photo; ?>" alt="rooms-col-1" class="img-responsive" style="width:81%;">
                         <div>
                             <ul class="room_search_gallery_thumbnail">
-                                <li><img src="<?php echo base_url(); ?>assets/img/room/old/img-15.jpg" alt="rooms-col-1" class="img-responsive" style="width:100px;height:100px;"></li>
-                                <li><img src="<?php echo base_url(); ?>assets/img/room/old/img-15.jpg" alt="rooms-col-1" class="img-responsive" style="width:100px;height:100px;"></li>
-                                <li><img src="<?php echo base_url(); ?>assets/img/room/old/img-15.jpg" alt="rooms-col-1" class="img-responsive" style="width:100px;height:100px;"></li>
+                            <?php  foreach($rooms["room_gallery"] as $roomgallery){ ?>
+                                <li><img src="<?php echo base_url(); ?>assets/img/room/<?php echo $roomgallery->large_image; ?>" alt="rooms-col-1" class="img-responsive" style="width:100px;height:100px;"></li>
+                            <?php } ?>
                             </ul>
                         </div>  
                     </div>
@@ -132,15 +132,15 @@
 
                         <p><?php echo $rooms["room"]->room_short_desc; ?></p>
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <ul class="fecilities">
-                                    <?php 
-                                        foreach($rooms['room_facilities'] as $facilities){  ?>
+                                    <?php $i=0;
+                                        foreach($rooms['room_facilities'] as $facilities){ if($i % 2 == 0){ echo "<br>"; } ?>
                                         <li>
                                             <i class="flaticon-air-conditioning"></i>
                                         <?php echo $facilities->name; ?>
                                         </li>
-                                    <?php
+                                    <?php $i++;
                                         }
                                     ?>
                                 </ul>

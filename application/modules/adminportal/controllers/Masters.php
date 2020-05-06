@@ -277,6 +277,7 @@ public function room()
 		{
 			
 			$data['roomList'] = $this->master_model->getAllRoomMasterList();
+			//pre($data['roomList']);exit;
             $data['view_file'] = 'masters/room/room_list';
             $this->template->admin_template($data);
 		}
@@ -329,9 +330,15 @@ public function room()
 
 				 $where_fac = array('room_facilities.room_id' => $roomID );
 				 $data['roomserviceEditdata'] = $this->commondata_model->getAllRecordWhere('room_facilities',$where_fac);
-				//pre($data['roomserviceEditdata']);exit;
-				 $data['roompackageList'] = [];
-				 $data['studentDocumenDtl'] = [];
+			
+				
+				 $data['roompackageList'] = $this->master_model->getAllroompackageList($roomID);
+
+				  //pre($data['roompackageList']);exit;
+
+				 $where_gal = array('room_id' => $roomID );
+				 $data['studentDocumenDtl'] = $this->commondata_model->getAllRecordWhere('room_gallery',$where_gal);
+					//pre($data['studentDocumenDtl']);exit;
 			}
 
 			$data['floorList'] = $this->commondata_model->getAllDropdownData('floor_master');
@@ -379,10 +386,14 @@ public function room_action() {
             $userFilename = $this->input->post('userFileName');
             $docFile =  $_FILES;
 
-           	$isFileChanged = $this->input->post('isChangedFile');
-				
+			   $isFileChanged = $this->input->post('isChangedFile');
+			   //adde by anil on 01-05-2020
 
-            
+			   $cover_photo = $this->input->post('cover_photo');
+			   $galleryIDs = $this->input->post('galleryIDs');
+			   $gallerydelIDs = $this->input->post('gallerydelIDs');
+				
+             // pre($cover_photo);exit;
 
 
            
@@ -391,7 +402,15 @@ public function room_action() {
 					/*  EDIT MODE
 					 *	-----------------
 					*/
+					$coverimageData = array(				
+						 'docFile' => $docFile						 
+						
+					  );
+			//
+			/* image upload */
 
+			      $cover_photo = $this->master_model->UploadRoomCoverImage($coverimageData,$cover_photo);
+				
 					$upd_where = array('room_master.room_id' =>$roomID);
 
                     $upd_array = array(
@@ -402,7 +421,8 @@ public function room_action() {
                                         'full_desc' => $full_desc,
                                        
                                         'max_adult' => $max_adult,
-                                        'max_child' => $max_child,
+										'max_child' => $max_child,
+										'cover_photo'=> $cover_photo
                                     
                        
                        
@@ -462,12 +482,13 @@ public function room_action() {
             					'roomID' => $roomID, 
             					'userFilename' => $userFilename, 
             					'docFile' => $docFile, 
-            					'isFileChanged' => $isFileChanged, 
+								'isFileChanged' => $isFileChanged,
+								'galleryIDs'=>$galleryIDs 
             				  );
 					
 					/* image upload */
 
-					$this->master_model->insertIntoRoomImage($imageData);
+					$this->master_model->insertIntoRoomImage($imageData,$gallerydelIDs);
 					
 					
 					if($update)
@@ -493,7 +514,14 @@ public function room_action() {
 					/*  ADD MODE
 					 *	-----------------
 					*/
+					$coverimageData = array(				
+						'docFile' => $docFile, 
+					   
+					 );
+		   //print_r($coverimageData);exit;
+		   /* image upload */
 
+				 $cover_photo = $this->master_model->UploadRoomCoverImage($coverimageData,$cover_photo);
                     $insert_array = array(
                     	                'floor_id' => $sel_floor,
                                         'room_type_id' => $sel_roomtype,
@@ -503,7 +531,8 @@ public function room_action() {
                                        
                                         'max_adult' => $max_adult,
                                         'max_child' => $max_child,
-                                        'created_on' => date('Y-m-d'),
+										'created_on' => date('Y-m-d'),
+										'cover_photo'=> $cover_photo
                                          
                                          );
 			
@@ -550,15 +579,16 @@ public function room_action() {
 
 				$imageData = array(
             					'mode' => $mode, 
-            					'roomID' => $roomID, 
+            					'roomID' => $insertData, 
             					'userFilename' => $userFilename, 
             					'docFile' => $docFile, 
-            					'isFileChanged' => $isFileChanged, 
+								'isFileChanged' => $isFileChanged,
+								'galleryIDs'=>$galleryIDs  
             				  );
 					
 					/* image upload */
 
-					$this->master_model->insertIntoRoomImage($imageData);
+					$this->master_model->insertIntoRoomImage($imageData,$gallerydelIDs);
 					
 
 					if($insertData)
@@ -805,7 +835,7 @@ public function addRoomPackageDetail()
 		{
 
 			$row_no = $this->input->post('rowNo');
-			$data['rowno'] = $row_no;
+			$data['rowno'] = $row_no+1;
 			$data['documentTypeList'] = [];
 			//$this->load->view('dashboard/equipment/equipment_detail_add_view');
 			$viewTemp = $this->load->view('masters/room/add_room_image_partial_view.php',$data);
