@@ -39,5 +39,25 @@ class Room extends MY_Controller {
 
     }
 
+    function room_booking(){
+        $check_in_dt = $this->input->get('checkin_dt');
+         $checkout_dt = $this->input->get('checkout_dt');
+         $room_type = $this->input->get('room');
+         $adults = $this->input->get('adults');
+         $children = $this->input->get('children');
+
+
+         $data['check_in_dt'] =  $check_in_dt;
+         $data['checkout_dt'] =  $checkout_dt;
+         $data['room_type'] =  $room_type;
+         $data['audults_no'] =  $adults;
+         $data['children_no'] =  $children;
+         $data['room_type_list'] = $this->_commonQueryModel->getAllDropdownData('room_type');
+     
+        $data['room_list'] =  $this->_roomModel->getRoomsListBysearch($check_in_dt,$checkout_dt,$room_type);
+        $data['view_file'] = 'room/room_booking';
+        $this->template->web_template($data);
+    }
+
    
 }

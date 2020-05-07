@@ -13,7 +13,9 @@
 </div>
 <!-- Sub Banner end -->
 
-
+<?php 
+ 
+?>
 <!-- Search area box 2 start -->
 <div class="search-area-box-2 search-area-box-6">
     <div class="container">
@@ -58,11 +60,8 @@
                                 <div class="form-group">
                                     <select class="selectpicker search-fields form-control-2" name="adults">
                                         <option>Adult</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
+                                        <option <?php if($audults_no == 1){echo "selected";} ?>>1</option>
+                                        <option <?php if($audults_no == 2){echo "selected";} ?>>2</option>
                                     </select>
                                 </div>
                             </div>
@@ -70,11 +69,8 @@
                                 <div class="form-group">
                                     <select class="selectpicker search-fields form-control-2" name="children">
                                         <option>Child</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
+                                        <option <?php if($children_no == 1){echo "selected";} ?>>1</option>
+                                        <option <?php if($children_no == 2){echo "selected";} ?>>2</option>
                                     </select>
                                 </div>
                             </div>
@@ -150,7 +146,7 @@
                         
 
                         <div class="hiddenmt-15 pull-right">
-                            <a href="blog-details.html" class="read-more-btn">Read more...</a>
+                            <a href="<?php echo base_url();?>room/room_booking?checkin_dt=<?php echo $check_in_dt; ?>&checkout_dt=<?php echo $check_in_dt; ?>&room=<?php echo $room_type; ?>&adults=<?php echo $audults_no; ?>&children=<?php echo $children_no; ?>" class="read-more-btn">Book Now</a>
                         </div>
 
                     </div>

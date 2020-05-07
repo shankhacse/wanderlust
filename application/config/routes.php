@@ -57,20 +57,4 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['room'] = 'front/room/index';
 $route['room/checkroom'] = 'front/room/checkroom';
-
-
-
-
-// require_once( BASEPATH .'database/DB'. EXT );
-// $db =& DB();
-// $query = $db->query( 'select * from web_menu_master where web_menu_master.menu_type="DIST"');
-
-// $result = $query->result();
-// //print_r($result);
-// foreach( $result as $row )
-// {
-//     $route[ strtolower($row->link).'/(:any)' ] = 'front/pages/index/$1';
-//     $route[ strtolower($row->link) ] = 'front/pages/index';
-// }
-
- 
+$route['room/room_booking'] = 'front/room/room_booking';
