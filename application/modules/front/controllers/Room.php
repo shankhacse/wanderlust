@@ -45,6 +45,7 @@ class Room extends MY_Controller {
          $room_type = $this->input->get('room');
          $adults = $this->input->get('adults');
          $children = $this->input->get('children');
+         $room_id = $this->input->get('id');
 
 
          $data['check_in_dt'] =  $check_in_dt;
@@ -53,7 +54,15 @@ class Room extends MY_Controller {
          $data['audults_no'] =  $adults;
          $data['children_no'] =  $children;
          $data['room_type_list'] = $this->_commonQueryModel->getAllDropdownData('room_type');
-     
+        
+         $data['RoomFacilities'] = $this->_roomModel->getRoomFacilities($room_id);
+         $data['RoomGallery'] = $this->_roomModel->getRoomGallery($room_id);
+         $data['RoomPrices'] = $this->_roomModel->getRoomPrices($room_id);
+         $data['roommaster'] = $this->_roomModel->GetRoomDtl($room_id);
+         //$data['roommaster'] = $this->_roomModel->GetRoomDtl($room_id);
+        
+        
+        //pre($data['RoomPrices']);exit;
         $data['room_list'] =  $this->_roomModel->getRoomsListBysearch($check_in_dt,$checkout_dt,$room_type);
         $data['view_file'] = 'room/room_booking';
         $this->template->web_template($data);

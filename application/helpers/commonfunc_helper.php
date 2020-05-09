@@ -393,6 +393,12 @@ if(!function_exists('getLoggedInuserID'))
 		}
 	}
 
-
+//added by anil on 07-05-2020 for front
+if (!function_exists('front_with_base_url'))
+{
+    function front_with_base_url() {
+        return base_url()."front/";
+    }
+}
 
 

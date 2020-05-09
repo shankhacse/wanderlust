@@ -128,25 +128,29 @@
 
                         <p><?php echo $rooms["room"]->room_short_desc; ?></p>
                         <div class="row">
-                            <div class="col-md-6">
-                                <ul class="fecilities">
+                          <div class="col-md-7">
+                          <div class="row">
                                     <?php $i=0;
                                         foreach($rooms['room_facilities'] as $facilities){ if($i % 2 == 0){ echo "<br>"; } ?>
-                                        <li>
-                                            <i class="flaticon-air-conditioning"></i>
-                                        <?php echo $facilities->name; ?>
-                                        </li>
+                                         <div class="col-md-6">
+                                           <ul class="fecilities" style="margin-bottom:5px;">
+                                                <li>
+                                                    <i class="<?php echo $facilities->icon; ?>"></i>
+                                                <?php echo $facilities->name; ?>
+                                                </li>
+                                        </ul>
+                                    </div>
                                     <?php $i++;
                                         }
                                     ?>
-                                </ul>
-                            </div>
+                                 </div>
+                                 </div>
                         </div>
 
                         
 
                         <div class="hiddenmt-15 pull-right">
-                            <a href="<?php echo base_url();?>room/room_booking?checkin_dt=<?php echo $check_in_dt; ?>&checkout_dt=<?php echo $check_in_dt; ?>&room=<?php echo $room_type; ?>&adults=<?php echo $audults_no; ?>&children=<?php echo $children_no; ?>" class="read-more-btn">Book Now</a>
+                            <a href="<?php echo base_url();?>room/room_booking?checkin_dt=<?php echo $check_in_dt; ?>&checkout_dt=<?php echo $check_in_dt; ?>&room=<?php echo $room_type; ?>&adults=<?php echo $audults_no; ?>&children=<?php echo $children_no; ?>&id=<?php echo $rooms["room"]->room_id; ?>" class="read-more-btn">Book Now</a>
                         </div>
 
                     </div>

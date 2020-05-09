@@ -1,3 +1,16 @@
 .room_search_gallery_thumbnail li {
     display:inline-block;
 }
+.errmsg{
+    color: #bb3131;
+font-size: 13px;
+font-weight: 567;
+}
+#roomdtl .nav-tabs > li.active > a {
+    
+    border-radius: unset !important;
+}
+#roomdtl .nav-tabs > li > a:hover {
+    background: #3ac4fa;
+    border-radius: unset;
+}

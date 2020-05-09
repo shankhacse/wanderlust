@@ -13,6 +13,7 @@ class Home extends MY_Controller {
 
     function index() {
         $data['view_file'] = 'home';
+       // $data['id'] = $this->uri->segment(2);       
         $data['room_type_list'] = $this->_commonQueryModel->getAllDropdownData('room_type');
 	 	$this->template->web_template($data);
     }

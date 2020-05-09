@@ -410,7 +410,7 @@ public function room_action() {
 			/* image upload */
 
 			      $cover_photo = $this->master_model->UploadRoomCoverImage($coverimageData,$cover_photo);
-				
+				 //pre($cover_photo);exit;
 					$upd_where = array('room_master.room_id' =>$roomID);
 
                     $upd_array = array(

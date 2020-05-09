@@ -105,4 +105,25 @@ class Room_model extends CI_Model  {
 		return $data;
 	}
 
+	public function GetRoomDtl($roomid) {
+		$data = [];
+		$where = array('room_master.room_id'=>$roomid);
+
+		$this->db->select("room_master.*,room_type.type,floor_master.floor_name")
+				->from('room_master')
+				->join('room_type','room_master.room_type_id = room_type.id','INNER')				
+				->join('floor_master','room_master.floor_id = floor_master.floor_id','LEFT')				
+                ->where($where);
+                
+		$query = $this->db->get();
+        if($query->num_rows() > 0) 
+		{
+            foreach($query->result() as $rows)
+            {
+                $data[] = $rows;
+            }
+        }
+		return $data;
+	}
+
 }

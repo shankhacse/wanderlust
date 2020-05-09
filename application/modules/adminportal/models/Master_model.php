@@ -219,6 +219,17 @@ public function insertIntoRoomImage($data,$gallerydelIDs)
        	for($i=0;$i<sizeof($data['docFile']['fileName']['name']);$i++)
         {    
 			 if($data['galleryIDs'][$i] != 0 && $_FILES['fileName']['name'][$i] != ''){
+
+				list($width, $height, $type, $attr) = getimagesize($_FILES['fileName']['tmp_name'][$i]);
+
+				$new_width = 750;
+				$new_height = 500;
+				$src = imagecreatefromstring( file_get_contents($_FILES['fileName']['tmp_name'][$i]));
+				$dst = imagecreatetruecolor($new_width, $new_height);
+				imagecopyresampled($dst, $src, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
+				imagedestroy( $src );
+				imagejpeg($dst,$_FILES['fileName']['tmp_name'][$i]); // adjust format as needed
+				imagedestroy( $dst );
              
       		$_FILES['images[]']['name']= $_FILES['fileName']['name'][$i];
             $_FILES['images[]']['type']= $_FILES['fileName']['type'][$i];
@@ -247,6 +258,17 @@ public function insertIntoRoomImage($data,$gallerydelIDs)
              		
             #echo $this->db->last_query();
             }else if($data['galleryIDs'][$i] == 0 && $_FILES['fileName']['name'][$i] != ''){
+
+				list($width, $height, $type, $attr) = getimagesize($_FILES['fileName']['tmp_name'][$i]);
+
+				$new_width = 750;
+				$new_height = 500;
+				$src = imagecreatefromstring( file_get_contents($_FILES['fileName']['tmp_name'][$i]));
+				$dst = imagecreatetruecolor($new_width, $new_height);
+				imagecopyresampled($dst, $src, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
+				imagedestroy( $src );
+				imagejpeg($dst,$_FILES['fileName']['tmp_name'][$i]); // adjust format as needed
+				imagedestroy( $dst );
 
 			$_FILES['images[]']['name']= $_FILES['fileName']['name'][$i];
             $_FILES['images[]']['type']= $_FILES['fileName']['type'][$i];
@@ -294,19 +316,32 @@ public function UploadRoomCoverImage($data,$coverphoto)
 		$images = array();
         $detail_array = array();	
        $count_docs = sizeof($data['docFile']['room_cover_image']['name']);
-       //$srl_no=1;
-       
+	   //$srl_no=1;
+	   //$tfilename = $_FILES['room_cover_image']['tmp_name'];
+	   list($width, $height, $type, $attr) = getimagesize($_FILES['room_cover_image']['tmp_name']);
+
+	   $new_width = 750;
+	   $new_height = 500;
+	   $src = imagecreatefromstring( file_get_contents($_FILES['room_cover_image']['tmp_name']));
+	   $dst = imagecreatetruecolor($new_width, $new_height);
+	   imagecopyresampled($dst, $src, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
+	   imagedestroy( $src );
+       imagejpeg($dst,$_FILES['room_cover_image']['tmp_name']); // adjust format as needed
+       imagedestroy( $dst );
+	   
+		//list($width, $height, $type, $attr) = getimagesize($_FILES['room_cover_image']['tmp_name']);
+		
       		$_FILES['images']['name']= $_FILES['room_cover_image']['name'];
             $_FILES['images']['type']= $_FILES['room_cover_image']['type'];
             $_FILES['images']['tmp_name']= $_FILES['room_cover_image']['tmp_name'];
             $_FILES['images']['error']= $_FILES['room_cover_image']['error'];
             $_FILES['images']['size']= $_FILES['room_cover_image']['size'];
 			$this->upload->initialize($config);
-			
+		
 			if ($this->upload->do_upload('images'))
 			{
 				
-               $file_detail = $this->upload->data();
+			   $file_detail = $this->upload->data();			 
                $file_name = $file_detail['file_name']; 
 			   return $file_name;
             }

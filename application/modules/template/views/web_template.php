@@ -34,6 +34,20 @@
 
    
     <script  src="<?php echo base_url(); ?>/assets/js/ie-emulation-modes-warning.js"></script>
+    <script  src="<?php echo base_url(); ?>/assets/js/jquery-2.2.0.min.js"></script>
+<script  src="<?php echo base_url(); ?>/assets/js/bootstrap.min.js"></script>
+<script  src="<?php echo base_url(); ?>/assets/js/bootstrap-submenu.js"></script>
+<script  src="<?php echo base_url(); ?>/assets/js/jquery.mb.YTPlayer.js"></script>
+<script  src="<?php echo base_url(); ?>/assets/js/wow.min.js"></script>
+<script  src="<?php echo base_url(); ?>/assets/js/bootstrap-select.min.js"></script>
+<script  src="<?php echo base_url(); ?>/assets/js/jquery.easing.1.3.js"></script>
+<script  src="<?php echo base_url(); ?>/assets/js/jquery.scrollUp.js"></script>
+<script  src="<?php echo base_url(); ?>/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script  src="<?php echo base_url(); ?>/assets/js/jquery.filterizr.js"></script>
+<script  src="<?php echo base_url(); ?>/assets/js/bootstrap-datepicker.min.js"></script>
+<script  src="<?php echo base_url(); ?>/assets/js/app.js"></script>
+
+    
 
 </head>
 <body>
@@ -136,7 +150,8 @@
                         </ul>
                         <ul class="nav navbar-nav navbar-right hidden-sm hidden-xs">
                             <li>
-                                <a class="btn-navbar btn btn-sm btn-white-sm-outline btn-round" href="javascript:;">Register</a>
+                            <a class="btn-navbar btn btn-sm btn-white-sm-outline btn-round" href="<?php echo base_url(); ?>front/Signup">Register</a>
+                                 
                             </li>
                           
                         </ul>
@@ -163,6 +178,8 @@
 <!-- Footer start -->
 <footer class="main-footer clearfix">
     <div class="container">
+    <input type="hidden" id="sitebasepath" value="<?php echo base_url(); ?>">
+    <input type="hidden" id="basepath" value="<?php echo front_with_base_url(); ?>">
         <!-- Footer info-->
         <div class="footer-info">
             <div class="row">
@@ -278,18 +295,7 @@
 </div>
 <!-- Copy end right-->
 
-<script  src="<?php echo base_url(); ?>/assets/js/jquery-2.2.0.min.js"></script>
-<script  src="<?php echo base_url(); ?>/assets/js/bootstrap.min.js"></script>
-<script  src="<?php echo base_url(); ?>/assets/js/bootstrap-submenu.js"></script>
-<script  src="<?php echo base_url(); ?>/assets/js/jquery.mb.YTPlayer.js"></script>
-<script  src="<?php echo base_url(); ?>/assets/js/wow.min.js"></script>
-<script  src="<?php echo base_url(); ?>/assets/js/bootstrap-select.min.js"></script>
-<script  src="<?php echo base_url(); ?>/assets/js/jquery.easing.1.3.js"></script>
-<script  src="<?php echo base_url(); ?>/assets/js/jquery.scrollUp.js"></script>
-<script  src="<?php echo base_url(); ?>/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
-<script  src="<?php echo base_url(); ?>/assets/js/jquery.filterizr.js"></script>
-<script  src="<?php echo base_url(); ?>/assets/js/bootstrap-datepicker.min.js"></script>
-<script  src="<?php echo base_url(); ?>/assets/js/app.js"></script>
+
 
 </body>
 </html>
