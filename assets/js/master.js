@@ -2,6 +2,12 @@ $(document).ready(function(){
     var basepath = $("#basepath").val();
     var rowNoUpload=0;
 
+    $('.numberwithdecimal').bind('keyup paste', function() {
+        this.value = this.value.replace(/[^0-9\.]/g, '');
+    });
+    $('.onlynumber').bind('keyup paste', function() {
+        this.value = this.value.replace(/[^0-9]/g, '');
+    });
 
     $(document).on('click', '.browse', function(){
       var file = $(this).parent().parent().parent().find('.file');

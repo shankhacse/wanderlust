@@ -226,7 +226,7 @@
                                         <option>Room</option>
                                         <?php 
                                             foreach ($room_type_list as $value) { ?>
-                                                  <option value="<?php echo $value->code; ?>"><?php echo $value->type; ?></option>                                            
+                                                  <option value="<?php echo $value->id; ?>"><?php echo $value->type; ?></option>                                            
                                             <?php 
                                             }
                                         ?>
@@ -238,11 +238,10 @@
                                 <div class="form-group">
                                     <select class="selectpicker search-fields form-control-2" name="adults">
                                         <option>Adult</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
+                                        <?php 
+                                        foreach(json_decode(NO_OF_ADULTS) as $key => $value) { ?> 
+                                        <option value="<?php echo $key;  ?>"><?php echo $value;  ?></option>
+                                        <?php } ?>
                                     </select>
                                 </div>
                             </div>
@@ -250,11 +249,10 @@
                                 <div class="form-group">
                                     <select class="selectpicker search-fields form-control-2" name="children">
                                         <option>Child</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
+                                        <?php 
+                                        foreach(json_decode(NO_OF_CHILD) as $key => $value) { ?> 
+                                        <option value="<?php echo $key;  ?>"><?php echo $value;  ?></option>
+                                        <?php } ?>
                                     </select>
                                 </div>
                             </div>

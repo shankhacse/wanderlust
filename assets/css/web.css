@@ -14,3 +14,420 @@ font-weight: 567;
     background: #3ac4fa;
     border-radius: unset;
 }
+.recommadedroom{
+    background: #ffffff;
+border: solid 1px #dddddd;
+margin-bottom: 10px;
+
+}
+
+.font16 {
+    font-size: 16px;
+    line-height: 16px;
+}
+.latoBlack {
+    font-weight: 900;
+}
+.latoRegular {
+    font-weight: 400;
+}
+.appendBottom5 {
+    margin-bottom: 5px;
+}
+.truncate {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.rrTopLeft {
+    flex: 1;
+}
+.rrTopRight {
+    width: 90px;
+    text-align: right;
+    position: relative;
+    flex-shrink: 0;
+}
+.appendRight10 {
+    margin-right: 10px;
+}
+.font12 {
+    font-size: 12px;
+    line-height: 12px;
+}
+.font14 {
+    font-size: 14px;
+    line-height: 14px;
+}
+.blackText {
+    color: #000000;
+}
+.appendTop5 {
+    margin-top: 5px;
+}
+.appendBottom2 {
+    margin-bottom: 2px;
+}
+.lineThrough {
+    text-decoration: line-through;
+}
+.rrTop {
+    padding: 13px 5px 6px 0px;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+}
+
+.font11 {
+    font-size: 11px;
+    line-height: 11px;
+}
+.rt {
+    background: #ffedd1;
+    padding: 11px 10px;
+    border-bottom: 1px #e9dac6 solid;
+    display: flex;
+}
+.rtLeft {
+    flex: 1;
+}
+.stripHeading {
+    width: 164px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.latoBold {
+    font-weight: 700;
+}
+.appendBottom4 {
+    margin-bottom: 4px;
+}
+.rtRight {
+    max-width: 90px;
+    text-align: right;
+}
+.makeFlex.vrtlCenter {
+        justify-content: center;
+}
+.otherRooms {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.blueText {
+    color: #0084ff;
+}
+.pointer {
+    cursor: pointer;
+}
+.fcTooltip__outer {
+    position: relative;
+}
+.primaryBtn {
+    border-radius: 34px;
+    background-image: linear-gradient(96deg, #53b2fe, #065af3);
+    box-shadow: 0 1px 7px 0 rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    flex-shrink: 0;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 900;
+    padding: 9px 20px;
+    cursor: pointer;
+    outline: 0;
+    border: 0;
+    text-align: center;
+}
+.whatGuestsSaid {
+    background-color: #ffffff;
+    border: solid 1px #dddddd;
+    padding: 9px 15px;
+    flex: 1;
+    cursor: pointer;
+}
+.makeFlex.spaceBetween {
+    justify-content: space-between;
+}
+.makeFlex {
+    display: flex;
+}
+.appendBottom5 {
+    margin-bottom: 5px;
+}
+.makeFlex.hrtlCenter {
+    align-items: center;
+}
+.grayText {
+    color: #9b9b9b;
+}
+.ratingGeneric {
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    background-image: linear-gradient(45deg, #26bd99, #219393);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 15px;
+}
+.whiteText {
+    color: #ffffff;
+}
+.lightGreenBg {
+    background: #33d18f;
+        background-image: none;
+}
+.verifiedReviews {
+    margin-left: -6px;
+    height: 25px;
+    overflow: hidden;
+    padding: 4px;
+}
+.capText {
+    text-transform: uppercase;
+}
+.page-section.bottom35 {
+    margin-bottom: 35px !important;
+}
+.page-section {
+    width: 1200px;
+    margin: 0 auto;
+        margin-bottom: 0px;
+}
+._RoomType .comboWrap .left {
+    width: calc(100% - 328px);
+    background-color: #fff6e7;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+._RoomType .priceBreakUp {
+    width: 328px;
+    display: flex;
+    flex-direction: column;
+    border-left: solid 1px #bababa;
+    position: relative;
+    padding-bottom: 30px;
+}
+.padding20 {
+    padding: 20px;
+}
+.makeRelative {
+    position: relative;
+}
+.bdrBottom {
+    border-bottom: solid 1px #bababa;
+}
+.comboTitle {
+    font-size: 20px;
+    width: calc(100% - 200px);
+}
+._RoomType .comboWrap {
+    border-radius: 4px;
+    box-shadow: 0 4px 8px 0 rgba(138, 107, 118, 0.08);
+    border: solid 1px #bababa;
+    display: flex;
+    width: 100%;
+}
+.appendBottom40 {
+    margin-bottom: 40px;
+}
+._RoomType .breackUpHeading {
+    padding: 24px 20px 16px 20px;
+}
+.font20 {
+    font-size: 20px;
+    line-height: 20px;
+}
+._RoomType .roomRow {
+    padding: 14px;
+    border-bottom: solid 1px #bababa;
+}
+.makeFlex.column {
+    flex-direction: column;
+}
+.width33 {
+    width: 33%;
+}
+._RoomType .roomTag {
+    border-radius: 36px;
+    background-color: #4a4a4a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 4px 10px;
+    text-transform: uppercase;
+    width: 63px;
+    flex-shrink: 0;
+    max-height: 20px;
+    align-self: flex-start;
+}
+.paddingLR20 {
+    padding-right: 20px;
+}
+.paddingL20, .paddingLR20 {
+    padding-left: 20px;
+}
+._RoomType .basicCost {
+    
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+._RoomType .roomPrice {
+    width: 70px;
+    text-align: right;
+    margin-left: auto;
+    flex-shrink: 0;
+}
+.font15 {
+    font-size: 15px;
+    line-height: 15px;
+}
+.textp {
+    color: #5a5959;
+    line-height: 15px;
+    font-size: 14px;
+}
+.appendBottom20 {
+    margin-bottom: 20px;
+}
+._RoomType .discount {
+    padding-left: 70px;
+    width: calc(100% - 100px);
+}
+.font18 {
+    font-size: 18px;
+    line-height: 18px;
+}
+.textRight {
+    text-align: right;
+}
+._RoomType .overlapBtn {
+    position: absolute;
+    top: 87%;
+    left: 20px;
+    right: 0;
+    width: 75%;
+    margin: 0 auto;
+}
+.primaryBtn2 {
+    border-radius: 34px;
+    background-image: linear-gradient(96deg, #53b2fe, #065af3);
+    box-shadow: 0 1px 7px 0 rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    flex-shrink: 0;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 900;
+    padding: 9px 20px;
+    cursor: pointer;
+    outline: 0;
+    border: 0;
+    text-align: center;
+}
+.linehg17{
+    line-height: 17px;
+
+}
+.sprite.noRefundIcon {
+    width: 13px;
+    height: 13px;
+    background-position: -383px -305px;
+}
+.appendRight5 {
+    margin-right: 5px;
+}
+.sprite {
+    background: url(//imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/sprite_prod/hotelSprite-x3_hash865daf1a6602cc4477e764965a516830.png) no-repeat;
+        background-position-x: 0%;
+        background-position-y: 0%;
+        background-size: auto;
+    display: inline-block;
+    background-size: 450px 450px;
+    font-size: 0px;
+    flex-shrink: 0;
+}
+.redText {
+    color: #d0021b;
+}
+.sprite.roomSelectIcon {
+    width: 14px;
+    height: 13px;
+    background-position: -313px -215px;
+}
+.sprite {
+        background: url(//imgak.mmtcdn.com/pwa_v3/pwa_hotel_assets/sprite_prod/hotelSprite-x3_hash865daf1a6602cc4477e764965a516830.png) no-repeat;
+        background-position-x: 0%;
+        background-position-y: 0%;
+        background-size: auto;
+    display: inline-block;
+    background-size: 450px 450px;
+    font-size: 0px;
+    flex-shrink: 0;
+}
+.lineHight14 {
+    line-height: 14px !important;
+}
+.linehg21{
+    line-height: 21px;
+
+}
+.linehg35{
+    line-height: 35px !important;
+
+}
+.width22 {
+    width: 22%;
+}
+._RoomType .types {
+    display: flex;
+    flex-direction: column;
+    font-weight: 300;
+}
+._RoomType .types li {
+    padding-top: 6px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    
+}
+._RoomType .types {
+    font-weight: 300;
+}
+h1, h2, h3, h4, h5, h6, p, ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+h1, h2, h3, h4, h5, h6, p, ul {
+    list-style: none;
+}
+.makeFlex.column {
+    flex-direction: column;
+}
+.appndmarbottom{
+    margin-bottom: 31px;
+}
+.margintop10{
+    margin-top: 10px;
+}
+.padding10{
+    padding: 10px;
+}
+.textcenter{
+    text-align: center;
+}
+.lineHight16{
+    line-height: 16px;;
+}
+.margintopm21{
+  margin-top: -21px;
+  text-align: center;
+}

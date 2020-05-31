@@ -110,13 +110,13 @@
                       <div class="col-sm-3">
                       <div class="form-group">
                         <label>Max Adult</label>
-                        <input type="text" class="form-control form-control-sm" placeholder="" name="max_adult" id="max_adult" required value="<?php if($mode=='EDIT'){echo $roomEditdata->max_adult;}?>">
+                        <input type="text" class="form-control form-control-sm onlynumber" placeholder="" name="max_adult" id="max_adult" required value="<?php if($mode=='EDIT'){echo $roomEditdata->max_adult;}?>">
                       </div>
                     </div>
                      <div class="col-sm-3">
                       <div class="form-group">
                         <label>Max Child</label>
-                        <input type="text" class="form-control form-control-sm" placeholder="" name="max_child" id="max_child" required value="<?php if($mode=='EDIT'){echo $roomEditdata->max_child;}?>">
+                        <input type="text" class="form-control form-control-sm onlynumber" placeholder="" name="max_child" id="max_child" required value="<?php if($mode=='EDIT'){echo $roomEditdata->max_child;}?>">
                       </div>
                     </div>
                   </div>
@@ -195,7 +195,28 @@
                                    <p id="imageerr"></p>
                           </div>
                       </div>
+                      <div class="row">
+                      <div class="col-sm-3">
+                      <div class="form-group">
+                        <label>Number Of Mattress</label>
+                        <input type="text" class="form-control form-control-sm onlynumber" placeholder="" name="no_of_mattress" id="no_of_mattress" required value="<?php if($mode=='EDIT'){echo $roomEditdata->no_of_mattress;}?>">
+                      </div>
+                    </div>
+                     <div class="col-sm-3">
+                      <div class="form-group">
+                        <label>Each Mattress Price</label>
+                        <input type="text" class="form-control form-control-sm onlynumber" placeholder="" name="each_mattress_price" id="each_mattress_price" required value="<?php if($mode=='EDIT'){echo $roomEditdata->each_mattress_price;}?>">
+                      </div>
+                    </div>
 
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <label>Maximum No Of Person</label>
+                        <input type="text" class="form-control form-control-sm onlynumber" placeholder="" name="maximum_no_person" id="maximum_no_person" required value="<?php if($mode=='EDIT'){echo $roomEditdata->maximum_no_person;}?>">
+                      </div>
+                    </div>
+                  </div>
+                  
 
                    <div class="row">
                        <div class="col-md-4 col-sm-12 col-xs-12">

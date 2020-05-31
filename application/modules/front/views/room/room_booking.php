@@ -1,4 +1,4 @@
-
+<script  src="<?php echo base_url(); ?>/assets/js/web/room.js"></script>
 <!-- Sub banner start -->
 <div class="sub-banner overview-bgi">
     <div class="container">
@@ -216,25 +216,26 @@
                         <h3>Search Your Rooms</h3>
                         <!-- <h1>$260/Night</h1> -->
                         <div class="search-contents">
-                            <form method="GET">
+                            <form action="<?php echo base_url();?>room/room_booking_confirm"  method="GET" onSubmit="return validateRoomBooking();">
                                 <div class="row">
                                     <div class="search-your-details">
                                         <div class="col-md-12 col-sm-6 col-xs-12">
                                             <div class="form-group">
-                                                <input type="text" class="btn-default datepicker" placeholder="Check In">
+                                            <input type="hidden" name="id" value="<?php echo $room_id ?>">
+                                                <input type="text" name="checkin_dt" id="checkin_dt" class="btn-default datepicker" placeholder="Check In" value="<?php echo $check_in_dt; ?>">
                                             </div>
                                         </div>
                                         <div class="col-md-12 col-sm-6 col-xs-12">
                                             <div class="form-group">
-                                                <input type="text" class="btn-default datepicker" placeholder="Check Out">
+                                                <input type="text" name="checkout_dt" id="checkout_dt" class="btn-default datepicker" placeholder="Check Out"  value="<?php echo $checkout_dt; ?>">
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <div class="form-group">
-                                                <select class="selectpicker search-fields form-control-2" name="room">
-                                                    <option>Room</option>                                                  
+                                                <select class="selectpicker search-fields form-control-2" name="room" id="room">
+                                                    <option value="0">Room</option>                                                  
                                                     <?php foreach($room_type_list as $roomtype){ ?>
-                                                    <option value="<?php echo $roomtype->id; ?>"><?php echo $roomtype->type; ?></option>
+                                                    <option value="<?php echo $roomtype->id; ?>" <?php if($room_type == $roomtype->id){ echo "selected"; } ?>><?php echo $roomtype->type; ?></option>
                                                    
                                                     <?PHP } ?>
                                                 </select>
@@ -242,8 +243,8 @@
                                         </div>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <div class="form-group">
-                                                <select class="selectpicker search-fields form-control-2" name="beds">
-                                                    <option>Package</option>
+                                                <select class="selectpicker search-fields form-control-2" name="package" id="package">
+                                                    <option value="0">Package</option>
                                                     <?php foreach($RoomPrices as $roomprices){ ?>
                                                     <option value="<?php echo $roomprices->package_type_id; ?>"><?php echo $roomprices->package_name." - ".number_format($roomprices->rate); ?></option>
                                                    
@@ -254,31 +255,44 @@
                                         </div>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <div class="form-group">
-                                                <select class="selectpicker search-fields form-control-2" name="adults">
-                                                    <option>Adult</option>
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                    <option>5</option>
+                                                <select class="selectpicker search-fields form-control-2" name="adults" id="adults">
+                                                    <option value="0">Adult</option>
+                                                    <?php 
+                                                        foreach(json_decode(NO_OF_ADULTS) as $key => $value) { ?> 
+                                                        <option value="<?php echo $key;  ?>" <?php if($key == $audults_no){ echo "selected"; } ?>><?php echo $value;  ?></option>
+                                                        <?php } ?>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <div class="form-group">
-                                                <select class="selectpicker search-fields form-control-2" name="children">
-                                                    <option>Child</option>
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                    <option>5</option>
+                                                <select class="selectpicker search-fields form-control-2" name="children" id="children">
+                                                    <option value="0">Child</option>
+                                                    <?php 
+                                                    foreach(json_decode(NO_OF_CHILD) as $key => $value) { ?> 
+                                                    <option value="<?php echo $key;  ?>" <?php if($key == $children_no){ echo "selected"; } ?>><?php echo $value;  ?></option>
+                                                    <?php } ?>
                                                 </select>
                                             </div>
                                         </div>
+                                        <!-- <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <select class="selectpicker search-fields form-control-2" name="mattress">
+                                                    <option>Mattress</option>
+                                                    <?php 
+                                                    foreach(json_decode(NO_OF_MATTRESS) as $key => $value) { ?> 
+                                                    <option value="<?php echo $key;  ?>"><?php echo $value;  ?></option>
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
+                                        </div> -->
+                                        <div class="col-md-12 col-sm-12 col-xs-12 margintopm21">
+                                        <p id="roombookingerr" class="errmsg"></p>
+                                        </div>
                                         <div class="col-md-12 col-sm-12 col-xs-12">
                                             <div class="form-group mrg-btm-10">
-                                                <button class="search-button btn-theme">Book Now</button>
+                                            <!-- <a href="<?php echo base_url();?>room/room_booking_confirm?checkin_dt=<?php echo $check_in_dt; ?>&checkout_dt=<?php echo $check_in_dt; ?>&room=<?php echo $room_type; ?>&adults=<?php echo $audults_no; ?>&children=<?php echo $children_no; ?>&id=<?php echo $room_id; ?>" class="search-button btn-theme">Book Now</a> -->
+                                                <button type="submit" class="search-button btn-theme">Book Now</button>
                                             </div>
                                         </div>
                                     </div>

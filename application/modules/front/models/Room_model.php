@@ -126,4 +126,198 @@ class Room_model extends CI_Model  {
 		return $data;
 	}
 
+	// public function checkRoomAvaibility($checkin_dt,$checkout_dt,$room_type) {
+	// 	$data = [];
+	// 	$where = array('room_master.room_type_id'=>$room_type);
+
+	// 	$this->db->select("room_master.room_id,
+	// 						room_master.floor_id,
+	// 						room_master.room_type_id,
+	// 						room_master.max_adult,
+	// 						room_master.max_child,
+	// 						room_master.no_of_mattress,
+	// 						room_master.each_mattress_price,
+	// 						booking_details.room_id AS dtroomid,
+	// 						booking_master.check_in_dt,
+	// 						booking_master.check_out_dt")
+	// 			->from('room_master')
+	// 			->join('booking_details','room_master.room_id = booking_details.room_id','LEFT')				
+	// 			->join('booking_master','booking_details.booking_id = booking_master.id 
+	// 			        AND booking_master.check_in_dt NOT BETWEEN '.$checkin_dt.' 
+	// 					AND '.$checkout_dt.' 
+	// 					AND booking_master.check_out_dt NOT BETWEEN '.$checkin_dt.' 
+	// 					AND '.$checkout_dt.' 
+	// 					AND '.$checkin_dt.' NOT BETWEEN booking_master.check_in_dt 
+	// 					AND booking_master.check_out_dt 
+	// 					AND '.$checkout_dt.' NOT BETWEEN booking_master.check_in_dt 
+	// 					AND booking_master.check_out_dt','LEFT')				
+	// 			->where($where)
+	// 			->where('booking_details.`room_id` IS NULL');
+                
+	// 	$query = $this->db->get();
+    //     if($query->num_rows() > 0) 
+	// 	{
+    //         foreach($query->result() as $rows)
+    //         {
+    //             $data[] = $rows;
+    //         }
+    //     }
+	// 	return $data;
+	// }
+
+
+	public function checkRoomAvaibility($checkin_dt,$checkout_dt,$room_type,$package) {
+		$data = [];
+		$where = array('room_master.room_type_id'=>$room_type);
+
+		$sql = "SELECT 
+					`room_master`.`room_id`,
+					room_master.`floor_id`,
+					room_master.`room_type_id`,
+					room_master.`max_adult`,
+					room_master.`max_child`,
+					room_master.`no_of_mattress`,
+					room_master.`each_mattress_price`,
+					booking_details.`room_id` AS dtroomid,
+					room_type.`type`,
+					room_rate_details.`rate`,
+                    package_type_master.`package_name`	  
+					FROM
+						room_master 
+						LEFT JOIN `booking_details` 
+						ON room_master.`room_id` = booking_details.`room_id` 
+						LEFT JOIN `booking_master` 
+						ON booking_details.`booking_id` = booking_master.`id` 
+						AND booking_master.`check_in_dt` NOT BETWEEN '.$checkin_dt.' 
+						AND '.$checkout_dt.' 
+						AND booking_master.`check_out_dt` NOT BETWEEN '.$checkin_dt.' 
+						AND '.$checkout_dt.' 
+						AND '.$checkin_dt.' NOT BETWEEN booking_master.`check_in_dt` 
+						AND booking_master.`check_out_dt` 
+						AND '.$checkout_dt.' NOT BETWEEN booking_master.`check_in_dt` 
+						AND booking_master.`check_out_dt`
+						LEFT JOIN `room_rate_details`
+						ON  room_rate_details.`room_id` = room_master.`room_id` AND room_rate_details.`package_type_id` = '$package'
+						LEFT JOIN `package_type_master`
+						ON room_rate_details.`package_type_id` = package_type_master.`package_type_id`
+						LEFT JOIN `room_type`
+                        ON room_master.`room_type_id` =  room_type.`id`
+					    WHERE room_master.`room_type_id` = '$room_type' AND  booking_details.`room_id` IS NULL AND room_rate_details.`rate` <> 'NULL' LOCK IN SHARE MODE";
+
+       
+		$query = $this->db->query($sql);
+		//echo $this->db->last_query();exit;
+        if($query->num_rows() > 0) 
+		{
+            foreach($query->result() as $rows)
+            {
+                $data[] = $rows;
+            }
+        }
+		return $data;
+	}
+
+	public function BeforebookingcheckRoomAvaibility($checkin_dt,$checkout_dt,$room_type,$package,$roomIds) {
+		$data = [];
+		$where = array('room_master.room_type_id'=>$room_type);
+
+		$sql = "SELECT 
+					`room_master`.`room_id`,
+					room_master.`floor_id`,
+					room_master.`room_type_id`,
+					room_master.`max_adult`,
+					room_master.`max_child`,
+					room_master.`no_of_mattress`,
+					room_master.`each_mattress_price`,
+					booking_details.`room_id` AS dtroomid,
+					room_type.`type`,
+					room_rate_details.`rate`,
+                    package_type_master.`package_name`	  
+					FROM
+						room_master 
+						LEFT JOIN `booking_details` 
+						ON room_master.`room_id` = booking_details.`room_id` 
+						LEFT JOIN `booking_master` 
+						ON booking_details.`booking_id` = booking_master.`id` 
+						AND booking_master.`check_in_dt` NOT BETWEEN '.$checkin_dt.' 
+						AND '.$checkout_dt.' 
+						AND booking_master.`check_out_dt` NOT BETWEEN '.$checkin_dt.' 
+						AND '.$checkout_dt.' 
+						AND '.$checkin_dt.' NOT BETWEEN booking_master.`check_in_dt` 
+						AND booking_master.`check_out_dt` 
+						AND '.$checkout_dt.' NOT BETWEEN booking_master.`check_in_dt` 
+						AND booking_master.`check_out_dt`
+						LEFT JOIN `room_rate_details`
+						ON  room_rate_details.`room_id` = room_master.`room_id` AND room_rate_details.`package_type_id` = '$package'
+						LEFT JOIN `package_type_master`
+						ON room_rate_details.`package_type_id` = package_type_master.`package_type_id`
+						LEFT JOIN `room_type`
+                        ON room_master.`room_type_id` =  room_type.`id`
+					    WHERE room_master.`room_type_id` = '$room_type' AND  booking_details.`room_id`  IN($roomIds)";
+
+       
+		$query = $this->db->query($sql);
+		//echo $this->db->last_query();exit;
+        if($query->num_rows() > 0) 
+		{
+            foreach($query->result() as $rows)
+            {
+                $data[] = $rows;
+            }
+        }
+		return $data;
+	}
+
+
+	public function GetBookingRefCode($module){
+        $lastnumber = (int)(0);
+        $tag = "";
+        $noofpaddingdigit = (int)(0);
+        $autoSaleNo="";
+       
+        $sql="SELECT
+                id,
+                SERIAL,
+                moduleTag,
+                lastnumber,
+                noofpaddingdigit,
+                module,                
+                booking_type
+            FROM serial_master
+            WHERE module='".$module."' LOCK IN SHARE MODE";
+        
+                  $query = $this->db->query($sql);
+      if ($query->num_rows() > 0) {
+        $row = $query->row(); 
+        $lastnumber = $row->lastnumber;
+                          $tag = $row->moduleTag;
+                          $noofpaddingdigit = $row->noofpaddingdigit;
+                                                  
+                          
+      }
+          $digit = (int)(log($lastnumber,10)+1) ;  
+        if($digit==3){
+            $autoSaleNo = $tag."0".$lastnumber;
+        }elseif($digit==2){
+            $autoSaleNo = $tag."00".$lastnumber;
+        }elseif($digit==1){
+            $autoSaleNo = $tag."000".$lastnumber;
+        }else{
+           $autoSaleNo = $tag.$lastnumber;
+        }
+        $lastnumber = $lastnumber + 1;
+        
+        //update
+        $data = array(
+        'serial' => $lastnumber,
+        'lastnumber' => $lastnumber
+        );
+        $array = array('module' => $module);
+        $this->db->where($array); 
+        $this->db->update('serial_master', $data);
+        
+        return $autoSaleNo;
+        
+    }
+
 }

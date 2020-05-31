@@ -61,3 +61,5 @@ $route['home/(:any)' ] = 'front/home/index/$1';
 $route['room'] = 'front/room/index';
 $route['room/checkroom'] = 'front/room/checkroom';
 $route['room/room_booking'] = 'front/room/room_booking';
+$route['room/room_booking_confirm'] = 'front/room/room_booking_confirm';
+$route['room/room_booking_action'] = 'front/room/room_booking_action';

@@ -60,8 +60,10 @@
                                 <div class="form-group">
                                     <select class="selectpicker search-fields form-control-2" name="adults">
                                         <option>Adult</option>
-                                        <option <?php if($audults_no == 1){echo "selected";} ?>>1</option>
-                                        <option <?php if($audults_no == 2){echo "selected";} ?>>2</option>
+                                        <?php 
+                                            foreach(json_decode(NO_OF_ADULTS) as $key => $value) { ?> 
+                                            <option value="<?php echo $key;  ?>" <?php if($key == $audults_no){ echo "selected"; } ?>><?php echo $value;  ?></option>
+                                        <?php } ?>
                                     </select>
                                 </div>
                             </div>
@@ -69,8 +71,10 @@
                                 <div class="form-group">
                                     <select class="selectpicker search-fields form-control-2" name="children">
                                         <option>Child</option>
-                                        <option <?php if($children_no == 1){echo "selected";} ?>>1</option>
-                                        <option <?php if($children_no == 2){echo "selected";} ?>>2</option>
+                                        <?php 
+                                            foreach(json_decode(NO_OF_CHILD) as $key => $value) { ?> 
+                                            <option value="<?php echo $key;  ?>"<?php if($key == $children_no){ echo "selected"; } ?>><?php echo $value;  ?></option>
+                                            <?php } ?>
                                     </select>
                                 </div>
                             </div>
@@ -150,7 +154,7 @@
                         
 
                         <div class="hiddenmt-15 pull-right">
-                            <a href="<?php echo base_url();?>room/room_booking?checkin_dt=<?php echo $check_in_dt; ?>&checkout_dt=<?php echo $check_in_dt; ?>&room=<?php echo $room_type; ?>&adults=<?php echo $audults_no; ?>&children=<?php echo $children_no; ?>&id=<?php echo $rooms["room"]->room_id; ?>" class="read-more-btn">Book Now</a>
+                            <a href="<?php echo base_url();?>room/room_booking?checkin_dt=<?php echo $check_in_dt; ?>&checkout_dt=<?php echo $checkout_dt; ?>&room=<?php echo $rooms["room"]->room_type_id; ?>&adults=<?php echo $audults_no; ?>&children=<?php echo $children_no; ?>&id=<?php echo $rooms["room"]->room_id; ?>" class="read-more-btn">Book Now</a>
                         </div>
 
                     </div>

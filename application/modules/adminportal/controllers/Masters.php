@@ -392,6 +392,9 @@ public function room_action() {
 			   $cover_photo = $this->input->post('cover_photo');
 			   $galleryIDs = $this->input->post('galleryIDs');
 			   $gallerydelIDs = $this->input->post('gallerydelIDs');
+			   $no_of_mattress = $this->input->post('no_of_mattress');
+			   $each_mattress_price = $this->input->post('each_mattress_price');
+			   $maximum_no_person = $this->input->post('maximum_no_person');
 				
              // pre($cover_photo);exit;
 
@@ -422,7 +425,10 @@ public function room_action() {
                                        
                                         'max_adult' => $max_adult,
 										'max_child' => $max_child,
-										'cover_photo'=> $cover_photo
+										'cover_photo'=> $cover_photo,
+										'no_of_mattress'=>$no_of_mattress,
+										'each_mattress_price'=>$each_mattress_price,
+										'maximum_no_person'=>$maximum_no_person
                                     
                        
                        
@@ -532,7 +538,10 @@ public function room_action() {
                                         'max_adult' => $max_adult,
                                         'max_child' => $max_child,
 										'created_on' => date('Y-m-d'),
-										'cover_photo'=> $cover_photo
+										'cover_photo'=> $cover_photo,
+										'no_of_mattress'=>$no_of_mattress,
+										'each_mattress_price'=>$each_mattress_price,
+										'maximum_no_person'=>$maximum_no_person
                                          
                                          );
 			
