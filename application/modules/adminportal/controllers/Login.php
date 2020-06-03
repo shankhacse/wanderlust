@@ -40,6 +40,8 @@ class Login extends MY_Controller {
                 if($this->_authModel->process_login($login_array))
                 {
                     $activity_insert = $this->_commonQueryModel->insertUserActivityData("Login","Login successfully","LOGIN_SUCCESS");
+                   
+                    $this->_authModel->GetOnlineOffline('Y');
                     redirect(admin_except_base_url().'dashboard/');
                 }
                 else{
@@ -60,6 +62,7 @@ class Login extends MY_Controller {
 
 
         function logout(){
+            $this->_authModel->GetOnlineOffline('N');
             $activity_insert = $this->_commonQueryModel->insertUserActivityData("Logout","Logout done","LOGOUT");
             $this->session->sess_destroy();
             redirect(admin_except_base_url().'login/');

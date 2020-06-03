@@ -29,6 +29,7 @@ class Template extends MX_Controller
 			else {
 				$data['usermenus'] = $this->_menuModel->getDashboardMenuForUsers($loogedinuser['userid']);
 			}
+			//pre($data['usermenus']);exit;
 			$this->load->view('template/admin_template', $data);
 		}
 		else{

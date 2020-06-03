@@ -111,4 +111,35 @@ class Auth_model extends CI_Model  {
     public function encryptUserPwd($pwd, $salt) {
         return sha1(md5($pwd) . $salt);
     }
+
+    public function GetOnlineOffline($is_active)
+    {
+        $session = $this->session->userdata('user_sess_data');
+        $where=[
+            'user_id'=>$session['userid']
+        ];
+        $data=[
+            'is_online'=>$is_active,
+            
+        ];
+        try {
+            $this->db->trans_begin();
+            //$this->db->where($where);
+			$this->db->update('users', $data,$where);
+			$this->db->last_query();
+			
+            //$affectedRow = $this->db->affected_rows();
+            if ($this->db->trans_status() === FALSE) {
+                $this->db->trans_rollback();
+                
+                return FALSE;
+            } else {
+                $this->db->trans_commit();
+                
+                return TRUE;
+            }
+        } catch (Exception $exc) {
+             return FALSE;
+        }
+    }
 }

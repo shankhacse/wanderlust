@@ -42,6 +42,58 @@
   <link href="https://fonts.googleapis.com/css?family=Monoton&display=swap" rel="stylesheet"> 
 
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/admin_custom.css">
+
+  <!-- DataTables -->
+  <link rel="stylesheet" href="<?php echo(base_url());?>assets/plugins/datatables/dataTables.bootstrap.css">
+
+  <!-- jQuery -->
+<script src="<?php echo base_url(); ?>assets/plugins/jquery/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="<?php echo base_url(); ?>assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+  $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Bootstrap 4 -->
+<script src="<?php echo base_url(); ?>assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- ChartJS -->
+<script src="<?php echo base_url(); ?>assets/plugins/chart.js/Chart.min.js"></script>
+<!-- Sparkline -->
+<script src="<?php echo base_url(); ?>assets/plugins/sparklines/sparkline.js"></script>
+<!-- JQVMap -->
+<script src="<?php echo base_url(); ?>assets/plugins/jqvmap/jquery.vmap.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+<!-- jQuery Knob Chart -->
+<script src="<?php echo base_url(); ?>assets/plugins/jquery-knob/jquery.knob.min.js"></script>
+<!-- daterangepicker -->
+<script src="<?php echo base_url(); ?>assets/plugins/moment/moment.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/plugins/daterangepicker/daterangepicker.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="<?php echo base_url(); ?>assets/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- Summernote -->
+<script src="<?php echo base_url(); ?>assets/plugins/summernote/summernote-bs4.min.js"></script>
+<!-- overlayScrollbars -->
+<script src="<?php echo base_url(); ?>assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- AdminLTE App -->
+<script src="<?php echo base_url(); ?>assets/dist/js/adminlte.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="<?php echo base_url(); ?>assets/dist/js/pages/dashboard.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="<?php echo base_url(); ?>assets/dist/js/demo.js"></script>
+
+  <!-- Select Plugin Js -->
+    <script src="<?php echo(base_url());?>assets/plugins/bootstrap-select/js/bootstrap-select.js"></script>
+    <!-- Multi Select Plugin Js -->
+    <script src="<?php echo(base_url());?>assets/plugins/multi-select/js/jquery.multi-select.js"></script>
+<!-- Select2 -->
+<script src="<?php echo(base_url());?>assets/plugins/select2/js/select2.full.min.js"></script>
+<!-- DataTables -->
+<script src="<?php echo(base_url());?>assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="<?php echo(base_url());?>assets/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<!-- SlimScroll -->
+
+<script src="<?php echo base_url(); ?>assets/js/parsley.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/master.js"></script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -56,6 +108,10 @@
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <h2 class="nav-heading">Wanderlust Admin Panel</h2>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link logoutcss"  href="<?php echo admin_with_base_url().'login/logout'; ?>">Logout</a>
       </li>
      
      
@@ -89,9 +145,49 @@
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
+         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <?php 
+            if(sizeof($usermenus)>0){ 
+                  foreach($usermenus as $firstlevel)
+                  {
+                   
+                    if(sizeof($firstlevel['menudetail'])>0){   
+                      ?>
+                     
+
+                  <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                              <i class="<?php echo $firstlevel['menudetail']->icon; ?>"></i>
+                              <p><?php echo $firstlevel['menudetail']->name; ?>
+                                <i class="fas fa-angle-left right"></i>
+                                </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                        <?php if(sizeof($firstlevel['childmenus'])>0){ 
+                            foreach($firstlevel['childmenus'] as $secondlevel)
+                            {  
+                      ?>
+                       
+                          <li class="nav-item">
+                            <a href="<?php echo admin_with_base_url().$secondlevel['menudetail']->link; ?>" class="nav-link">
+                              <i class="<?php echo $secondlevel['menudetail']->icon; ?>"></i>
+                              <p><?php echo $secondlevel['menudetail']->name; ?></p>
+                            </a>
+                          </li>
+                         
+                          <?php  } } ?>
+                          </ul>
+                  </li>
+                     
+                 
+                    <?php  } } } ?>
+                   
+                   </ul>
+
+             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+        <!-- <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+       
          
        
          
@@ -237,7 +333,8 @@
             </a>
           </li>
         
-        </ul>
+        </ul> -->
+        
       </nav>
       <!-- /.sidebar-menu -->
     </div>
@@ -289,51 +386,7 @@
 </div>
 <!-- ./wrapper -->
 
-<!-- jQuery -->
-<script src="<?php echo base_url(); ?>assets/plugins/jquery/jquery.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="<?php echo base_url(); ?>assets/plugins/jquery-ui/jquery-ui.min.js"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-  $.widget.bridge('uibutton', $.ui.button)
-</script>
-<!-- Bootstrap 4 -->
-<script src="<?php echo base_url(); ?>assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- ChartJS -->
-<script src="<?php echo base_url(); ?>assets/plugins/chart.js/Chart.min.js"></script>
-<!-- Sparkline -->
-<script src="<?php echo base_url(); ?>assets/plugins/sparklines/sparkline.js"></script>
-<!-- JQVMap -->
-<script src="<?php echo base_url(); ?>assets/plugins/jqvmap/jquery.vmap.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
-<!-- jQuery Knob Chart -->
-<script src="<?php echo base_url(); ?>assets/plugins/jquery-knob/jquery.knob.min.js"></script>
-<!-- daterangepicker -->
-<script src="<?php echo base_url(); ?>assets/plugins/moment/moment.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/plugins/daterangepicker/daterangepicker.js"></script>
-<!-- Tempusdominus Bootstrap 4 -->
-<script src="<?php echo base_url(); ?>assets/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-<!-- Summernote -->
-<script src="<?php echo base_url(); ?>assets/plugins/summernote/summernote-bs4.min.js"></script>
-<!-- overlayScrollbars -->
-<script src="<?php echo base_url(); ?>assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-<!-- AdminLTE App -->
-<script src="<?php echo base_url(); ?>assets/dist/js/adminlte.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="<?php echo base_url(); ?>assets/dist/js/pages/dashboard.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="<?php echo base_url(); ?>assets/dist/js/demo.js"></script>
 
-  <!-- Select Plugin Js -->
-    <script src="<?php echo(base_url());?>assets/plugins/bootstrap-select/js/bootstrap-select.js"></script>
-    <!-- Multi Select Plugin Js -->
-    <script src="<?php echo(base_url());?>assets/plugins/multi-select/js/jquery.multi-select.js"></script>
-<!-- Select2 -->
-<script src="<?php echo(base_url());?>assets/plugins/select2/js/select2.full.min.js"></script>
-
-
-<script src="<?php echo base_url(); ?>assets/js/parsley.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/js/master.js"></script>
 <script>
 $(document).ready(function(){
   var basepath = $("#basepath").val();

@@ -115,4 +115,10 @@ border: 1px solid #c1c1c1;
 .red_grd_btn {
     background: linear-gradient(#ea4655,#bb0d0d);
 }
+.logoutcss{
+    width: 428px;
+text-align: right;
+font-size: 15px;
+color: white !important;
+}
 
