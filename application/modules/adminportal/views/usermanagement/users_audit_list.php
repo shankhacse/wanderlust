@@ -18,55 +18,36 @@
               <table class="table customTbl table-bordered table-hover dataTable tablepad">
                 <thead>
                     <tr>
-                    <th>Sl.No</th>
-                    <th>Name</th>
+                    <th>Sl.No</th>                    
                     <th>User Name</th>
-                    <th>Mobile No.</th>
-                    <th>Role</th>
-                    <th>Status</th>                   
+                    <th>Date & Time</th>
                     <th>Action</th>
+                    <th>Module</th>                   
+                    <th>URL</th>
+                    <th>Browser</th>
+                    <th>Device OS</th>
                                         
                     </tr>
                 </thead>
                 <tbody>
 
                 <?php $i=1;
-                foreach ($userlist as $userlist) { 
+                foreach ($userauditlist as $userauditlist) { 
 
                   
                 	?>
                    <tr>
                    <td><?php echo $i++; ?></td>
-                   <td><?php echo $userlist->firstname.' '.$userlist->lastname; ?></td>
-                   <td><?php echo $userlist->user_name; ?></td>
-                   <td><?php echo $userlist->mobileno; ?></td>
-                   <td><?php echo $userlist->user_role; ?></td>
+                   <td><?php echo $userauditlist->user_name; ?></td>
+                   <td><?php echo $userauditlist->activity_date; ?></td>
+                   <td><?php echo $userauditlist->activity_action; ?></td>
+                   <td><?php echo $userauditlist->activity_module; ?></td>
+                   <td><?php echo $userauditlist->activity_url; ?></td>
+                   <td><?php echo $userauditlist->browser; ?></td>
+                   <td><?php echo $userauditlist->platform; ?></td>
                   
                    
-                   <td style="text-align: center;">
-                            <?php  if ($userlist->is_online=='Y') { ?>
-                                <a onclick="openUserloginLogoutDetailModal(<?php echo $userlist->user_id; ?>);" href="#">
-                                    <img src="<?php echo(base_url());?>assets/img/online.png" style="width: 23px;height: 23px;" alt="active icon">
-                                </a>                                
-                            <?php }else{ ?>
-                                <a href="#">
-                                    <img onclick="openUserloginLogoutDetailModal(<?php echo $userlist->user_id; ?>);" src="<?php echo(base_url());?>assets/img/offline.png" style="width: 23px;height: 23px;" alt="inactive icon">
-                                </a> 
-                            <?php } ?>
-                        </td>
-                        <td style="text-align: center;">
-                            <?php  if ($userlist->active=='1') { ?>
-                                <a href="<?php echo base_url();?>adminportal/user/InactiveUser/<?php echo $userlist->user_id; ?>">
-                                    <img src="<?php echo(base_url());?>assets/img/active.png" style="width: 23px;height: 23px;" alt="active icon">
-                                </a>                                
-                            <?php }else{ ?>
-                                <a href="<?php echo base_url();?>adminportal/user/ActiveUser/<?php echo $userlist->user_id; ?>">
-                                    <img src="<?php echo(base_url());?>assets/img/inactive.png" style="width: 23px;height: 23px;" alt="inactive icon">
-                                </a> 
-                            <?php } ?>
-                        </td>
-
-
+                  
                  </tr>
                 <?php } ?>                       
                          

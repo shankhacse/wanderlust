@@ -34,11 +34,14 @@ class Auth_model extends CI_Model  {
                 $user_salt = $row->salt;
                 if($this->encryptUserPwd( $password,$user_salt) === $user_pass){
 
+                    $activity_insert = $this->insertUserActivityData("Login","Login successfully","LOGIN_SUCCESS",0,$user_id);
+
                     $user_session_info = array(
                         "userid" => $user_id,
                         "username" => $row->user_name,
                         "user_role" => $row->user_role,
-                        "permissiontype" => $row->permission_type
+                        "permissiontype" => $row->permission_type,
+                        "user_activity_id"=>$activity_insert,
 
                     );
                     $this->session->set_userdata('user_sess_data', $user_session_info);
@@ -48,6 +51,42 @@ class Auth_model extends CI_Model  {
             }
             return false;
     }
+
+    function insertUserActivityData($module,$desc=null,$action,$masterid=0,$user_id)
+		{
+			
+			
+			$activity = [];
+			
+			$activity = [
+				"activity_url" => getCurrentUrl(),
+				"activity_module" => $module,
+				"activity_desc" => $desc,
+				"activity_action" => $action,
+				"master_id" => $masterid,
+				"ip" => getUserIPAddress(),
+				"browser" => getUserBrowserName(),
+				"platform" => getUserPlatform(),
+				"user_id" => $user_id
+			];      
+			   
+			try{
+				$this->db->trans_begin();
+				$this->db->insert('activity_log', $activity);
+				$insertid = $this->db->insert_id();
+				if($this->db->trans_status() === FALSE) {
+                    $this->db->trans_rollback();
+                    $insertid=0;
+					return $insertid;
+				} else {
+					$this->db->trans_commit();
+					return $insertid;
+				}
+			}
+			catch (Exception $err) {
+				echo $err->getTraceAsString();
+			}
+		}
 
     public function is_logged_in(){
        return ($this->session->userdata('user_sess_data')) ? TRUE : FALSE;
@@ -142,4 +181,6 @@ class Auth_model extends CI_Model  {
              return FALSE;
         }
     }
+
+    
 }

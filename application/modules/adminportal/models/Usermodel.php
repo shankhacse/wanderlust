@@ -113,7 +113,7 @@ class Usermodel extends CI_Model{
                             logout.browser,
                             logout.platform")
                 ->from('activity_log login')
-                ->join('activity_log logout','login.id < logout.id  AND login.user_id = logout.user_id','LEFT')
+                ->join('activity_log logout','login.id < logout.id  AND login.user_id = logout.user_id AND login.id = logout.master_id','LEFT')
                 ->where($where)                              
 				->group_by('login.id');
 		$query = $this->db->get();
@@ -134,7 +134,34 @@ class Usermodel extends CI_Model{
          }
     }
 
+    public function getUserAuditAllDropdownData()
+    {
+        $data = array();
+        $where = array('Login','Logout');
+            $this->db->select("activity_log.*,users.user_name")
+                ->from('activity_log')
+                ->join('users','activity_log.user_id = users.user_id','INNER')
+                ->where_not_in('activity_log.activity_module', $where);
+				
+      
+		
+		$query = $this->db->get();
+		# echo $this->db->last_query();
 
+		if($query->num_rows()> 0)
+		{
+            foreach ($query->result() as $rows)
+			{
+				$data[] = $rows;
+            }
+            return $data;
+             
+        }
+		else
+		{
+             return $data;
+         }
+    }
 
 
 

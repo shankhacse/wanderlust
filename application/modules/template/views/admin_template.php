@@ -34,7 +34,7 @@
   <!-- Select2 -->
   <link rel="stylesheet" href="<?php echo(base_url());?>assets/plugins/select2/css/select2.min.css">
 
-
+  <link rel="stylesheet" href="<?php echo(base_url());?>assets/plugins/sweetalert2/sweetalert2.min.css">
 
 
   <!-- Google Font: Source Sans Pro -->
@@ -42,9 +42,10 @@
   <link href="https://fonts.googleapis.com/css?family=Monoton&display=swap" rel="stylesheet"> 
 
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/admin_custom.css">
+  
 
   <!-- DataTables -->
-  <link rel="stylesheet" href="<?php echo(base_url());?>assets/plugins/datatables/dataTables.bootstrap.css">
+  <link rel="stylesheet" href="<?php echo(base_url());?>assets/plugins/datatables-bs4/css/dataTables.bootstrap4.css">
 
   <!-- jQuery -->
 <script src="<?php echo base_url(); ?>assets/plugins/jquery/jquery.min.js"></script>
@@ -65,6 +66,8 @@
 <script src="<?php echo base_url(); ?>assets/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
 <!-- jQuery Knob Chart -->
 <script src="<?php echo base_url(); ?>assets/plugins/jquery-knob/jquery.knob.min.js"></script>
+<!-- Bootstrap Select -->
+<script src="<?php echo(base_url());?>assets/plugins/sweetalert2/sweetalert2.js"></script>
 <!-- daterangepicker -->
 <script src="<?php echo base_url(); ?>assets/plugins/moment/moment.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/plugins/daterangepicker/daterangepicker.js"></script>
@@ -87,9 +90,13 @@
     <script src="<?php echo(base_url());?>assets/plugins/multi-select/js/jquery.multi-select.js"></script>
 <!-- Select2 -->
 <script src="<?php echo(base_url());?>assets/plugins/select2/js/select2.full.min.js"></script>
+
+<!-- AdminLTE for demo purposes -->
+<script src="<?php echo(base_url());?>assets/dist/js/demo.js"></script>
+
 <!-- DataTables -->
-<script src="<?php echo(base_url());?>assets/plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="<?php echo(base_url());?>assets/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script src="<?php echo(base_url());?>assets/plugins/datatables/jquery.dataTables.js"></script>
+<script src="<?php echo(base_url());?>assets/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
 <!-- SlimScroll -->
 
 <script src="<?php echo base_url(); ?>assets/js/parsley.min.js"></script>
@@ -101,19 +108,27 @@
   <input type="hidden" id="basepath" value="<?php echo admin_with_base_url(); ?>">
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-    <!-- Left navbar links -->
+     <!-- Left navbar links  -->
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link pushmenu" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <h2 class="nav-heading">Wanderlust Admin Panel</h2>
-      </li>
+      </li> 
       
-      <li class="nav-item">
+      
+      <!-- <li class="nav-item">
         <a class="nav-link logoutcss"  href="<?php echo admin_with_base_url().'login/logout'; ?>">Logout</a>
-      </li>
+      </li> -->
      
+      <li class="nav-item dropdown ml-auto useloggedinOpt liposabo">
+                  <a class="nav-link dropdown-toggle colorwhite" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-tie"></i> Admin </a>
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                      <a class="dropdown-item" href="#"><i class="fas fa-user-edit"></i> Profile</a>
+                      <a class="dropdown-item" href="<?php echo admin_with_base_url().'login/logout'; ?>"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                  </div>
+                </li>
      
     </ul>
 
@@ -121,6 +136,8 @@
 
   </nav>
   <!-- /.navbar -->
+
+  
 
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
@@ -391,7 +408,7 @@
 $(document).ready(function(){
   var basepath = $("#basepath").val();
 
-  
+  $(".dataTable").DataTable();
 });
 </script>
 </body>

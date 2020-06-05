@@ -121,4 +121,11 @@ text-align: right;
 font-size: 15px;
 color: white !important;
 }
+.liposabo{
+    position: absolute;
+    right: 0;
+}
+.colorwhite{
+    color: white !important;
+}
 

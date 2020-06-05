@@ -39,8 +39,8 @@ class Login extends MY_Controller {
                 );
                 if($this->_authModel->process_login($login_array))
                 {
-                    $activity_insert = $this->_commonQueryModel->insertUserActivityData("Login","Login successfully","LOGIN_SUCCESS");
-                   
+                    // $activity_insert = $this->_commonQueryModel->insertUserActivityData("Login","Login successfully","LOGIN_SUCCESS");
+                   //pre();exit;
                     $this->_authModel->GetOnlineOffline('Y');
                     redirect(admin_except_base_url().'dashboard/');
                 }
@@ -63,7 +63,8 @@ class Login extends MY_Controller {
 
         function logout(){
             $this->_authModel->GetOnlineOffline('N');
-            $activity_insert = $this->_commonQueryModel->insertUserActivityData("Logout","Logout done","LOGOUT");
+            $session = $this->session->userdata('user_sess_data');
+            $activity_insert = $this->_commonQueryModel->insertUserActivityData("Logout","Logout done","LOGOUT",$session['user_activity_id']);
             $this->session->sess_destroy();
             redirect(admin_except_base_url().'login/');
         }
