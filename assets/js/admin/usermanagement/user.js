@@ -20,9 +20,9 @@ function openUserloginLogoutDetailModal(userid) {
         },
         success: function(result) {
             $('#ModalBody').html(result);  
-            // $('#loginLogoutTable').DataTable({
-            //     "order": [[ 0, "desc" ]]
-            // } );
+            $('#loginLogoutTable').DataTable({
+                "order": [[ 0, "desc" ]]
+            } );
             $('#myModal').modal('show');      
         },
         error: function(jqXHR, exception) {

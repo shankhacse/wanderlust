@@ -223,7 +223,7 @@
                             <div class="col-md-4 col-sm-4 col-xs-6">
                                 <div class="form-group">
                                     <select class="selectpicker search-fields form-control-2" name="room">
-                                        <option>Room</option>
+                                        <option value="0">Room</option>
                                         <?php 
                                             foreach ($room_type_list as $value) { ?>
                                                   <option value="<?php echo $value->id; ?>"><?php echo $value->type; ?></option>                                            

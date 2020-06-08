@@ -10,6 +10,7 @@ class Template extends MX_Controller
 		$this->load->model('Web_model','_webtemplates',TRUE);
 		$this->load->model('adminportal/Menu_model','_menuModel',TRUE);
 		$this->load->model('Auth_model', '_authModel',TRUE);
+		$this->load->model('front/Loginmodel', 'loginmodel',TRUE);
 	}
 	public function web_template($data = NULL)
 	{

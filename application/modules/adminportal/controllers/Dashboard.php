@@ -7,6 +7,7 @@ class Dashboard extends MY_Controller {
         parent::__construct();
        $this->load->model('Auth_model', '_authModel',TRUE);
        $this->load->model('Commonmodule_model', '_commonModel',TRUE);
+       $this->load->model('Commondata_model', 'Commondata_model',TRUE);
        $this->load->module('template');
     }
 
@@ -16,6 +17,11 @@ class Dashboard extends MY_Controller {
             // echo "<pre>";
             // print_r($this->session->userdata); 
             // echo "</pre>";
+            // $session = $this->session->userdata('user_sess_data');
+            // $where = array('user_id'=>$session['userid']);
+            // $userdata =  $this->Commondata_model->getSingleRowByWhereCls('users',$where);
+            // $data['username'] = $userdata->firstname.' '.$userdata->lastname;
+            //pre($data['username']);exit;
             $data['view_file'] = 'dashboard/dashboard';
             $this->template->admin_template($data);
         }

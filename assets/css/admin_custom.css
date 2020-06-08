@@ -128,4 +128,14 @@ color: white !important;
 .colorwhite{
     color: white !important;
 }
+.texttransform{
+    text-transform: capitalize !important;
+}
+.bg-aqua{
+    background-color: #00c0ef !important;
+    color: #fff !important;
+}
+.inner{
+
+}
 

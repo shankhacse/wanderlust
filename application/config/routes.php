@@ -56,10 +56,17 @@ $route['404_override'] = "";
 $route['translate_uri_dashes'] = FALSE;
 
 
-$route['home/' ] = 'front/home/index/';
+$route['home' ] = 'front/home';
 $route['home/(:any)' ] = 'front/home/index/$1';
 $route['room'] = 'front/room/index';
 $route['room/checkroom'] = 'front/room/checkroom';
 $route['room/room_booking'] = 'front/room/room_booking';
 $route['room/room_booking_confirm'] = 'front/room/room_booking_confirm';
 $route['room/room_booking_action'] = 'front/room/room_booking_action';
+$route['room/room_booking_action'] = 'front/room/room_booking_action';
+$route['room/success/(:any)'] = 'front/room/success/$1';
+$route['signup'] = 'front/signup';
+$route['login'] = 'front/login';
+$route['login/verifylogin'] = 'front/login/verifylogin';
+$route['logout'] = 'front/login/logout';
+$route['dashboard'] = 'front/dashboard';

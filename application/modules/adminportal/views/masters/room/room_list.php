@@ -23,8 +23,7 @@
                     <th>Floor</th>
                     <th>Room Type</th>
                     <th>Room No</th>
-                    <th>Price</th>
-                   
+                    <th>Price</th>                   
                     <th>Action</th>
                                         
                     </tr>

@@ -12,12 +12,7 @@ class Room extends MY_Controller {
     
     }
 
-    function index() {
-        echo "fsdf";
-     //   $data['view_file'] = 'home';
-	 //	$this->template->web_template($data);
-    }
-
+   
     function checkroom(){
          $check_in_dt = $this->input->get('checkin_dt');
          $checkout_dt = $this->input->get('checkout_dt');
@@ -34,6 +29,8 @@ class Room extends MY_Controller {
          $data['room_type_list'] = $this->_commonQueryModel->getAllDropdownData('room_type');
        // pre($data['audults_no']);exit;
         $data['room_list'] =  $this->_roomModel->getRoomsListBysearch($check_in_dt,$checkout_dt,$room_type);
+        //pre($data['room_list']);exit;
+
         $data['view_file'] = 'room/room_list';
         $this->template->web_template($data);
 
@@ -41,6 +38,9 @@ class Room extends MY_Controller {
     }
 
     function room_booking(){
+
+      if($this->loginmodel->is_logged_in()){
+
         $check_in_dt = $this->input->get('checkin_dt');
          $checkout_dt = $this->input->get('checkout_dt');
          $room_type = $this->input->get('room');
@@ -67,9 +67,18 @@ class Room extends MY_Controller {
         $data['room_list'] =  $this->_roomModel->getRoomsListBysearch($check_in_dt,$checkout_dt,$room_type);
         $data['view_file'] = 'room/room_booking';
         $this->template->web_template($data);
+
+      }else{
+           
+        redirect('login');
     }
+  }
 
     function room_booking_confirm(){
+
+      if($this->loginmodel->is_logged_in()){
+
+        $session = $this->session->userdata('user_session_data');
         $check_in_dt = $this->input->get('checkin_dt');
          $checkout_dt = $this->input->get('checkout_dt');
          $room_type = $this->input->get('room');
@@ -106,6 +115,10 @@ class Room extends MY_Controller {
          $data['RoomGallery'] = $this->_roomModel->getRoomGallery($data['room_id']);
          $data['RoomPrices'] = $this->_roomModel->getRoomPrices($data['room_id']);
          $data['roommaster'] = $this->_roomModel->GetRoomDtl($data['room_id']);
+
+         
+         $data['memberdtl'] = $this->_roomModel->getmemberdtl($session['memberid']);
+      // pre($data['memberdtl']);exit;
         //  $data['roommaster'] = $this->_roomModel->GetRoomDtl($data['room_id']);
         $data['no_of_room'] = 0;
         $data['total_romm_price'] = 0;
@@ -135,8 +148,17 @@ class Room extends MY_Controller {
       // pre($data['roomalloted']);exit;
         $data['view_file'] = 'room/room_booking_confirm';
         $this->template->web_template($data);
+
+      }else{
+           
+        redirect('login');
     }
+ }
     function room_booking_action(){
+
+      if($this->loginmodel->is_logged_in()){
+
+        $session = $this->session->userdata('user_session_data');
 
       $formData = $this->input->post('formDatas');
       parse_str($formData, $dataArry);
@@ -147,6 +169,13 @@ class Room extends MY_Controller {
       $children_no = trim($dataArry['children_no']);
       $room = trim($dataArry['room']);
       $package = trim($dataArry['package']);
+
+      $name = trim($dataArry['name']);
+      $mobile_no = trim($dataArry['mobile_no']);
+      $address = trim($dataArry['address']);
+      $city = trim($dataArry['city']);
+      $zip = trim($dataArry['zip']);
+      $state = trim($dataArry['state']);
 
       $room_id = $dataArry['room_id'];
       $roomIds = implode(',',$room_id);
@@ -176,7 +205,13 @@ class Room extends MY_Controller {
                               'booking_ref_no'=> $booking_ref,
                               'no_of_adults'=> $audults_no,
                               'no_of_child'=>$children_no,
-                              'member_id'=>1
+                              'member_id'=>$session['memberid'],
+                              'name'=>$name,
+                              'mobile_no'=>$mobile_no,
+                              'address'=>$address,
+                              'city'=>$city,
+                              'pincode'=>$zip,
+                              'state'=>$state
       );
 
       $booking_mst_id = $this->Commondata_model->insertSingleTableData('booking_master',$booking_master);
@@ -193,13 +228,15 @@ class Room extends MY_Controller {
       if($booking_dtl){
         $json_response = [
             "STATUS" => 1,
-            "MSG" => 'SAVE_SUCCESS',           
+            "MSG" => 'SAVE_SUCCESS',
+            "memberid"=>$session['memberid']
         ];
     }
     else {
         $json_response = [
             "STATUS" => 0,
             "MSG" => 'Try Again'
+            
         ];
     }
          
@@ -208,7 +245,7 @@ class Room extends MY_Controller {
 
       $json_response = [
          "STATUS" => 0,
-         "MSG" => 'Room Already Booked Try Again'
+         "MSG" => 'Room Already Booked Try For Another Room'
          ];
      }
           
@@ -217,9 +254,34 @@ class Room extends MY_Controller {
      echo json_encode( $json_response );
      exit;
       
-    
+    }else{
+           
+      redirect('login');
+  }
     
     }
+
+    function success(){
+
+      if($this->loginmodel->is_logged_in()){
+
+        $session = $this->session->userdata('user_session_data');
+
+      
+        $where = array('member_id'=>$session['memberid']);
+        $data['bookingdtl'] = $this->Commondata_model->getAllRecordWhere('booking_master',$where);
+
+       // pre($data['bookingdtl']);exit;
+        $data['view_file'] = 'room/room_confirm_success';
+        $this->template->web_template($data);
+             
+      }else{
+           
+        redirect('login');
+    }
+
+  }
+
 }
 
 

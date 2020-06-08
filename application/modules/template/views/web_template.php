@@ -7,21 +7,23 @@
     <meta charset="utf-8">
 
     <!-- External CSS libraries -->
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/css/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/css/bootstrap-submenu.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/css/bootstrap-select.min.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/fonts/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/fonts/flaticon/font/flaticon.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/fonts/linearicons/style.css">
-    <link rel="stylesheet" type="text/css"  href="<?php echo base_url(); ?>/assets/css/jquery.mCustomScrollbar.css">
-    <link rel="stylesheet" type="text/css"  href="<?php echo base_url(); ?>/assets/css/bootstrap-datepicker.min.css">
-
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/bootstrap-submenu.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/fonts/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/fonts/linearicons/style.css">
+    <link rel="stylesheet" type="text/css"  href="<?php echo base_url(); ?>assets/css/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" type="text/css"  href="<?php echo base_url(); ?>assets/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="<?php echo(base_url());?>assets/plugins/sweetalert2/sweetalert2.min.css">
     <!-- Custom stylesheet -->
    
-    <link rel="stylesheet" type="text/css" id="style_sheet" href="<?php echo base_url(); ?>/assets/css/skins/blue-light-2.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/css/style.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/css/web.css">
+    <link rel="stylesheet" type="text/css" id="style_sheet" href="<?php echo base_url(); ?>assets/css/skins/blue-light-2.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/style.css">
+   
+   <!-- DataTables -->
+  <link rel="stylesheet" href="<?php echo(base_url());?>assets/plugins/datatables-bs4/css/dataTables.bootstrap4.css">
 
     <!-- Favicon icon -->
     <!-- <link rel="shortcut icon" href="<?php echo base_url(); ?>/assets/img/favicon.ico" type="image/x-icon" > -->
@@ -30,23 +32,29 @@
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800%7CPlayfair+Display:400,700%7CRoboto:100,300,400,400i,500,700">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/css/ie10-viewport-bug-workaround.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/ie10-viewport-bug-workaround.css">
 
-   
-    <script  src="<?php echo base_url(); ?>/assets/js/ie-emulation-modes-warning.js"></script>
-    <script  src="<?php echo base_url(); ?>/assets/js/jquery-2.2.0.min.js"></script>
-<script  src="<?php echo base_url(); ?>/assets/js/bootstrap.min.js"></script>
-<script  src="<?php echo base_url(); ?>/assets/js/bootstrap-submenu.js"></script>
-<script  src="<?php echo base_url(); ?>/assets/js/jquery.mb.YTPlayer.js"></script>
-<script  src="<?php echo base_url(); ?>/assets/js/wow.min.js"></script>
-<script  src="<?php echo base_url(); ?>/assets/js/bootstrap-select.min.js"></script>
-<script  src="<?php echo base_url(); ?>/assets/js/jquery.easing.1.3.js"></script>
-<script  src="<?php echo base_url(); ?>/assets/js/jquery.scrollUp.js"></script>
-<script  src="<?php echo base_url(); ?>/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
-<script  src="<?php echo base_url(); ?>/assets/js/jquery.filterizr.js"></script>
-<script  src="<?php echo base_url(); ?>/assets/js/bootstrap-datepicker.min.js"></script>
-<script  src="<?php echo base_url(); ?>/assets/js/app.js"></script>
-
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/web.css">
+    
+<script  src="<?php echo base_url(); ?>assets/js/jquery-2.2.0.min.js"></script>
+<script  src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
+<script  src="<?php echo base_url(); ?>assets/js/bootstrap-submenu.js"></script>
+<script  src="<?php echo base_url(); ?>assets/js/jquery.mb.YTPlayer.js"></script>
+<script  src="<?php echo base_url(); ?>assets/js/wow.min.js"></script>
+<script  src="<?php echo base_url(); ?>assets/js/bootstrap-select.min.js"></script>
+<script  src="<?php echo base_url(); ?>assets/js/jquery.easing.1.3.js"></script>
+<script  src="<?php echo base_url(); ?>assets/js/jquery.scrollUp.js"></script>
+<script  src="<?php echo base_url(); ?>assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script  src="<?php echo base_url(); ?>assets/js/jquery.filterizr.js"></script>
+<script  src="<?php echo base_url(); ?>assets/js/bootstrap-datepicker.min.js"></script>
+<script  src="<?php echo base_url(); ?>assets/js/app.js"></script>
+<script  src="<?php echo base_url(); ?>assets/js/ie-emulation-modes-warning.js"></script>
+<script  src="<?php echo base_url(); ?>assets/js/ie10-viewport-bug-workaround.js"></script>
+<!-- DataTables -->
+<script src="<?php echo(base_url());?>assets/plugins/datatables/jquery.dataTables.js"></script>
+<script src="<?php echo(base_url());?>assets/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+<!-- Bootstrap Select -->
+<script src="<?php echo(base_url());?>assets/plugins/sweetalert2/sweetalert2.js"></script>
     
 
 </head>
@@ -118,7 +126,7 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="navbar-collapse collapse" role="navigation" aria-expanded="true" id="app-navigation">
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="javascript:;">Home</a></li>
+                            <li class="active"><a href="<?php echo base_url(); ?>">Home</a></li>
                             <li class="dropdown">
                                 <a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="false">
                                     About<span class="caret"></span>
@@ -149,10 +157,32 @@
                             </li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right hidden-sm hidden-xs">
+                        <?php if($this->session->userdata('user_session_data') == ''){ ?>
                             <li>
-                            <a class="btn-navbar btn btn-sm btn-white-sm-outline btn-round" href="<?php echo base_url(); ?>front/Signup">Register</a>
+                            <a class="btn-navbar btn btn-sm btn-white-sm-outline btn-round" href="<?php echo base_url(); ?>login">Login & Register</a>
                                  
                             </li>
+                        <?php }else{ $session = $this->session->userdata('user_session_data');?>
+                           
+
+                            <li class="dropdown">
+                                <a tabindex="0" data-toggle="dropdown" data-submenu="" aria-expanded="false">
+                                <?php echo $session['name']; ?><span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                <li><a href="<?php echo base_url(); ?>room/success/<?php echo $session['memberid'] ?>">Booking Details</a></li>
+                                    <li><a href="javascript:;">Profile</a></li>
+                                    <li><a href="<?php echo base_url(); ?>logout">Logout</a></li>
+                                   
+                                  
+                                </ul>
+                            </li>
+                           
+                        <?php } ?>
+                            <!-- <li>
+                            <a class="btn-navbar btn btn-sm btn-white-sm-outline btn-round" href="<?php echo base_url(); ?>login">Login</a>
+                                 
+                            </li> -->
                           
                         </ul>
                     </div>

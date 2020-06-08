@@ -26,7 +26,7 @@ class Signup extends MY_Controller {
     $name = trim(htmlspecialchars($dataArry['fullname']));
     $mobile_no = trim(htmlspecialchars($dataArry['mobile_no']));
     $email = trim($dataArry['email']);
-    $password = $dataArry['password'];
+    $password = trim($dataArry['password']);
 
      $membercode = $this->signupmodel->GetNewMemberCode("REGISTER");
 
@@ -51,6 +51,34 @@ class Signup extends MY_Controller {
                 $json_response = [
                     "STATUS" => 0,
                     "MSG" => 'SAVE_ERROR'
+                ];
+            }
+            header('Content-Type: application/json');
+            echo json_encode( $json_response );
+            exit;
+     
+   }
+
+   function checkmobile(){
+
+    $mobile = trim($this->input->post('mobile_no'));
+   
+     $where = array('mobile_no'=>$mobile);
+
+     
+        $getdata = $this->commondatamodel->checkExistanceData('member_master',$where);
+
+        //pre(count($getdata));exit;
+
+            if(!empty($getdata)){
+                $json_response = [
+                    "STATUS" => 1,
+                                    
+                ];
+            }
+            else {
+                $json_response = [
+                    "STATUS" => 0,
                 ];
             }
             header('Content-Type: application/json');

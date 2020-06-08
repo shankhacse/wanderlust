@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 3 | Dashboard</title>
+  <title>Wanderlust</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -123,7 +123,7 @@
       </li> -->
      
       <li class="nav-item dropdown ml-auto useloggedinOpt liposabo">
-                  <a class="nav-link dropdown-toggle colorwhite" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-tie"></i> Admin </a>
+                  <a class="nav-link dropdown-toggle colorwhite texttransform " href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-tie"></i> <?php echo($this->session->userdata('user_sess_data')['username']); ?> </a>
                   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                       <a class="dropdown-item" href="#"><i class="fas fa-user-edit"></i> Profile</a>
                       <a class="dropdown-item" href="<?php echo admin_with_base_url().'login/logout'; ?>"><i class="fas fa-sign-out-alt"></i> Logout</a>
@@ -142,10 +142,10 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href=":;" class="brand-link">
+    <a href="#" class="brand-link">
       <img src="<?php echo base_url(); ?>assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <span class="brand-text font-weight-light">WanderLust</span>
     </a>
 
     <!-- Sidebar -->
@@ -153,10 +153,10 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-1 pb-3 mb-1 d-flex">
         <div class="image">
-          <img src="<?php echo base_url(); ?>assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="<?php echo base_url(); ?>assets/dist/img/avatar5.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Mithilesh Shankha</a>
+          <a href="#" class="d-block texttransform"></i> <?php echo($this->session->userdata('user_sess_data')['username']); ?></a>
         </div>
       </div>
 
@@ -173,15 +173,18 @@
                      
 
                   <li class="nav-item has-treeview">
-                        <a href="#" class="nav-link">
+                        <a href="<?php echo admin_with_base_url().$firstlevel['menudetail']->link; ?>" class="nav-link">
                               <i class="<?php echo $firstlevel['menudetail']->icon; ?>"></i>
                               <p><?php echo $firstlevel['menudetail']->name; ?>
+                              <?php if(sizeof($firstlevel['childmenus'])>0){ ?>
                                 <i class="fas fa-angle-left right"></i>
+                                <?php } ?>
                                 </p>
                         </a>
-                        <ul class="nav nav-treeview">
-                        <?php if(sizeof($firstlevel['childmenus'])>0){ 
-                            foreach($firstlevel['childmenus'] as $secondlevel)
+                       
+                        <?php if(sizeof($firstlevel['childmenus'])>0){ ?>
+                          <ul class="nav nav-treeview">
+                            <?php foreach($firstlevel['childmenus'] as $secondlevel)
                             {  
                       ?>
                        
@@ -192,8 +195,9 @@
                             </a>
                           </li>
                          
-                          <?php  } } ?>
+                          <?php  }  ?>
                           </ul>
+                          <?php  }  ?>
                   </li>
                      
                  

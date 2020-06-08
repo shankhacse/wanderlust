@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <!-- Form content box start -->
-                <div class="form-content-box">
+                <div class="form-content-box margintop30">
                     <!-- logo -->
                     <!-- <a href="index.html" class="clearfix alpha-logo">
                         <img src="img/logos/white-logo.png" alt="white-logo">
@@ -28,7 +28,7 @@
                             <div class="form-group">
                                 <input type="password" name="password" id="password" class="input-text" placeholder="Password">
                             </div>
-                            <div class="form-group" style="margin-bottom: 0px;">
+                            <div class="form-group marginbottom23">
                                 <input type="password" name="confirm_Password" id="confirm_Password" class="input-text" placeholder="Confirm Password">
                             </div>
                             <p class="errmsg" id="signerr"></p>
@@ -41,7 +41,7 @@
                     <!-- Footer -->
                     <div class="footer">
                         <span>
-                            Already a member? <a href="javascript:;">Login here</a>
+                            Already a member? <a href="<?php echo base_url(); ?>login">Login here</a>
                         </span>
                     </div>
                 </div>

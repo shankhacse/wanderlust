@@ -29,14 +29,14 @@
                             <div class="carousel-outer">
                                 <!-- Wrapper for slides -->
                                 <div class="carousel-inner">
-                                <?php $i=1; foreach($RoomGallery as $roomgallery){ if($i == 1){  ?>
+                                <?php $i=1; foreach($RoomGallery as $roomgallery1){ if($i == 1){  ?>
                                     <div class="item active">
-                                        <img src="<?php echo base_url(); ?>assets/img/room/<?php echo $roomgallery->large_image; ?>" class="thumb-preview" alt="Chevrolet Impala">
+                                        <img src="<?php echo base_url(); ?>assets/img/room/<?php echo $roomgallery1->large_image; ?>" class="thumb-preview" alt="Chevrolet Impala">
                                     </div>
 
                                 <?php }else{  ?>
                                     <div class="item">
-                                        <img src="<?php echo base_url(); ?>assets/img/room/<?php echo $roomgallery->large_image; ?>" class="thumb-preview" alt="Chevrolet Impala">
+                                        <img src="<?php echo base_url(); ?>assets/img/room/<?php echo $roomgallery1->large_image; ?>" class="thumb-preview" alt="Chevrolet Impala">
                                     </div>
 
                                <?php } $i++; } ?>
@@ -104,19 +104,27 @@
                                  <?php }else{ ?>
 
                                     <div class="col-md-12 rrTopLeft  truncate">
-                                        <p class="latoBlack font16 blackText appendBottom5 truncate linehg21"><?php echo $roomalloted[0]['type']; ?></p>
+                                        <p class="latoBlack font16 blackText appendBottom5 truncate linehg21 appendBottom2"><?php echo $roomalloted[0]['type']; ?></p>
                                         <p class="font11"><?php echo $roomalloted[0]['package_name'].' for '.$audults_no.' Adults '; ?><?php if($children_no > 0){  echo '+ '.$children_no.' Child'; } ?></p>
                                         <ul class="srList font12 linehg21">
-                                       <li><span class="sprite noRefundIcon appendRight5"></span><span class="redText">Non Refundable</span>
+                                        <li class="margintop8 appendBottom5"><span class="greenText">Check In</span>
                                     </li>
-                                       <li><span class="sprite roomSelectIcon appendRight5"></span><span class="greenText">Room Only</span>
+                                    <li ><span class="greenText">Check Out</span>
                                     </li>
+                                       <li><span class="sprite noRefundIcon appendRight5 margintop5"></span><span class="redText">Non Refundable</span>
+                                    </li>
+                                       <li><span class="sprite roomSelectIcon appendRight5 margintop5"></span><span class="greenText">Room Only</span>
+                                    </li>
+                                   
                                     </ul>
                                  </div>
                          
                                  <div class="rrTopRight">
                                      <p class="font14 blackText latoBlack appendBottom2 appendTop5"><span class="font12 latoRegular">INR</span> <?php echo number_format($roomalloted[0]['rate']) ?></p><br>
-                                     <p class="font11 redText lineHight14 linehg35">Deal Applied <br>  </p>
+                                    
+                                     <p class="font11 latoBlack lineHight14 linehg35 margintopm5"><?php echo $check_in_dt; ?> <br>  </p>
+                                     <p class="font11 latoBlack lineHight14 linehg35 margintopm7"><?php echo $checkout_dt; ?> <br>  </p>
+                                     <p class="font11 redText lineHight14 linehg35 margintop21">Deal Applied <br>  </p>
                                  </div>
 
                                  <?php } ?>
@@ -124,13 +132,25 @@
                             <?php if($no_of_room > 1){ ?>
                             <div class="rt">
                                 <div class="rtLeft">
-                                   <p class="latoBold font14 blackText appendBottom4 stripHeading linehg17">Room 1:
+                                <ul class="srList font12 linehg21">
+                                        <li class="appendBottom5"><span class="greenText">Check In</span>
+                                    </li>
+                                    <li ><span class="greenText">Check Out</span>
+                                    </li>
+                            </ul>
+                                   <p class="latoBold font14 blackText appendBottom4 stripHeading linehg17 margintop8">Room 1:
                                    <span title="Classic Room"><?php echo $roomalloted[0]['type']; ?></span></p>
-                                   <p class="font11"><?php echo $roomalloted[0]['package_name'].' for '.$audults_no.' Adults '; ?><?php if($children_no > 0){  echo '+ '.$children_no.' Child'; } ?></p>
+                                   <p class="font11"><?php echo $roomalloted[0]['package_name'].' for '.$roomalloted[0]['max_adult'].' Adults '; ?><?php if($children_no > 0){  echo '+ '.$roomalloted[0]['max_child'].' Child'; } ?></p>
                                   
                                 </div>
                                 <div class="rtRight">
-                                <p class="latoBlack font14 blackText"><span class="font12 latoRegular">INR </span><?php echo number_format($roomalloted[0]['rate']) ?></p>
+                                <ul class="srList font12 linehg21">
+                                        <li class="appendBottom5"><span class="blackText"><?php echo $check_in_dt; ?></span>
+                                    </li>
+                                    <li ><span class="blackText"><?php echo $checkout_dt; ?></span>
+                                    </li>
+                            </ul>
+                                <p class="latoBlack font14 blackText margintop8"><span class="font12 latoRegular">INR </span><?php echo number_format($roomalloted[0]['rate']) ?></p>
                                </div>
                             </div>
                             <?php } ?>
@@ -167,9 +187,158 @@
              <!-- middle sidebar end -->
         </div>
 
+<!-- start personal Info -->
+<form name="bookingConfimdtlForm" id="bookingConfimdtlForm" >
+<div class="tab-pane margintop21" role="tabpanel" id="personal-info">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-xs-12  paddingright1">
+                                    <div class="contact-form sidebar-widget ">
+                                        <h3 class="booking-heading-2 black-color">Personal Info</h3>
+                                        <div class="row mb-30">
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                <div class="form-group name">
+                                                    <label>Name</label>
+                                                    <input type="text" name="name" id="name" class="input-text" >
+                                                   
+                                                </div>
+                                               
+                                            </div>
+                                            
+                                            <!-- <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                <div class="form-group lastname">
+                                                    <label>Last Name</label>
+                                                    <input type="text" name="last-name" class="input-text">
+                                                </div>
+                                            </div> -->
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                <div class="form-group mobile_no">
+                                                    <label>Mobile No.</label>
+                                                    <input type="text" name="mobile_no" id="mobile_no" maxlength="10" class="input-text onlynumber">
+                                                </div>
+                                            </div>
+                                            </div>
+                                            <div class="row">
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                <div class="form-group address">
+                                                    <label>Address</label>
+                                                    <input type="text" name="address" id="address" class="input-text">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                <div class="form-group city">
+                                                    <label>City</label>
+                                                    <input type="text" name="city" id="city" class="input-text">
+                                                </div>
+                                            </div>
+                                            </div>
+                                            <div class="row">
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                <div class="form-group zip">
+                                                    <label>Zip/Post Code</label>
+                                                    <input type="text" name="zip" id="zip" class="input-text onlynumber">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                <div class="form-group state">
+                                                    <label>State/Region</label>
+                                                    <input type="text" name="state" id="state" class="input-text texttransformC" >
+                                                </div>
+                                            </div>
+                                            </div>
+                                           
+                                        </div>
+
+                                     
+                                        
+                                        <!-- <div class="checkbox">
+                                            <div class="ez-checkbox pull-left">
+                                                <label>
+                                                    <input type="checkbox" name="" class="ez-hide">
+                                                    By Sign up you are agree with our <a href="#">terms and condition</a>
+                                                </label>
+                                            </div>
+                                        </div> -->
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-lg-4 col-md-4 col-xs-12 col-md-pull-8">
+                                    <div class="booling-details-box">
+                                        <h3 class="booking-heading-2">Booking Details</h3>
+
+                                       
+                                        <div class="rooms-detail-slider simple-slider ">
+                                            <div id="carousel-custom" class="carousel slide" data-ride="carousel">
+                                                <div class="carousel-outer">
+                                                  
+                                                    <div class="carousel-inner">
+                                                    <?php $i=1; foreach($RoomGallery as $roomgallery2){ if($i == 1){  ?>
+                                    <div class="item active">
+                                        <img src="<?php echo base_url(); ?>assets/img/room/<?php echo $roomgallery2->large_image; ?>" class="thumb-preview" alt="Chevrolet Impala">
+                                    </div>
+
+                                <?php }else{  ?>
+                                    <div class="item">
+                                        <img src="<?php echo base_url(); ?>assets/img/room/<?php echo $roomgallery2->large_image; ?>" class="thumb-preview" alt="Chevrolet Impala">
+                                    </div>
+
+                               <?php } $i++; } ?>
+                                                    </div>
+                                                   
+                                                    <a class="left carousel-control" href="#carousel-custom" role="button" data-slide="prev">
+                                                         <span class="slider-mover-left no-bg" aria-hidden="true">
+                                                              <i class="fa fa-angle-left"></i>
+                                                         </span>
+                                                        <span class="sr-only">Previous</span>
+                                                    </a>
+                                                    <a class="right carousel-control" href="#carousel-custom" role="button" data-slide="next">
+                                                         <span class="slider-mover-right no-bg" aria-hidden="true">
+                                                              <i class="fa fa-angle-right"></i>
+                                                         </span>
+                                                        <span class="sr-only">Next</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+
+                                        <h4>Luxury Room</h4>
+
+                                        <ul>
+                                            <li>
+                                                <span>Check In:</span> october 27, 2017
+                                            </li>
+                                            <li>
+                                                <span>Check Out:</span> october 29, 2017
+                                            </li>
+                                            <li>
+                                                <span>Rooms:</span> 3
+                                            </li>
+                                            <li>
+                                                <span>Adults:</span> 2
+                                            </li>
+                                            <li>
+                                                <span>Child:</span> 1
+                                            </li>
+                                        </ul>
+
+                                        <div class="price">
+                                            Total:$317.99
+                                        </div>
+                                    </div>
+                                </div> -->
+                            </div>
+                            <div class="clearfix"></div>
+
+                           
+                        </div>
+                        
+<!-- end personal Info -->
+
+
 <!-- start section for room dtl -->
           <div class="row appendTop5">
-          <form name="bookingConfimdtlForm" id="bookingConfimdtlForm">
+        
                         <section id="RoomType" class="page-section bottom35">
                             <div class="_RoomType">
                             <input type="hidden" name="checkin_dt" id="checkin_dt"   value="<?php echo $check_in_dt; ?>">
@@ -207,9 +376,11 @@
                                         </div>
                                         <div class="makeFlex column width22">
                                         <p class="font16 blackText">Mattress <span class="latoBold appendBottom5 textp">(each : INR <?php echo number_format($roomalloted1['each_mattress_price']);  ?>)</span></p>
+                                        <input type="hidden" id="each_mattress_price_<?php echo $rowno; ?>" name="each_mattress_price[]" value="<?php echo $roomalloted1['each_mattress_price'];  ?>">
                                             <!-- <span class="appendBottom5 roomTag whiteText"> Mattress</span> -->
+                                            <!-- <input type="hidden" name="rowno" id="rowno" value="<?php echo $rowno; ?>"> -->
                                             <div class="form-group margintop10">
-                                                <select class="selectpicker search-fields form-control-2" id="mattress" name="mattress[]">
+                                                <select class="selectpicker search-fields form-control-2 showprice" id="mattress_<?php echo $rowno; ?>" name="mattress[]" data-no="<?php echo $rowno; ?>" onChange="calculate();">
                                                     <option value="0">Select</option>                                                  
                                                     <?php for($i = 1;$i <= $roomalloted1['no_of_mattress'];$i++){ ?>
                                                     <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
@@ -238,9 +409,13 @@
                                          <div class="basicCost">
                                              <p class="latoBold appendBottom5 textp">Basic room cost </p>
                                              <p class="font11">( INR <?php echo number_format($roomalloted2['rate']) ?>)</p>
+                                             <p class="latoBold appendBottom5 textp margintop8 displaynone shwhid<?php echo $rowno; ?>" id="mattrestext_<?php echo $rowno; ?>"> </p>
+                                             <p class="font11 displaynone shwhid<?php echo $rowno; ?>" id="mattresssmalltext_<?php echo $rowno; ?>"></p>
                                             </div>
+                                            
                                             <div class="makeflex roomPrice">
                                                 <p class="blackText font15">INR <?php echo number_format($roomalloted2['rate']) ?></p>
+                                                <p class="blackText font15 margintop24 displaynone shwhid<?php echo $rowno; ?>" id="mattresprice_<?php echo $rowno; ?>"></p>
                                             </div>
                                        </div>
                                     <?php $rowno++; } ?>
@@ -267,6 +442,7 @@
 
                                  <div class="makeFlex spaceBetween paddingLR20 font18 blackText latoBold">
                                      <span>Price </span>
+                                     <input type="hidden" name="total_price" id="total_price" value="<?php echo $total_romm_price; ?>">
                                      <span id="detpg_combo_price">INR <?php echo number_format($total_romm_price); ?></span>
                                 </div>
                                 <p class="font11 grayText textRight appendTop5 paddingLR20 appndmarbottom">(<?php echo $roomalloted[0]['package_name'].' for '.$audults_no.' Adults + '.$children_no.' Child'; ?>)</p>

@@ -2,14 +2,15 @@ $(document).ready(function(){
 
     var basepath = $("#basepath").val();
     var sitebasepath = $("#sitebasepath").val();
-  
+	
+	
     $(document).on('submit','#signForm',function(e){
 		e.preventDefault();
 		
 		if(validatefrom()){
             var formDataserialize = $("#signForm" ).serialize();
 			formDataserialize = decodeURI(formDataserialize);
-			console.log(formDataserialize);
+			//console.log(formDataserialize);
             var formData = {formDatas: formDataserialize};
 			var type = "POST"; 
 			var urlpath = basepath+'signup/signup_action';
@@ -23,9 +24,27 @@ $(document).ready(function(){
 				success: function (result) {
 				//$("#savebtn").removeClass('nonclick');	
 				
+				Swal.fire({
+					title: '<strong>Account Created Successfully </strong>',
+					icon: 'info',
+					width: 500,
+					padding: '5em',
+					html:		 
+					  '<a style="color:blue;" href=' + sitebasepath +"login" +'><u>Go For Login</u></a>' 
+					 ,
+					showCloseButton: false,
+					showCancelButton: false,
+					
+					focusConfirm: false
+					
+				  }).then((result) => {
+					if (result.value) {
+						window.location.href=sitebasepath+'home';
+					}
+				  })
 
-					window.location.href=sitebasepath+'home/'+result.id;
-				
+					// window.location.href=sitebasepath+'login';
+				    // $(".loginerr").text("sffs");
 				
 				
 				}, 
@@ -41,7 +60,39 @@ $(document).ready(function(){
     });
     $('.onlynumber').bind('keyup paste', function() {
         this.value = this.value.replace(/[^0-9]/g, '');
-    });
+	});
+	
+	$(document).on("keyup","#mobile_no",function(){
+
+		var mobile_no = $("#mobile_no").val();
+		$("#signerr").text("");		
+		 if(mobile_no.length == 10){
+
+			var type = "POST"; 
+			var urlpath = basepath+'signup/checkmobile';
+
+			$.ajax({
+				type: type,
+	            url: urlpath,
+	            data: {mobile_no:mobile_no},
+	            dataType: 'json',
+	            contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
+				success: function (result) {
+				
+					if(result.STATUS == 1){
+						$("#signerr").text("Mobile no. already register.Please go for login.");
+						$("#signupbtn").prop("disabled",true);
+					}
+				}, 
+				error: function (jqXHR, exception) {
+					var msg = '';
+					}
+				}); /*end ajax call*/
+			
+		 }
+	
+
+	})
 
 });
 
@@ -76,7 +127,11 @@ function validatefrom(){
 		$("#email").focus();
 		return false;
 	}else if(password == ''){
-		$("#signerr").text("Please enter your password");
+		$("#signerr").text("Enter your password");
+		$("#password").focus();
+		return false;
+	}else if(password.length < 6){
+		$("#signerr").text("Enter minimum 6 digit password");
 		$("#password").focus();
 		return false;
 	}else if(confirm_Password == ''){

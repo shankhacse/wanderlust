@@ -13,8 +13,21 @@ class Room_model extends CI_Model  {
 		$data = [];
 		$check_indt = date("Y-m-d",strtotime($check_indt));
 		$checkout_dt = date("Y-m-d",strtotime($checkout_dt));
+        
+		if($room_type != 0){
 
         $sql = "SELECT * FROM `room_master` 
+		INNER JOIN room_type ON room_type.id = room_master.room_type_id
+		INNER JOIN floor_master ON floor_master.floor_id = room_master.floor_id
+		WHERE `room_master`.`room_type_id` = '$room_type' AND `room_master`.`room_id` NOT IN 
+        (
+            SELECT booking_details.`room_id` FROM booking_master 
+            INNER JOIN booking_details ON booking_details.`booking_id` = booking_master.`id`
+            WHERE booking_master.`check_in_dt` >= '".$check_indt."' AND booking_master.`check_out_dt` <= '".$checkout_dt."'
+            
+        )";
+       }else{
+		$sql = "SELECT * FROM `room_master` 
 		INNER JOIN room_type ON room_type.id = room_master.room_type_id
 		INNER JOIN floor_master ON floor_master.floor_id = room_master.floor_id
 		WHERE `room_master`.`room_id` NOT IN 
@@ -24,10 +37,10 @@ class Room_model extends CI_Model  {
             WHERE booking_master.`check_in_dt` >= '".$check_indt."' AND booking_master.`check_out_dt` <= '".$checkout_dt."'
             
         )";
-
+	   }
        
         $query = $this->db->query($sql);
-       // echo $this->db->last_query();
+        #echo $this->db->last_query();exit;
 
         if($query->num_rows() > 0) 
 		{
@@ -318,6 +331,31 @@ class Room_model extends CI_Model  {
         
         return $autoSaleNo;
         
-    }
+	}
+	
+	public function getmemberdtl($memberid)
+	{
+		$data = array();
+		$where = array('id'=>$memberid);
+		$this->db->select("name,mobile_no,address,city,state,pincode")
+				->from('member_master')
+				->where($where)
+				->limit(1);
+		$query = $this->db->get();
+		
+		// echo $this->db->last_query();
+		// echo "<br>";
+		
+		if($query->num_rows()> 0)
+		{
+           $row = $query->row();
+           return $data = $row;
+             
+        }
+		else
+		{
+            return $data;
+        }
+	}
 
 }
