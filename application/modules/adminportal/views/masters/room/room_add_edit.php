@@ -15,7 +15,11 @@
 </style>
 <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Room - ADD</h3>
+                <h3 class="card-title">Room Master</h3>
+                <div class="btn-group btn-group-sm float-right" role="group" aria-label="MoreActionButtons" >
+                  <a href="<?php echo base_url(); ?>adminportal/masters/room" class="btn  btnpos colorwhite">
+                   <i class="fas fa-clipboard-list"></i> List </a>
+            </div>
               </div>
               <!-- /.card-header -->
               <form role="form" method="post" id="RoomForm" name="RoomForm"  enctype="multipart/form-data" data-parsley-validate="">

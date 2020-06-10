@@ -77,6 +77,7 @@ $(function () {
         ignoreReadonly: true,
         allowInputToggle: true,
         disableTouchKeyboard: true,
+        format: 'dd/mm/yyyy',
         Readonly: true,
         autoclose: true
     });

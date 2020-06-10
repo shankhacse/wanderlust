@@ -40,7 +40,7 @@
                     <th>Checkin Date</th>
                     <th>Checkout Date</th>                   
                     <!-- <th>Total Price</th>                    -->
-                    <th>Action</th>
+                    <th>Download</th>
                                         
                     </tr>
                 </thead>
@@ -56,7 +56,7 @@
                            <td><?php echo $bookingdtl->mobile_no; ?></td>
                            <td><?php if($bookingdtl->check_in_dt != ''){ echo date('d/m/Y',strtotime($bookingdtl->check_in_dt)); } ?></td>
                            <td><?php if($bookingdtl->check_out_dt != ''){ echo date('d/m/Y',strtotime($bookingdtl->check_out_dt)); } ?></td>
-                           <td></td>
+                           <td><a href="#"> <i class="nav-icon fas fa-file" style="width: 23px;height: 23px;"></i></a> </td>
                        </tr>
 
                 <?php } } else{ ?>

@@ -89,15 +89,15 @@ class Room extends MY_Controller {
        // pre($package);exit;
          //$mattress = $this->input->get('mattress');
         
-         if($check_in_dt != ''){           
-            $checkin_dt = date('Y-m-d',strtotime($check_in_dt));           
+         if($check_in_dt != ''){
+            $checkin_dt = date('Y-m-d',strtotime(str_replace('/', '-', $check_in_dt)));           
           }else{
            $checkin_dt=NULL;
           }
 
           if($checkout_dt != ''){
            
-            $checkout_date = date('Y-m-d',strtotime($checkout_dt));
+            $checkout_date = date('Y-m-d',strtotime(str_replace('/', '-', $checkout_dt)));
           }else{
            $checkout_date=NULL;
           }
@@ -182,14 +182,14 @@ class Room extends MY_Controller {
       $mattress = $dataArry['mattress'];
 
       if($check_in_dt != ''){           
-        $checkin_dt = date('Y-m-d',strtotime($check_in_dt));           
+        $checkin_dt = date('Y-m-d',strtotime(str_replace('/', '-', $check_in_dt)));           
       }else{
        $checkin_dt=NULL;
       }
 
       if($checkout_dt != ''){
        
-        $checkout_date = date('Y-m-d',strtotime($checkout_dt));
+        $checkout_date = date('Y-m-d',strtotime(str_replace('/', '-', $checkout_dt)));
       }else{
        $checkout_date=NULL;
       }
@@ -203,6 +203,7 @@ class Room extends MY_Controller {
                               'check_in_dt'=>$checkin_dt,
                               'check_out_dt'=>$checkout_date,
                               'booking_ref_no'=> $booking_ref,
+                              'package_type_id'=>$package,
                               'no_of_adults'=> $audults_no,
                               'no_of_child'=>$children_no,
                               'member_id'=>$session['memberid'],

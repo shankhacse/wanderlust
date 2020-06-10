@@ -4,10 +4,10 @@
 
         <div class="card card-primary">
             <div class="card-header box-shdw">
-              <h3 class="card-title">Room List</h3>
+              <h3 class="card-title">Room Master</h3>
 
             <div class="btn-group btn-group-sm float-right" role="group" aria-label="MoreActionButtons" >
-                  <a href="<?php echo base_url(); ?>adminportal/masters/addRoom" class="btn btn-default btnpos">
+                  <a href="<?php echo base_url(); ?>adminportal/masters/addRoom" class="btn  btnpos">
                    <i class="fas fa-plus"></i> Add </a>
             </div>
              

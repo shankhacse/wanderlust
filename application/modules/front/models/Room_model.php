@@ -11,12 +11,13 @@ class Room_model extends CI_Model  {
     public function getRoomsListBysearch($check_indt,$checkout_dt,$room_type){
   
 		$data = [];
-		$check_indt = date("Y-m-d",strtotime($check_indt));
-		$checkout_dt = date("Y-m-d",strtotime($checkout_dt));
+		
+		$check_indt = date("Y-m-d",strtotime(str_replace('/', '-', $check_indt)));
+		$checkout_dt = date("Y-m-d",strtotime(str_replace('/', '-', $checkout_dt)));
         
 		if($room_type != 0){
 
-        $sql = "SELECT * FROM `room_master` 
+       $sql = "SELECT * FROM `room_master` 
 		INNER JOIN room_type ON room_type.id = room_master.room_type_id
 		INNER JOIN floor_master ON floor_master.floor_id = room_master.floor_id
 		WHERE `room_master`.`room_type_id` = '$room_type' AND `room_master`.`room_id` NOT IN 

@@ -135,7 +135,12 @@ color: white !important;
     background-color: #00c0ef !important;
     color: #fff !important;
 }
-.inner{
+.fontsize13{
+    font-size: 13px;
+
+}
+.fontsize18{
+    font-size: 18px;
 
 }
 

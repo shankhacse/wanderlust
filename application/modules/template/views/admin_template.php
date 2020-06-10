@@ -97,10 +97,20 @@
 <!-- DataTables -->
 <script src="<?php echo(base_url());?>assets/plugins/datatables/jquery.dataTables.js"></script>
 <script src="<?php echo(base_url());?>assets/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/datatables/dataTables.buttons.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/datatables/buttons.flash.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/datatables/jszip.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/datatables/pdfmake.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/datatables/vfs_fonts.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/datatables/buttons.html5.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/datatables/buttons.print.min.js"></script>
+
 <!-- SlimScroll -->
 
 <script src="<?php echo base_url(); ?>assets/js/parsley.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/js/master.js"></script>
+
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
